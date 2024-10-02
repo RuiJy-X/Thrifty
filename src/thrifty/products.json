@@ -1,0 +1,82 @@
+{
+  "eraser": [
+    {
+      "id": 10001,
+      "quantity": 15,
+      "price": 10,
+      "name": "eraser",
+      "store": "MARJ Store"
+    },
+    {
+      "id": 10002,
+      "quantity": 15,
+      "price": 10,
+      "name": "eraser",
+      "store": "RJ Store"
+    }
+  ],
+  "ballpen": [
+    {
+      "id": 20001,
+      "quantity": 20,
+      "price": 5,
+      "name": "ballpen",
+      "store": "MARJ Store"
+    },
+    {
+      "id": 20002,
+      "quantity": 25,
+      "price": 6,
+      "name": "ballpen",
+      "store": "RJ Store"
+    }
+  ],
+  "notebook": [
+    {
+      "id": 30001,
+      "quantity": 50,
+      "price": 25,
+      "name": "notebook",
+      "store": "MARJ Store"
+    },
+    {
+      "id": 30002,
+      "quantity": 40,
+      "price": 28,
+      "name": "notebook",
+      "store": "RJ Store"
+    }
+  ],
+  "pencil": [
+    {
+      "id": 40001,
+      "quantity": 30,
+      "price": 3,
+      "name": "pencil",
+      "store": "MARJ Store"
+    },
+    {
+      "id": 40002,
+      "quantity": 35,
+      "price": 4,
+      "name": "pencil",
+      "store": "RJ Store"
+    }
+  ],
+  "marker": [
+    {
+      "id": 50001,
+      "quantity": 10,
+      "price": 15,
+      "name": "marker",
+      "store": "MARJ Store"
+    },
+    {
+      "id": 50002,
+      "quantity": 8,
+      "price": 18,
+      "name": "marker",
+      "store": "RJ Store"
+    }
+  ]
+}

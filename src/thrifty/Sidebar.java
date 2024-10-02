@@ -178,7 +178,7 @@ public class Sidebar extends javax.swing.JPanel {
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         // TODO add your handling code here:
-        so.productsTab();
+        so.profileTab();
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked

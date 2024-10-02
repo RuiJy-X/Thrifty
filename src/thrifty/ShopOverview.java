@@ -48,7 +48,6 @@ public class ShopOverview extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        navBar1 = new thrifty.NavBar();
         sidebar1 = new thrifty.Sidebar();
         jPanel1 = new javax.swing.JPanel();
         tabs = new javax.swing.JTabbedPane();
@@ -61,25 +60,25 @@ public class ShopOverview extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(1280, 800));
-        setPreferredSize(new java.awt.Dimension(1280, 800));
+        setPreferredSize(new java.awt.Dimension(1280, 688));
         setLayout(new java.awt.BorderLayout());
-        add(navBar1, java.awt.BorderLayout.NORTH);
         add(sidebar1, java.awt.BorderLayout.WEST);
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabs.setBackground(new java.awt.Color(255, 255, 255));
         tabs.setTabPlacement(javax.swing.JTabbedPane.RIGHT);
-
-        panelOverview1.setPreferredSize(new java.awt.Dimension(1280, 800));
-        tabs.addTab("tab3", panelOverview1);
+        tabs.addTab("tab6", panelOverview1);
         tabs.addTab("tab4", panelMyProducts1);
         tabs.addTab("tab2", purchases1);
         tabs.addTab("tab5", sPInfo1);
         tabs.addTab("tab2", fieldsAddProduct1);
         tabs.addTab("tab6", fieldsRegisterShop1);
 
-        jPanel1.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1, 1160, 670));
+        tabs.setSelectedIndex(0);
+
+        jPanel1.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1, 1160, -1));
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -89,7 +88,6 @@ public class ShopOverview extends javax.swing.JPanel {
     private thrifty.shopUIs.FieldsAddProduct fieldsAddProduct1;
     private thrifty.shopUIs.FieldsRegisterShop fieldsRegisterShop1;
     private javax.swing.JPanel jPanel1;
-    private thrifty.NavBar navBar1;
     private thrifty.shopUIs.PanelMyProducts panelMyProducts1;
     private thrifty.shopUIs.PanelOverview panelOverview1;
     private thrifty.shopUIs.Purchases purchases1;

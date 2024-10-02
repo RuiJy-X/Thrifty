@@ -48,11 +48,20 @@ public class PanelOverview extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
+        sellLogItems1 = new thrifty.shopUIs.SellLogItems();
+        sellLogItems2 = new thrifty.shopUIs.SellLogItems();
+        sellLogItems4 = new thrifty.shopUIs.SellLogItems();
+        sellLogItems5 = new thrifty.shopUIs.SellLogItems();
+        sellLogItems6 = new thrifty.shopUIs.SellLogItems();
+        sellLogItems7 = new thrifty.shopUIs.SellLogItems();
+        sellLogItems8 = new thrifty.shopUIs.SellLogItems();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         jLabel1.setText("Overview");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 26, -1, -1));
 
         jLayeredPane3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -73,6 +82,8 @@ public class PanelOverview extends javax.swing.JPanel {
         jLayeredPane3.setLayer(jLabel7, javax.swing.JLayeredPane.PALETTE_LAYER);
         jLayeredPane3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 170, -1));
 
+        add(jLayeredPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(727, 81, 294, -1));
+
         jLayeredPane2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/rectoverview.png"))); // NOI18N
@@ -92,11 +103,13 @@ public class PanelOverview extends javax.swing.JPanel {
         jLayeredPane2.setLayer(jLabel5, javax.swing.JLayeredPane.PALETTE_LAYER);
         jLayeredPane2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 170, -1));
 
+        add(jLayeredPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(359, 81, 300, -1));
+
         jLayeredPane1.setPreferredSize(new java.awt.Dimension(280, 112));
         jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/rectoverview.png"))); // NOI18N
-        jLayeredPane1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 280, 110));
+        jLayeredPane1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 110));
 
         jLabel2.setBackground(new java.awt.Color(204, 0, 0));
         jLabel2.setFont(new java.awt.Font("Outfit", 1, 30)); // NOI18N
@@ -112,106 +125,55 @@ public class PanelOverview extends javax.swing.JPanel {
         jLayeredPane1.setLayer(jLabel3, javax.swing.JLayeredPane.PALETTE_LAYER);
         jLayeredPane1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 170, -1));
 
+        add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 81, -1, -1));
+
         jLabel8.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         jLabel8.setText("Sell Log");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 199, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel12.setText("Customer Name");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 254, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel13.setText("Product Name");
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 254, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel14.setText("Unit Price");
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 254, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel15.setText("Quantity");
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(659, 254, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel16.setText("Date Purchased");
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(889, 254, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel17.setText("Total");
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(791, 254, -1, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(1093, 33));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1093, 648));
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        jPanel1.add(sellLogItems1);
+        jPanel1.add(sellLogItems2);
+        jPanel1.add(sellLogItems4);
+        jPanel1.add(sellLogItems5);
+        jPanel1.add(sellLogItems6);
+        jPanel1.add(sellLogItems7);
+        jPanel1.add(sellLogItems8);
+
         jScrollPane1.setViewportView(jPanel1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel8))
-                                .addGap(134, 134, 134)
-                                .addComponent(jLabel12)
-                                .addGap(152, 152, 152)
-                                .addComponent(jLabel14)
-                                .addGap(84, 84, 84)
-                                .addComponent(jLabel15)
-                                .addGap(73, 73, 73)
-                                .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel16)))))
-                .addGap(52, 52, 52))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1041, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(415, Short.MAX_VALUE)
-                    .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(416, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(778, Short.MAX_VALUE)
-                    .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(53, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addGap(32, 32, 32)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(100, Short.MAX_VALUE)
-                    .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(470, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(102, Short.MAX_VALUE)
-                    .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(468, Short.MAX_VALUE)))
-        );
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 285, 1030, 370));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -238,5 +200,12 @@ public class PanelOverview extends javax.swing.JPanel {
     private javax.swing.JLayeredPane jLayeredPane3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private thrifty.shopUIs.SellLogItems sellLogItems1;
+    private thrifty.shopUIs.SellLogItems sellLogItems2;
+    private thrifty.shopUIs.SellLogItems sellLogItems4;
+    private thrifty.shopUIs.SellLogItems sellLogItems5;
+    private thrifty.shopUIs.SellLogItems sellLogItems6;
+    private thrifty.shopUIs.SellLogItems sellLogItems7;
+    private thrifty.shopUIs.SellLogItems sellLogItems8;
     // End of variables declaration//GEN-END:variables
 }

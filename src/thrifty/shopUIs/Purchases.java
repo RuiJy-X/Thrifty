@@ -35,6 +35,7 @@ public class Purchases extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
         scrollPanel = new javax.swing.JPanel();
+        purchasesItem1 = new thrifty.shopUIs.PurchasesItem();
         jLabel9 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -64,6 +65,9 @@ public class Purchases extends javax.swing.JPanel {
         scroll.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         scrollPanel.setBackground(new java.awt.Color(255, 255, 255));
+        scrollPanel.setPreferredSize(new java.awt.Dimension(1038, 10));
+        scrollPanel.add(purchasesItem1);
+
         scroll.setViewportView(scrollPanel);
 
         jLabel9.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
@@ -76,12 +80,6 @@ public class Purchases extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(26, 887, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 1039, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(17, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(68, 68, 68)
@@ -96,7 +94,12 @@ public class Purchases extends javax.swing.JPanel {
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel8)
-                        .addGap(56, 56, 56))))
+                        .addGap(56, 56, 56))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 1038, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(18, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,6 +131,7 @@ public class Purchases extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private thrifty.shopUIs.PurchasesItem purchasesItem1;
     private javax.swing.JScrollPane scroll;
     private javax.swing.JPanel scrollPanel;
     // End of variables declaration//GEN-END:variables

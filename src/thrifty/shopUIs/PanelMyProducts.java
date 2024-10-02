@@ -38,6 +38,9 @@ public class PanelMyProducts extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
         scrollPanel = new javax.swing.JPanel();
+        myProductItems1 = new thrifty.shopUIs.MyProductItems();
+        myProductItems2 = new thrifty.shopUIs.MyProductItems();
+        myProductItems3 = new thrifty.shopUIs.MyProductItems();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -85,6 +88,12 @@ public class PanelMyProducts extends javax.swing.JPanel {
         scroll.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         scrollPanel.setBackground(new java.awt.Color(255, 255, 255));
+        scrollPanel.setMinimumSize(new java.awt.Dimension(1030, 82));
+        scrollPanel.setPreferredSize(new java.awt.Dimension(1030, 93));
+        scrollPanel.add(myProductItems1);
+        scrollPanel.add(myProductItems2);
+        scrollPanel.add(myProductItems3);
+
         scroll.setViewportView(scrollPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -93,30 +102,26 @@ public class PanelMyProducts extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3)
-                                .addGap(93, 93, 93)
-                                .addComponent(jLabel4)
-                                .addGap(74, 74, 74)
-                                .addComponent(jLabel6)
-                                .addGap(79, 79, 79)
-                                .addComponent(jLabel7)
-                                .addGap(49, 49, 49)
-                                .addComponent(jLabel8)
-                                .addGap(10, 10, 10)))
-                        .addGap(26, 26, 26))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 1039, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(16, Short.MAX_VALUE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 229, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addGap(93, 93, 93)
+                        .addComponent(jLabel4)
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabel6)
+                        .addGap(79, 79, 79)
+                        .addComponent(jLabel7)
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel8)
+                        .addGap(10, 10, 10)))
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,6 +160,9 @@ public class PanelMyProducts extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField jTextField1;
+    private thrifty.shopUIs.MyProductItems myProductItems1;
+    private thrifty.shopUIs.MyProductItems myProductItems2;
+    private thrifty.shopUIs.MyProductItems myProductItems3;
     private javax.swing.JScrollPane scroll;
     private javax.swing.JPanel scrollPanel;
     // End of variables declaration//GEN-END:variables
