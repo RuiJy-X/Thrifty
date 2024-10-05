@@ -1,82 +1,95 @@
 {
-  "eraser": [
-    {
-      "id": 10001,
+      "10001":{
       "quantity": 15,
       "price": 10,
       "name": "eraser",
-      "store": "MARJ Store"
+      "store": "MARJ Store",
+      "storeID": 1001,
+      "image": "C:\\Users\\User\\Downloads\\eraser.jpg"
+           
     },
-    {
-      "id": 10002,
+   
+      "10002":{
       "quantity": 15,
       "price": 10,
       "name": "eraser",
-      "store": "RJ Store"
-    }
-  ],
-  "ballpen": [
-    {
-      "id": 20001,
+      "store": "RJ Store",
+            "storeID":1002,
+            "image": "C:\\Users\\User\\Downloads\\eraser2.jpg"
+                  
+    },
+  
+ 
+    
+      "20001":{
       "quantity": 20,
       "price": 5,
       "name": "ballpen",
-      "store": "MARJ Store"
+      "store": "MARJ Store",
+            "storeID": 1001,
+            "image": "C:\\Users\\User\\Downloads\\ballpen.jpg"
     },
-    {
-      "id": 20002,
+    
+      "20002": {
       "quantity": 25,
       "price": 6,
       "name": "ballpen",
-      "store": "RJ Store"
-    }
-  ],
-  "notebook": [
-    {
-      "id": 30001,
+      "store": "RJ Store",
+            "storeID":1002,
+            "image": "C:\\Users\\User\\Downloads\\ballpen2.jpg"
+    },
+  
+  
+      "30001": {
       "quantity": 50,
       "price": 25,
       "name": "notebook",
-      "store": "MARJ Store"
+      "store": "MARJ Store",
+            "storeID": 1001,
+            "image": "C:\\Users\\User\\Downloads\\notebook.jpg"
     },
-    {
-      "id": 30002,
+      "30002": {
       "quantity": 40,
       "price": 28,
       "name": "notebook",
-      "store": "RJ Store"
-    }
-  ],
-  "pencil": [
-    {
-      "id": 40001,
+      "store": "RJ Store",
+            "storeID":1002,
+            "image": "C:\\Users\\User\\Downloads\\notebook.jpg"
+    },
+  
+      "40001":{
       "quantity": 30,
       "price": 3,
       "name": "pencil",
-      "store": "MARJ Store"
+      "store": "MARJ Store",
+            "storeID": 1001,
+            "image": "C:\\Users\\User\\Downloads\\pencil2.jpg"
     },
-    {
-      "id": 40002,
+    
+      "40002": {
       "quantity": 35,
       "price": 4,
       "name": "pencil",
-      "store": "RJ Store"
-    }
-  ],
-  "marker": [
-    {
-      "id": 50001,
+      "store": "RJ Store",
+            "storeID":1002,
+            "image": "C:\\Users\\User\\Downloads\\pencil1.jpg"
+    },
+      "50001": {
       "quantity": 10,
       "price": 15,
       "name": "marker",
-      "store": "MARJ Store"
+      "store": "MARJ Store",
+            "storeID": 1001,
+            "image": "C:\\Users\\User\\Downloads\\marker2.jpg"
     },
-    {
-      "id": 50002,
+    
+      "50002": {
       "quantity": 8,
       "price": 18,
       "name": "marker",
-      "store": "RJ Store"
+      "store": "RJ Store",
+            "storeID":1002,
+            "image": "C:\\Users\\User\\Downloads\\marker1.jpg"
     }
-  ]
+  
 }

@@ -13,6 +13,10 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.ArrayList;
+import static thrifty.Dashboard.allProducts;
+import static thrifty.Dashboard.file;
+import static thrifty.Dashboard.mapper;
+import static thrifty.Dashboard.uniqueProductList;
 
 
 /**
@@ -22,42 +26,55 @@ import java.util.ArrayList;
 
 public class Dashboard extends javax.swing.JFrame {
    
-    public static HashMap<String, List<ProductDTO>> allProducts;
+    public static HashMap<String, ProductDTO> allProducts;
     public static ObjectMapper mapper = new ObjectMapper();
     public static File file = new File("src\\thrifty\\products.json");
-    public static List<ProductDTO> uniqueProductList;
+    public static ArrayList<ProductDTO> uniqueProductList = new ArrayList<ProductDTO>();
     
     public Dashboard()  {
        
-        try {
+        
             initComponents();
             
             navBar1.setDB(this);
+            readFile();
             
-            allProducts = mapper.readValue(file, new TypeReference<HashMap<String, List<ProductDTO>>>() {});
+            this.createProductComponent();
             
-            for (ProductDTO data : allProducts.get("eraser")){
-                System.out.println(data.getName());
-                System.out.println(data.getPrice());
-                System.out.println(data.getStore());
-            }
-            
-            for (String name : allProducts.keySet()){
-                for(ProductDTO data : allProducts.get(name)){
-                    System.out.println(data.getName() + " " + data.getId());
-                }
-                    
-            }
-            
-        } catch (IOException ex) {
-            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+       
             
           
     }
-     
+    
+   
+            
+        
+    
+    
+   public static void readFile(){
+        try{
 
+
+            allProducts = mapper.readValue(file, new TypeReference<HashMap<String, ProductDTO>>() {});
+
+            
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+   }
+   
+   public void createProductComponent(){
+       for (ProductDTO product : allProducts.values()){
+//           int storeID = product.getStoreID();
+//           if (userCity == stores.get(storeID).get("city")){
+//              then create object
+//          this is to check for proximity
+            
+            Product individualProduct = new Product(product.getName(),"location",product.getPrice(),product.getImage());
+            productPanel2.populate(individualProduct);
+        
+       }
+   }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -86,10 +103,9 @@ public class Dashboard extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1280, 900));
         setResizable(false);
-        setSize(new java.awt.Dimension(1280, 900));
+        setSize(new java.awt.Dimension(1280, 800));
 
         jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jLayeredPane1.setLayer(navBar1, javax.swing.JLayeredPane.PALETTE_LAYER);
         jLayeredPane1.add(navBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -97,7 +113,7 @@ public class Dashboard extends javax.swing.JFrame {
         tabs.addTab("tab1", shopOverview2);
         tabs.addTab("tab2", productPanel2);
 
-        jLayeredPane1.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, 710));
+        jLayeredPane1.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, -1, 700));
 
         getContentPane().add(jLayeredPane1, java.awt.BorderLayout.CENTER);
 

@@ -17,9 +17,11 @@ public class Product extends javax.swing.JPanel {
     /**
      * Creates new form Product
      */
+    private String Name;
+    private String Location;
+    private double Price;
     
-    
-    public void icon(String path, JLabel component,int width, int height){
+    public static void icon(String path, JLabel component,int width, int height){
         ImageIcon imageIcon =  new ImageIcon(path);
         Image img = imageIcon.getImage();
         Image imageScaled = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
@@ -31,8 +33,40 @@ public class Product extends javax.swing.JPanel {
     public Product() {
         initComponents();
     }
+    
+    public Product(String Name, String Location, double Price, String image){
+        initComponents();
+        this.Location = Location;
+        this.Name = Name;
+        this.Price = Price;
+        
+        // Change default values
+        Name = toTitleCase(Name);
+        this.name.setText(Name);
+        this.location.setText(Location);
+        this.price.setText("PHP"+ String.format("%.2f", Price));
+        icon(image,picture,158,104);
+        
+    }
    
-   
+   public static String toTitleCase(String input) {
+        if (input == null || input.isEmpty()) {
+            return input; // Return null or empty string as is
+        }
+
+        String[] words = input.split(" "); // Split the string by spaces
+        StringBuilder titleCaseString = new StringBuilder();
+
+        for (String word : words) {
+            if (word.length() > 0) {
+                // Capitalize the first letter and append the rest of the word
+                titleCaseString.append(Character.toUpperCase(word.charAt(0)))
+                                .append(word.substring(1).toLowerCase())
+                                .append(" "); // Append a space
+            }
+        }
+        return titleCaseString.toString().trim();
+   }
     
    
     /**
@@ -51,19 +85,22 @@ public class Product extends javax.swing.JPanel {
         picture = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        location.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        location.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
         location.setText("location");
 
-        name.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        name.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         name.setText("item name");
 
-        price.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        price.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         price.setText("Price");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 51, 51)));
+        jPanel1.setPreferredSize(new java.awt.Dimension(158, 104));
         jPanel1.setLayout(new java.awt.BorderLayout());
+
+        picture.setPreferredSize(new java.awt.Dimension(158, 104));
         jPanel1.add(picture, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -73,16 +110,18 @@ public class Product extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                            .addComponent(location, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(price, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(location, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(price, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                        .addGap(78, 78, 78)))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,9 +130,9 @@ public class Product extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(location)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGap(4, 4, 4)
+                .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(price)
                 .addContainerGap())
         );
@@ -102,9 +141,9 @@ public class Product extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel location;
-    private javax.swing.JLabel name;
+    public javax.swing.JLabel location;
+    public javax.swing.JLabel name;
     private javax.swing.JLabel picture;
-    private javax.swing.JLabel price;
+    public javax.swing.JLabel price;
     // End of variables declaration//GEN-END:variables
 }

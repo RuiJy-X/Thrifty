@@ -16,7 +16,10 @@ public class ProductPanel extends javax.swing.JPanel {
     public ProductPanel() {
         initComponents();
     }
-
+    
+    public void populate(Product product){
+        productContainer.add(product);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,7 +31,7 @@ public class ProductPanel extends javax.swing.JPanel {
 
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        productContainer = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1280, 688));
@@ -58,14 +61,15 @@ public class ProductPanel extends javax.swing.JPanel {
 
         add(jPanel2, java.awt.BorderLayout.PAGE_END);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        add(jPanel1, java.awt.BorderLayout.CENTER);
+        productContainer.setBackground(new java.awt.Color(255, 255, 255));
+        productContainer.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        add(productContainer, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel productContainer;
     // End of variables declaration//GEN-END:variables
 }
