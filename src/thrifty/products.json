@@ -1,95 +1,74 @@
 {
-      "10001":{
+  "pen": {
+    "pen1": {
       "quantity": 15,
       "price": 10,
-      "name": "eraser",
+      "name": "Ballpoint Pen",
       "store": "MARJ Store",
       "storeID": 1001,
-      "image": "C:\\Users\\User\\Downloads\\eraser.jpg"
-           
+      "image": "C:\\Users\\User\\Downloads\\pen1.jpg"
     },
-   
-      "10002":{
+    "pen2": {
       "quantity": 15,
       "price": 10,
-      "name": "eraser",
+      "name": "Gel Pen",
       "store": "RJ Store",
-            "storeID":1002,
-            "image": "C:\\Users\\User\\Downloads\\eraser2.jpg"
-                  
-    },
-  
- 
-    
-      "20001":{
-      "quantity": 20,
-      "price": 5,
-      "name": "ballpen",
-      "store": "MARJ Store",
-            "storeID": 1001,
-            "image": "C:\\Users\\User\\Downloads\\ballpen.jpg"
-    },
-    
-      "20002": {
-      "quantity": 25,
-      "price": 6,
-      "name": "ballpen",
-      "store": "RJ Store",
-            "storeID":1002,
-            "image": "C:\\Users\\User\\Downloads\\ballpen2.jpg"
-    },
-  
-  
-      "30001": {
-      "quantity": 50,
-      "price": 25,
-      "name": "notebook",
-      "store": "MARJ Store",
-            "storeID": 1001,
-            "image": "C:\\Users\\User\\Downloads\\notebook.jpg"
-    },
-      "30002": {
-      "quantity": 40,
-      "price": 28,
-      "name": "notebook",
-      "store": "RJ Store",
-            "storeID":1002,
-            "image": "C:\\Users\\User\\Downloads\\notebook.jpg"
-    },
-  
-      "40001":{
-      "quantity": 30,
-      "price": 3,
-      "name": "pencil",
-      "store": "MARJ Store",
-            "storeID": 1001,
-            "image": "C:\\Users\\User\\Downloads\\pencil2.jpg"
-    },
-    
-      "40002": {
-      "quantity": 35,
-      "price": 4,
-      "name": "pencil",
-      "store": "RJ Store",
-            "storeID":1002,
-            "image": "C:\\Users\\User\\Downloads\\pencil1.jpg"
-    },
-      "50001": {
-      "quantity": 10,
-      "price": 15,
-      "name": "marker",
-      "store": "MARJ Store",
-            "storeID": 1001,
-            "image": "C:\\Users\\User\\Downloads\\marker2.jpg"
-    },
-    
-      "50002": {
-      "quantity": 8,
-      "price": 18,
-      "name": "marker",
-      "store": "RJ Store",
-            "storeID":1002,
-            "image": "C:\\Users\\User\\Downloads\\marker1.jpg"
+      "storeID": 1002,
+      "image": "C:\\Users\\User\\Downloads\\pen2.jpg"
     }
-  
+  },
+  "notebook": {
+    "notebook1": {
+      "quantity": 15,
+      "price": 10,
+      "name": "Spiral Notebook",
+      "store": "MARJ Store",
+      "storeID": 1001,
+      "image": "C:\\Users\\User\\Downloads\\notebook1.jpg"
+    },
+    "notebook2": {
+      "quantity": 15,
+      "price": 10,
+      "name": "Hardcover Notebook",
+      "store": "RJ Store",
+      "storeID": 1002,
+      "image": "C:\\Users\\User\\Downloads\\notebook2.jpg"
+    }
+  },
+  "eraser": {
+    "eraser1": {
+      "quantity": 15,
+      "price": 10,
+      "name": "Small Eraser",
+      "store": "MARJ Store",
+      "storeID": 1001,
+      "image": "C:\\Users\\User\\Downloads\\eraser1.jpg"
+    },
+    "eraser2": {
+      "quantity": 15,
+      "price": 10,
+      "name": "Large Eraser",
+      "store": "RJ Store",
+      "storeID": 1002,
+      "image": "C:\\Users\\User\\Downloads\\eraser2.jpg"
+    }
+  },
+  "marker": {
+    "marker1": {
+      "quantity": 15,
+      "price": 10,
+      "name": "Whiteboard Marker",
+      "store": "MARJ Store",
+      "storeID": 1001,
+      "image": "C:\\Users\\User\\Downloads\\marker1.jpg"
+    },
+    "marker2": {
+      "quantity": 15,
+      "price": 10,
+      "name": "Permanent Marker",
+      "store": "RJ Store",
+      "storeID": 1002,
+      "image": "C:\\Users\\User\\Downloads\\marker2.jpg"
+    }
+  }
 }

@@ -13,6 +13,8 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import static thrifty.Dashboard.allProducts;
 import static thrifty.Dashboard.file;
 import static thrifty.Dashboard.mapper;
@@ -26,7 +28,7 @@ import static thrifty.Dashboard.uniqueProductList;
 
 public class Dashboard extends javax.swing.JFrame {
    
-    public static HashMap<String, ProductDTO> allProducts;
+    public static HashMap<String, HashMap<String, ProductDTO>> allProducts;
     public static ObjectMapper mapper = new ObjectMapper();
     public static File file = new File("src\\thrifty\\products.json");
     public static ArrayList<ProductDTO> uniqueProductList = new ArrayList<ProductDTO>();
@@ -37,6 +39,8 @@ public class Dashboard extends javax.swing.JFrame {
             initComponents();
             
             navBar1.setDB(this);
+            shopOverview2.setAddProduct(this);
+        
             readFile();
             
             this.createProductComponent();
@@ -55,7 +59,7 @@ public class Dashboard extends javax.swing.JFrame {
         try{
 
 
-            allProducts = mapper.readValue(file, new TypeReference<HashMap<String, ProductDTO>>() {});
+            allProducts = mapper.readValue(file, new TypeReference<HashMap<String, HashMap<String, ProductDTO>>>() {});
 
             
         }catch(IOException e){
@@ -64,15 +68,18 @@ public class Dashboard extends javax.swing.JFrame {
    }
    
    public void createProductComponent(){
-       for (ProductDTO product : allProducts.values()){
+       for (String key : allProducts.keySet()){
+            for (ProductDTO product : allProducts.get(key).values()){
 //           int storeID = product.getStoreID();
 //           if (userCity == stores.get(storeID).get("city")){
 //              then create object
 //          this is to check for proximity
-            
-            Product individualProduct = new Product(product.getName(),"location",product.getPrice(),product.getImage());
-            productPanel2.populate(individualProduct);
+
+                Product individualProduct = new Product(product.getName(),"location",product.getPrice(),product.getImage());
+                productPanel2.populate(individualProduct);
         
+       }
+      
        }
    }
     /**

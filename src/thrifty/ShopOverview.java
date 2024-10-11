@@ -5,6 +5,8 @@
 
 package thrifty;
 
+import java.util.Set;
+
 /**
  *
  * @author User
@@ -42,6 +44,11 @@ public class ShopOverview extends javax.swing.JPanel {
     
     public void addProductTab(){
         tabs.setSelectedIndex(4);
+    }
+    
+    public void setAddProduct(Dashboard db){
+        fieldsAddProduct1.setDB(db);
+        
     }
     
     
