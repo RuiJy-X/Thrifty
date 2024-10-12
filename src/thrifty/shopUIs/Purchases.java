@@ -4,19 +4,23 @@
  */
 package thrifty.shopUIs;
 
+import thrifty.ShopDTO;
+
 /**
  *
  * @author User
  */
 public class Purchases extends javax.swing.JPanel {
-
+    ShopDTO shop;
     /**
      * Creates new form PanelMyProducts
      */
     public Purchases() {
         initComponents();
     }
-
+    public void setShop(ShopDTO shop){
+        this.shop = shop;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,7 +39,6 @@ public class Purchases extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
         scrollPanel = new javax.swing.JPanel();
-        purchasesItem1 = new thrifty.shopUIs.PurchasesItem();
         jLabel9 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -66,8 +69,6 @@ public class Purchases extends javax.swing.JPanel {
 
         scrollPanel.setBackground(new java.awt.Color(255, 255, 255));
         scrollPanel.setPreferredSize(new java.awt.Dimension(1038, 10));
-        scrollPanel.add(purchasesItem1);
-
         scroll.setViewportView(scrollPanel);
 
         jLabel9.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
@@ -120,7 +121,7 @@ public class Purchases extends javax.swing.JPanel {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -131,7 +132,6 @@ public class Purchases extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private thrifty.shopUIs.PurchasesItem purchasesItem1;
     private javax.swing.JScrollPane scroll;
     private javax.swing.JPanel scrollPanel;
     // End of variables declaration//GEN-END:variables

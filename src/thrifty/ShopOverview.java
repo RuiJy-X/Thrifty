@@ -5,6 +5,7 @@
 
 package thrifty;
 
+import java.util.HashMap;
 import java.util.Set;
 
 /**
@@ -14,9 +15,36 @@ import java.util.Set;
 public class ShopOverview extends javax.swing.JPanel {
 
     /** Creates new form ShopOverview */
+    HashMap<String, HashMap<String, ProductDTO>> allProducts;
+    ShopDTO shop;
+    HashMap<String,ShopDTO> allShops;
+    UserDTO user;
+    
     public ShopOverview() {
         initComponents();
+        
         sidebar1.setShopOverview(this);
+        this.setUpShop();   
+    }
+    
+    public void setUpShop(){
+        // Every panel object in the shop must be able to access the products and shop hashmap
+        
+        fieldsAddProduct1.setProductMap(allProducts); // The objects needs to access the hashmap of products when we add new products.
+        fieldsRegisterShop1.setShopHashMap(allShops); //The register tab needs to access the hashmap of shops.
+        
+        fieldsRegisterShop1.setUser(user);
+    }
+    
+    public void setProductMap(HashMap<String, HashMap<String, ProductDTO>> allProducts){
+        this.allProducts = allProducts;
+        
+    }
+    public void setShopHashMap(HashMap<String,ShopDTO> allShops){
+        this.allShops = allShops;
+    }
+    public void setUser(UserDTO user){
+        this.user = user;
     }
 
     /** This method is called from within the constructor to
@@ -49,6 +77,10 @@ public class ShopOverview extends javax.swing.JPanel {
     public void setAddProduct(Dashboard db){
         fieldsAddProduct1.setDB(db);
         
+    }
+    
+    public void setShop(ShopDTO shop){
+        this.shop = shop;
     }
     
     

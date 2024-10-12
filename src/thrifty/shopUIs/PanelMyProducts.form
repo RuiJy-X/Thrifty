@@ -213,14 +213,6 @@
           </Properties>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
-          <SubComponents>
-            <Component class="thrifty.shopUIs.MyProductItems" name="myProductItems1">
-            </Component>
-            <Component class="thrifty.shopUIs.MyProductItems" name="myProductItems2">
-            </Component>
-            <Component class="thrifty.shopUIs.MyProductItems" name="myProductItems3">
-            </Component>
-          </SubComponents>
         </Container>
       </SubComponents>
     </Container>

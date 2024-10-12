@@ -14,8 +14,11 @@ public class Thrifty {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Dashboard db = new Dashboard();
-        db.setVisible(true);
+//        Dashboard db = new Dashboard();
+//        db.setVisible(true);
+        LoginAndSignup LAS = new LoginAndSignup();
+        LAS.setVisible(true);
+        
     }
     
 }

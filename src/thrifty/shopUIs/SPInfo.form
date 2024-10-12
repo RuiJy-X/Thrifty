@@ -33,11 +33,11 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="address" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                      <Component id="phone" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
-                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="email" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="372" max="32767" attributes="0"/>
@@ -74,11 +74,11 @@
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="address" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel3" pref="0" max="32767" attributes="0"/>
-                          <Component id="jLabel4" max="32767" attributes="0"/>
+                          <Component id="email" pref="0" max="32767" attributes="0"/>
+                          <Component id="phone" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" max="32767" attributes="0"/>
@@ -146,7 +146,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="address">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto" size="15" style="0"/>
@@ -157,7 +157,7 @@
         <Property name="text" type="java.lang.String" value="address"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="phone">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto" size="15" style="0"/>
@@ -168,7 +168,7 @@
         <Property name="text" type="java.lang.String" value="phone"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="email">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto" size="15" style="0"/>

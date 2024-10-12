@@ -1,12 +1,12 @@
 {
-    "1001": {
-        "name": "Rujz Jeamar Bernaldez",
-        "password": "12345",
-        "location": "Rizal St., Brgy. 3,Pontevedra, Negros Occidental, Philippines",
-        "city": "Pontevedra",
-        "shopID": "1002",
-        "image": "",
-        "cart" : []
-       
-    }
+  "U1" : {
+    "userID" : "U1",
+    "name" : "Rujz",
+    "password" : "12345",
+    "location" : "Rizal St., Brgy. 3,Pontevedra, Negros Occidental, Philippines",
+    "city" : "Pontevedra",
+    "shopID" : "null",
+    "image" : "",
+    "cart" : [ ]
+  }
 }

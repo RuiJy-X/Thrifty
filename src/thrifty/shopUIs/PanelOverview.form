@@ -371,22 +371,6 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
             <Property name="alignment" type="int" value="0"/>
           </Layout>
-          <SubComponents>
-            <Component class="thrifty.shopUIs.SellLogItems" name="sellLogItems1">
-            </Component>
-            <Component class="thrifty.shopUIs.SellLogItems" name="sellLogItems2">
-            </Component>
-            <Component class="thrifty.shopUIs.SellLogItems" name="sellLogItems4">
-            </Component>
-            <Component class="thrifty.shopUIs.SellLogItems" name="sellLogItems5">
-            </Component>
-            <Component class="thrifty.shopUIs.SellLogItems" name="sellLogItems6">
-            </Component>
-            <Component class="thrifty.shopUIs.SellLogItems" name="sellLogItems7">
-            </Component>
-            <Component class="thrifty.shopUIs.SellLogItems" name="sellLogItems8">
-            </Component>
-          </SubComponents>
         </Container>
       </SubComponents>
     </Container>

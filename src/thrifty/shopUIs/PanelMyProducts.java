@@ -4,6 +4,8 @@
  */
 package thrifty.shopUIs;
 
+import thrifty.ShopDTO;
+
 /**
  *
  * @author User
@@ -13,10 +15,12 @@ public class PanelMyProducts extends javax.swing.JPanel {
     /**
      * Creates new form PanelMyProducts
      */
+    ShopDTO shop;
     public PanelMyProducts() {
         initComponents();
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,9 +42,6 @@ public class PanelMyProducts extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
         scrollPanel = new javax.swing.JPanel();
-        myProductItems1 = new thrifty.shopUIs.MyProductItems();
-        myProductItems2 = new thrifty.shopUIs.MyProductItems();
-        myProductItems3 = new thrifty.shopUIs.MyProductItems();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -90,10 +91,6 @@ public class PanelMyProducts extends javax.swing.JPanel {
         scrollPanel.setBackground(new java.awt.Color(255, 255, 255));
         scrollPanel.setMinimumSize(new java.awt.Dimension(1030, 82));
         scrollPanel.setPreferredSize(new java.awt.Dimension(1030, 93));
-        scrollPanel.add(myProductItems1);
-        scrollPanel.add(myProductItems2);
-        scrollPanel.add(myProductItems3);
-
         scroll.setViewportView(scrollPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -147,7 +144,10 @@ public class PanelMyProducts extends javax.swing.JPanel {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
+    
+    public void setShop(ShopDTO shop){
+        this.shop = shop;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -160,9 +160,6 @@ public class PanelMyProducts extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField jTextField1;
-    private thrifty.shopUIs.MyProductItems myProductItems1;
-    private thrifty.shopUIs.MyProductItems myProductItems2;
-    private thrifty.shopUIs.MyProductItems myProductItems3;
     private javax.swing.JScrollPane scroll;
     private javax.swing.JPanel scrollPanel;
     // End of variables declaration//GEN-END:variables

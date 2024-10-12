@@ -4,19 +4,24 @@
  */
 package thrifty.shopUIs;
 
+import thrifty.ShopDTO;
+
 /**
  *
  * @author User
  */
 public class SPInfo extends javax.swing.JPanel {
-
+    ShopDTO shop;
     /**
      * Creates new form SPInfo
      */
     public SPInfo() {
         initComponents();
     }
-
+    public void setShop(ShopDTO shop){
+        this.shop = shop;
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,9 +34,9 @@ public class SPInfo extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         shopType = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        address = new javax.swing.JLabel();
+        phone = new javax.swing.JLabel();
+        email = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
@@ -53,17 +58,17 @@ public class SPInfo extends javax.swing.JPanel {
         shopType.setText("Legitimate Retail Store");
         jPanel1.add(shopType, java.awt.BorderLayout.PAGE_START);
 
-        jLabel2.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/markerpin.png"))); // NOI18N
-        jLabel2.setText("address");
+        address.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
+        address.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/markerpin.png"))); // NOI18N
+        address.setText("address");
 
-        jLabel4.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/phone.png"))); // NOI18N
-        jLabel4.setText("phone");
+        phone.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
+        phone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/phone.png"))); // NOI18N
+        phone.setText("phone");
 
-        jLabel3.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/email.png"))); // NOI18N
-        jLabel3.setText("email");
+        email.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
+        email.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/email.png"))); // NOI18N
+        email.setText("email");
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
@@ -102,11 +107,11 @@ public class SPInfo extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(26, 26, 26)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
+                                    .addComponent(address)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
+                                        .addComponent(phone)
                                         .addGap(106, 106, 106)
-                                        .addComponent(jLabel3)))
+                                        .addComponent(email)))
                                 .addGap(0, 372, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
@@ -131,11 +136,11 @@ public class SPInfo extends javax.swing.JPanel {
                         .addGap(25, 25, 25)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42)
-                        .addComponent(jLabel2)
+                        .addComponent(address)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(phone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(24, 24, 24)
                         .addComponent(jScrollPane1))
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -154,16 +159,16 @@ public class SPInfo extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel address;
+    private javax.swing.JLabel email;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel phone;
     private javax.swing.JLabel shopName1;
     private javax.swing.JLabel shopType;
     // End of variables declaration//GEN-END:variables

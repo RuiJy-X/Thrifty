@@ -4,11 +4,21 @@
  */
 package thrifty.shopUIs;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import java.awt.Image;
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import thrifty.Dashboard;
+import static thrifty.RegisterForm.random;
+import thrifty.ShopDTO;
+import thrifty.UserDTO;
 
 /**
  *
@@ -19,6 +29,13 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
     /**
      * Creates new form FieldsRegisterShop
      */
+    public Dashboard db;
+    public UserDTO user;
+    ObjectMapper mapper = new ObjectMapper();
+    HashMap<String,ShopDTO> allShops;
+    ShopDTO shop;
+    HashMap<String,UserDTO> allUsers;
+    
     public void icon(String path, JLabel component,int width, int height){
         ImageIcon imageIcon =  new ImageIcon(path);
         Image img = imageIcon.getImage();
@@ -30,6 +47,18 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
     
     public FieldsRegisterShop() {
         initComponents();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        
+        
+    }
+    
+    public FieldsRegisterShop(UserDTO user, ShopDTO shop, HashMap<String,ShopDTO> allShops) {
+        initComponents();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        this.user = user;
+        this.shop = shop;
+        this.allShops = allShops;
+        
     }
 
     /**
@@ -44,28 +73,31 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        inputShopName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        inputShopAddress = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        inputOwnerName = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        retail = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
         jToggleButton3 = new javax.swing.JToggleButton();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        inputPhoneNumber = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        inputEmail = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        inputDescription = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        inputCity = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -76,49 +108,49 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         jLabel2.setText("Shop Name:");
 
-        jTextField1.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        jTextField1.setToolTipText("Shop name");
-        jTextField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        inputShopName.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        inputShopName.setToolTipText("Shop name");
+        inputShopName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        inputShopName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                inputShopNameActionPerformed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         jLabel3.setText("Owner Name:");
 
-        jTextField2.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        jTextField2.setToolTipText("Shop name");
-        jTextField2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        inputShopAddress.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        inputShopAddress.setToolTipText("Shop name");
+        inputShopAddress.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        inputShopAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                inputShopAddressActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         jLabel4.setText("Shop Address:");
 
-        jTextField3.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        jTextField3.setToolTipText("Shop name");
-        jTextField3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        inputOwnerName.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        inputOwnerName.setToolTipText("Shop name");
+        inputOwnerName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        inputOwnerName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                inputOwnerNameActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         jLabel5.setText("Business Type:");
 
-        buttonGroup1.add(jToggleButton1);
-        jToggleButton1.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        jToggleButton1.setText("Retail");
-        jToggleButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(retail);
+        retail.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        retail.setText("Retail");
+        retail.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        retail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                retailActionPerformed(evt);
             }
         });
 
@@ -135,24 +167,24 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         jLabel6.setText("Phone Number:");
 
-        jTextField4.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        jTextField4.setToolTipText("Shop name");
-        jTextField4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        inputPhoneNumber.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        inputPhoneNumber.setToolTipText("Shop name");
+        inputPhoneNumber.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        inputPhoneNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                inputPhoneNumberActionPerformed(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         jLabel7.setText("Email Address:");
 
-        jTextField5.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        jTextField5.setToolTipText("Shop name");
-        jTextField5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        inputEmail.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        inputEmail.setToolTipText("Shop name");
+        inputEmail.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        inputEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                inputEmailActionPerformed(evt);
             }
         });
 
@@ -161,9 +193,9 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
 
         jScrollPane1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        inputDescription.setColumns(20);
+        inputDescription.setRows(5);
+        jScrollPane1.setViewportView(inputDescription);
 
         jLabel9.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         jLabel9.setText("Logo:");
@@ -182,6 +214,8 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel1.setPreferredSize(new java.awt.Dimension(346, 272));
         jPanel1.setLayout(new java.awt.BorderLayout());
+
+        logo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(logo, java.awt.BorderLayout.CENTER);
 
         jLabel10.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
@@ -197,46 +231,77 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(63, 146, 222));
+        jButton3.setFont(new java.awt.Font("Outfit", 1, 24)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Register Shop");
+        jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(63, 146, 222), 1, true));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        inputCity.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        inputCity.setToolTipText("Shop name");
+        inputCity.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        inputCity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputCityActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        jLabel11.setText("City:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(retail, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel6)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                    .addComponent(inputPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(8, 8, 8)
+                                        .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addComponent(jLabel4)
+                                            .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(8, 8, 8)
+                                                .addComponent(inputEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(36, 36, 36)
+                                        .addComponent(jLabel7))))
                             .addComponent(jLabel5)
                             .addComponent(jLabel3)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel8)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                                .addComponent(inputOwnerName, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(inputShopName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(inputShopAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel4))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(inputCity)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel11)
+                                            .addGap(0, 0, Short.MAX_VALUE))))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -244,14 +309,16 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(40, 40, 40))))
+                                .addGap(40, 40, 40))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -260,77 +327,80 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(inputShopName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(inputOwnerName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(inputShopAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputCity, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jToggleButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                            .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jToggleButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jToggleButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(retail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel7))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(151, 151, 151))
-                    .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(15, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(inputEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                .addGap(19, 19, 19))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void inputShopNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputShopNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_inputShopNameActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void inputShopAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputShopAddressActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_inputShopAddressActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void inputOwnerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputOwnerNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_inputOwnerNameActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void retailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_retailActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void inputPhoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPhoneNumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_inputPhoneNumberActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void inputEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_inputEmailActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JFileChooser chooser = new JFileChooser();
@@ -349,14 +419,101 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
         File image = chooser.getSelectedFile();
         String imageFilePath = image.getAbsolutePath();
     }//GEN-LAST:event_jButton2ActionPerformed
+    
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // Obtain information and store to variables
+        allShops = db.getShop();
+        user = db.getUser();
+        allUsers = db.getUserFiles();
+        String shopName = inputShopName.getText();
+        String ownerName = inputOwnerName.getText();
+        String address = inputShopAddress.getText();
+        String city = inputCity.getText();
+        String number = inputPhoneNumber.getText();
+        String email = inputEmail.getText();
+        String description = inputDescription.getText();
+        String type = "Not Specified";
+        if (retail.isSelected()){
+            type = "Retail";
+        }else if (jToggleButton2.isSelected()){
+            type = "Services";
+        }else if (jToggleButton3.isSelected()){
+            type = "Food";
+        }else{
+            type = "Not Specified";
+        }
+        
+        // create shop DTO
+        //  public ShopDTO(String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,List<String> products){
+        ShopDTO newShop = new ShopDTO(shopName,ownerName,address,city,type,number,email,description,new ArrayList<>());
+        String newKey = generateID(createIDKey()); //Generate new IDKey
+        this.allShops.put(newKey, newShop); //Update the hashmap
+        allUsers.get(user.getUserID()).setShopID(newKey);
+        
+        
+        try{
+            mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
+            mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops); //write hashmap into JSON
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
+    
+    public String generateID(String ID){ //recursion for creating ID and checks if it exists
+        //ID = Sx where x is a number, S means Shop
+        for (String key : this.allShops.keySet()){
+            if (key.equals(ID)){ // if ID key exists then create ID
+                String newKey = createIDKey(); 
+                return generateID(newKey);
+            }
+        }
+        
+        return ID;
+    }
+    
+    public static String createIDKey(){ //create ID key
+        int randomNumber = random.nextInt(1000);
+        String idNum = String.valueOf(randomNumber);
+        String key = "S".concat(idNum);
+        return key;
+        
+    }
+    private void inputCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputCityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputCityActionPerformed
 
+    public void setDB(Dashboard db){
+        this.db = db;
+    }
+    
+    public void setShop(ShopDTO shop){
+        this.shop = shop;
+    }
+    
+    public void setShopHashMap(HashMap<String,ShopDTO> allShops){
+        this.allShops = allShops;
+    }
+    
+    public void setUser(UserDTO user){
+        this.user = user;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JTextField inputCity;
+    private javax.swing.JTextArea inputDescription;
+    private javax.swing.JTextField inputEmail;
+    private javax.swing.JTextField inputOwnerName;
+    private javax.swing.JTextField inputPhoneNumber;
+    private javax.swing.JTextField inputShopAddress;
+    private javax.swing.JTextField inputShopName;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -367,15 +524,9 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JLabel logo;
+    private javax.swing.JToggleButton retail;
     // End of variables declaration//GEN-END:variables
 }

@@ -155,10 +155,6 @@
           </Properties>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
-          <SubComponents>
-            <Component class="thrifty.shopUIs.PurchasesItem" name="purchasesItem1">
-            </Component>
-          </SubComponents>
         </Container>
       </SubComponents>
     </Container>

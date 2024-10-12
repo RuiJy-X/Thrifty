@@ -4,19 +4,25 @@
  */
 package thrifty.shopUIs;
 
+import thrifty.ShopDTO;
+
 /**
  *
  * @author User
  */
 public class PanelOverview extends javax.swing.JPanel {
-
+    
+    ShopDTO shop;
     /**
      * Creates new form PanelMyProducts
      */
     public PanelOverview() {
         initComponents();
     }
-
+    
+    public void setShop(ShopDTO shop){
+        this.shop = shop;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,13 +54,6 @@ public class PanelOverview extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
-        sellLogItems1 = new thrifty.shopUIs.SellLogItems();
-        sellLogItems2 = new thrifty.shopUIs.SellLogItems();
-        sellLogItems4 = new thrifty.shopUIs.SellLogItems();
-        sellLogItems5 = new thrifty.shopUIs.SellLogItems();
-        sellLogItems6 = new thrifty.shopUIs.SellLogItems();
-        sellLogItems7 = new thrifty.shopUIs.SellLogItems();
-        sellLogItems8 = new thrifty.shopUIs.SellLogItems();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -163,14 +162,6 @@ public class PanelOverview extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1093, 648));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
-        jPanel1.add(sellLogItems1);
-        jPanel1.add(sellLogItems2);
-        jPanel1.add(sellLogItems4);
-        jPanel1.add(sellLogItems5);
-        jPanel1.add(sellLogItems6);
-        jPanel1.add(sellLogItems7);
-        jPanel1.add(sellLogItems8);
-
         jScrollPane1.setViewportView(jPanel1);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 285, 1030, 370));
@@ -200,12 +191,5 @@ public class PanelOverview extends javax.swing.JPanel {
     private javax.swing.JLayeredPane jLayeredPane3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private thrifty.shopUIs.SellLogItems sellLogItems1;
-    private thrifty.shopUIs.SellLogItems sellLogItems2;
-    private thrifty.shopUIs.SellLogItems sellLogItems4;
-    private thrifty.shopUIs.SellLogItems sellLogItems5;
-    private thrifty.shopUIs.SellLogItems sellLogItems6;
-    private thrifty.shopUIs.SellLogItems sellLogItems7;
-    private thrifty.shopUIs.SellLogItems sellLogItems8;
     // End of variables declaration//GEN-END:variables
 }

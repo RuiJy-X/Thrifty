@@ -13,7 +13,7 @@ import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
-import static thrifty.Dashboard.allProducts;
+
 import static thrifty.Dashboard.file;
 import static thrifty.Dashboard.mapper;
 
@@ -28,6 +28,8 @@ public class FieldsAddProduct extends javax.swing.JPanel {
     String newProductDescription;
     String newProductPicture;
     Dashboard db;
+    ShopDTO shop;
+    HashMap<String, HashMap<String, ProductDTO>> allProducts;
     /**
      * Creates new form FieldsAddProduct
      */
@@ -42,6 +44,13 @@ public class FieldsAddProduct extends javax.swing.JPanel {
     }
     public FieldsAddProduct() {
         initComponents();
+    }
+    public void setShop(ShopDTO shop){
+        this.shop = shop;
+    }
+    public void setProductMap(HashMap<String, HashMap<String, ProductDTO>> allProducts){
+        this.allProducts = allProducts;
+        
     }
 
     /**
@@ -252,11 +261,11 @@ public class FieldsAddProduct extends javax.swing.JPanel {
     public static void createProductDTO(int id, int quantity,double price, String name, String store, int storeID, String image){
 //        ProductDTO newProduct = ProductDTO()
     }
-    public static void readFile(){
+    public void readFile(){
         try{
 
 
-            allProducts = mapper.readValue(file, new TypeReference<HashMap<String, HashMap<String, ProductDTO>>>() {});
+            HashMap<String, HashMap<String, ProductDTO>> allProducts = mapper.readValue(file, new TypeReference<HashMap<String, HashMap<String, ProductDTO>>>() {});
 
             
         }catch(IOException e){

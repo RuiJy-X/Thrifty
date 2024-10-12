@@ -5,33 +5,35 @@
 
 package thrifty;
 
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
  * @author User
  */
-public class RegisterForm extends javax.swing.JPanel {
-    public LoginAndSignup LAS;
-    public LoginForm login;
+
+public class LoginForm extends javax.swing.JPanel {
+    
+    UserDTO userLoggedIn;
+    
     public HashMap<String, UserDTO> userHashmap;
     public ObjectMapper mapper = new ObjectMapper();
     public File userFiles = new File("src\\thrifty\\userFiles.json");
-    public static Random random = new Random();
+    public LoginAndSignup LAS;
     /** Creates new form RegisterForm */
-    public RegisterForm() {
+    public LoginForm() {
+        
         initComponents();
         this.readUserFiles();
-        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        
+        
     }
 
     /** This method is called from within the constructor to
@@ -51,13 +53,9 @@ public class RegisterForm extends javax.swing.JPanel {
         inputUsername = new javax.swing.JTextField();
         inputPassword = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        inputAddress = new javax.swing.JTextField();
-        inputCity = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -92,21 +90,10 @@ public class RegisterForm extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Roboto", 0, 32)); // NOI18N
         jLabel4.setText("Password");
 
-        jLabel5.setFont(new java.awt.Font("Roboto", 0, 32)); // NOI18N
-        jLabel5.setText("Address");
-
-        inputAddress.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        inputAddress.setToolTipText("Street/City/Province/Country");
-        inputAddress.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-
-        inputCity.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        inputCity.setToolTipText("City");
-        inputCity.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-
         jButton1.setBackground(new java.awt.Color(63, 146, 222));
         jButton1.setFont(new java.awt.Font("Outfit", 1, 24)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("SIGN UP");
+        jButton1.setText("LOGIN");
         jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(63, 146, 222), 1, true));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,19 +102,16 @@ public class RegisterForm extends javax.swing.JPanel {
         });
 
         jLabel6.setFont(new java.awt.Font("Outfit", 0, 12)); // NOI18N
-        jLabel6.setText("Already have an account?");
+        jLabel6.setText("Dont have an account?");
 
         jLabel7.setFont(new java.awt.Font("Outfit", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(63, 146, 222));
-        jLabel7.setText("Login here");
+        jLabel7.setText("Signup here");
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
             }
         });
-
-        jLabel9.setFont(new java.awt.Font("Roboto", 0, 32)); // NOI18N
-        jLabel9.setText("City");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -137,20 +121,17 @@ public class RegisterForm extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(inputAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
-                        .addComponent(inputPassword, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(inputPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addComponent(jLabel4)
-                        .addComponent(jLabel5)
                         .addComponent(inputUsername, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel7))
-                    .addComponent(inputCity, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addContainerGap(96, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(102, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7)
+                .addGap(0, 464, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,25 +143,17 @@ public class RegisterForm extends javax.swing.JPanel {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inputAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inputCity, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jLabel8.setFont(new java.awt.Font("Outfit", 0, 48)); // NOI18N
-        jLabel8.setText("Sign Up");
+        jLabel8.setText("Login");
 
         jLayeredPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -196,13 +169,13 @@ public class RegisterForm extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGap(184, 184, 184)
+                        .addGap(169, 169, 169)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45))
+                        .addGap(60, 60, 60))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8)
-                        .addGap(346, 346, 346)))
+                        .addGap(367, 367, 367)))
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -218,9 +191,9 @@ public class RegisterForm extends javax.swing.JPanel {
                         .addComponent(jLabel2)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGap(126, 126, 126)
+                .addGap(172, 172, 172)
                 .addComponent(jLabel8)
-                .addGap(38, 38, 38)
+                .addGap(55, 55, 55)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -236,74 +209,10 @@ public class RegisterForm extends javax.swing.JPanel {
             .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void inputUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputUsernameActionPerformed
-    
-    public void setLogin(LoginForm login){
-        this.login = login;
+    public void updateHashMap(HashMap<String, UserDTO> userHashmap){
+        this.userHashmap = userHashmap;
     }
-    
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        createUser();
-        
-        inputUsername.setText("");
-        inputPassword.setText("");
-        inputAddress.setText("");
-        inputCity.setText("");
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void inputPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputPasswordActionPerformed
-
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        LAS.switchLogin();
-    }//GEN-LAST:event_jLabel7MouseClicked
-    
-    public void setForm(LoginAndSignup LAS){
-        this.LAS = LAS;
-    }
-    
-    public void createUser(){
-        String name = inputUsername.getText();
-        String password = inputPassword.getText();
-        String address = inputAddress.getText();
-        String city = inputCity.getText();
-        //UserDTO(String userID, String name, String password, String location, String city, String shopID, String image, ArrayList<String> cart)
-        String userID = generateID(createIDKey());
-        
-        UserDTO user = new UserDTO(userID,name,password,address,city,"null","null", new ArrayList<>());
-        
-        userHashmap.put(userID, user);
-        login.updateHashMap(userHashmap);
-        this.updateJSON();
-        
-        
-        
-    }
-    public String generateID(String ID){ //recursion for creating ID and checks if it exists
-        //ID = Ux where x is a number, U means user
-        for (String key : userHashmap.keySet()){
-            if (key.equals(ID)){ // if ID key exists then create ID
-                String newKey = createIDKey(); 
-                return generateID(newKey);
-            }
-        }
-        
-        return ID;
-    }
-    
-    public static String createIDKey(){ //create ID key
-        int randomNumber = random.nextInt(1000);
-        String idNum = String.valueOf(randomNumber);
-        String key = "U".concat(idNum);
-        return key;
-        
-    }
-    
-     public void readUserFiles(){
+    public void readUserFiles(){
         try{
         userHashmap = mapper.readValue(userFiles, new TypeReference<HashMap<String, UserDTO>>(){});
         
@@ -311,18 +220,66 @@ public class RegisterForm extends javax.swing.JPanel {
             e.printStackTrace();
         }
     }
-     
-     public void updateJSON(){
-        try {
-            mapper.writeValue(userFiles, userHashmap);
-        } catch (IOException ex) {
-            Logger.getLogger(RegisterForm.class.getName()).log(Level.SEVERE, null, ex);
+    private void inputUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputUsernameActionPerformed
+        
+    }//GEN-LAST:event_inputUsernameActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        String username = inputUsername.getText();
+        String password = inputPassword.getText();
+        this.verifyUser(username, password);
+        inputUsername.setText("");
+        inputPassword.setText("");
+        
+        
+        
+    
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void inputPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputPasswordActionPerformed
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        LAS.switchRegister();
+    }//GEN-LAST:event_jLabel7MouseClicked
+    
+    public void setForm(LoginAndSignup LAS){
+        this.LAS = LAS;
+    }
+    
+    public void verifyUser(String username, String password){
+        
+        for (UserDTO user: userHashmap.values()){
+            if (user.getName().equals(username)){
+                System.out.println("Username exists");
+            }else{
+                
+            }
+            if (user.getName().equals(username) && user.getPassword().equals(password)){
+                userLoggedIn = user;
+                this.accessDashboard();
+                LAS.dispose();
+                System.out.println("Password matches");
+                return;
+            }else{
+                System.out.println("failed");
+            }
         }
-     }
+            
+    }
+    
+    public void accessDashboard(){
+        Dashboard db = new Dashboard(userLoggedIn);
+        
+        
+        db.setVisible(true);
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField inputAddress;
-    private javax.swing.JTextField inputCity;
     private javax.swing.JTextField inputPassword;
     private javax.swing.JTextField inputUsername;
     private javax.swing.JButton jButton1;
@@ -330,11 +287,9 @@ public class RegisterForm extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
