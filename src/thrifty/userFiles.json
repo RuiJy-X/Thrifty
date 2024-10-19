@@ -5,7 +5,7 @@
     "password" : "12345",
     "location" : "Rizal St., Brgy. 3,Pontevedra, Negros Occidental, Philippines",
     "city" : "Pontevedra",
-    "shopID" : "null",
+    "shopID" : "S1",
     "image" : "",
     "cart" : [ ]
   }

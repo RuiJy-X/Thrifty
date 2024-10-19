@@ -1,5 +1,6 @@
 {
   "S1" : {
+    "shopID" : "S1",
     "shopName" : "MARJ Store",
     "ownerName" : "Maria Reyes",
     "address" : "123 Makati Ave, Makati City, Philippines",
@@ -8,9 +9,10 @@
     "phoneNumber" : "+63 912 345 6789",
     "email" : "marj.store@example.com",
     "description" : "A trusted store providing high-quality stationery products.",
-    "products" : [ "10001", "20001", "30001", "40001", "50001" ]
+    "products" : [ "eraser1", "marker1", "pen1", "notebook1", "pen224", "eraser502", "marker677", "lapis658", "lapis550", "eraser738" ]
   },
   "S2" : {
+    "shopID" : "S2",
     "shopName" : "RJ Store",
     "ownerName" : "Rico Juarez",
     "address" : "456 Bonifacio St, Quezon City, Philippines",
@@ -19,6 +21,6 @@
     "phoneNumber" : "+63 921 654 3210",
     "email" : "rj.store@example.com",
     "description" : "Offering a wide range of affordable school supplies.",
-    "products" : [ "10002", "20002", "30002", "40002", "50002" ]
+    "products" : [ "eraser2", "marker2", "pen2", "notebook2" ]
   }
 }

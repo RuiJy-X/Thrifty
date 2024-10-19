@@ -296,7 +296,7 @@ public class RegisterForm extends javax.swing.JPanel {
     }
     
     public static String createIDKey(){ //create ID key
-        int randomNumber = random.nextInt(1000);
+        int randomNumber = random.nextInt(100000);
         String idNum = String.valueOf(randomNumber);
         String key = "U".concat(idNum);
         return key;

@@ -445,8 +445,9 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
         
         // create shop DTO
         //  public ShopDTO(String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,List<String> products){
-        ShopDTO newShop = new ShopDTO(shopName,ownerName,address,city,type,number,email,description,new ArrayList<>());
         String newKey = generateID(createIDKey()); //Generate new IDKey
+        ShopDTO newShop = new ShopDTO(newKey,shopName,ownerName,address,city,type,number,email,description,new ArrayList<>());
+        
         this.allShops.put(newKey, newShop); //Update the hashmap
         allUsers.get(user.getUserID()).setShopID(newKey);
         
@@ -474,7 +475,7 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
     }
     
     public static String createIDKey(){ //create ID key
-        int randomNumber = random.nextInt(1000);
+        int randomNumber = random.nextInt(100000);
         String idNum = String.valueOf(randomNumber);
         String key = "S".concat(idNum);
         return key;
@@ -485,6 +486,7 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
     }//GEN-LAST:event_inputCityActionPerformed
 
     public void setDB(Dashboard db){
+        System.out.println("Setting dashboard to register shop field...");
         this.db = db;
     }
     

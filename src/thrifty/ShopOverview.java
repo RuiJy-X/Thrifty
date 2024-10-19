@@ -19,6 +19,7 @@ public class ShopOverview extends javax.swing.JPanel {
     ShopDTO shop;
     HashMap<String,ShopDTO> allShops;
     UserDTO user;
+    Dashboard db;
     
     public ShopOverview() {
         initComponents();
@@ -81,6 +82,11 @@ public class ShopOverview extends javax.swing.JPanel {
     
     public void setShop(ShopDTO shop){
         this.shop = shop;
+    }
+    
+    public void setDB(Dashboard db){
+        this.db = db;
+        fieldsAddProduct1.setDB(db);
     }
     
     

@@ -20,6 +20,10 @@ public class ProductPanel extends javax.swing.JPanel {
     public void populate(Product product){
         productContainer.add(product);
     }
+    
+    public void removeAll(){
+        productContainer.removeAll();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

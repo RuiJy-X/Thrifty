@@ -11,6 +11,7 @@ import java.util.List;
  * @author User
  */
 public class ShopDTO {
+    private String shopID;
     private String shopName;
     private String ownerName;
     private String address;
@@ -25,7 +26,8 @@ public class ShopDTO {
         
     }
     
-    public ShopDTO(String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,List<String> products){
+    public ShopDTO(String shopID,String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,List<String> products){
+        this.shopID = shopID;
         this.shopName = shopName;
         this.ownerName = ownerName;
         this.address = address;
@@ -36,7 +38,7 @@ public class ShopDTO {
         this.description = description;
         this.products = products;
     }
-    
+    public String getShopID(){return shopID;}
     public String getShopName(){return shopName;}
     public String getOwnerName(){return ownerName;}
     public String getAddress(){return address;}
@@ -46,5 +48,9 @@ public class ShopDTO {
     public String getEmail(){return email;}
     public String getDescription(){return description;}
     public List<String> getProducts(){return products;}
+    
+    public void addProducts(String productID){
+        products.add(productID);
+    }
     
 }

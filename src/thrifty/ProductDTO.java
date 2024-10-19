@@ -9,18 +9,18 @@ package thrifty;
  * @author User
  */
 public class ProductDTO {
-    private int id;
+    private String id;
     private int quantity;
     private double price;
     private String name;
     private String store;
-    private int storeID;    
+    private String storeID;    
     private String image;
     public ProductDTO(){
         
     }
     
-    public ProductDTO(int id, int quantity, double price, String name, String store, int storeID,String image) {
+    public ProductDTO(String id, int quantity, double price, String name, String store, String storeID,String image) {
         this.id = id;
         this.quantity = quantity;
         this.price = price;
@@ -30,12 +30,12 @@ public class ProductDTO {
         this.image = image;
     }
     
-    public int getId() { return id; }
+    public String getId() { return id; }
     public int getQuantity() {return quantity;}
     public double getPrice() {return price;}
     public String getName() { return name;}
     public String getStore() {return store;}
-    public int getStoreID(){return storeID;}
+    public String getStoreID(){return storeID;}
     public String getImage(){return image;}
     
 }

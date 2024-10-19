@@ -72,14 +72,15 @@ public class Dashboard extends javax.swing.JFrame {
         this.createProductComponent();
         
 
-        System.out.println(allShops.keySet());
-        fieldsRegisterShop1.setShopHashMap(allShops);
-        fieldsRegisterShop1.setDB(this);
+        
+        
        
             
           
     }
-    
+    public HashMap<String, HashMap<String, ProductDTO>> getallProducts(){
+        return this.allProducts;
+    }
     public HashMap<String,ShopDTO> getShop(){
         return this.allShops;
     }
@@ -100,7 +101,7 @@ public class Dashboard extends javax.swing.JFrame {
         //If a user doesn't have a shop, shop id is set to null in the register form
         if (!userLoggedIn.getShopID().equals("null")){
             //get user shop ID, find it in memory, then create a shop object, then make shop component
-            
+            System.out.println("this works");
             userShop = allShops.get(userLoggedIn.getShopID());
               
             // The code below aims to achieve singleton pattern
@@ -119,8 +120,12 @@ public class Dashboard extends javax.swing.JFrame {
             
             shopOverview2.setUser(userLoggedIn);
             
-            fieldsRegisterShop1.setShopHashMap(allShops);
+           
             fieldsRegisterShop1.setUser(userLoggedIn);
+            fieldsRegisterShop1.setShopHashMap(allShops);
+            fieldsRegisterShop1.setDB(this);
+            
+            shopOverview2.setDB(this);
         }
     }
     
@@ -172,6 +177,11 @@ public class Dashboard extends javax.swing.JFrame {
     
     public void dashboard(){
         tabs.setSelectedIndex(0);
+        productPanel2.removeAll();
+        productPanel2.revalidate();
+        productPanel2.repaint();
+        
+        this.createProductComponent();
         
     }
     

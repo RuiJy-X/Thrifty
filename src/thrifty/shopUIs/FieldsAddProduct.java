@@ -5,6 +5,7 @@
 package thrifty.shopUIs;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import thrifty.*;
 import java.awt.Image;
 import java.io.File;
@@ -16,6 +17,7 @@ import javax.swing.JLabel;
 
 import static thrifty.Dashboard.file;
 import static thrifty.Dashboard.mapper;
+import static thrifty.RegisterForm.random;
 
 /**
  *
@@ -30,6 +32,7 @@ public class FieldsAddProduct extends javax.swing.JPanel {
     Dashboard db;
     ShopDTO shop;
     HashMap<String, HashMap<String, ProductDTO>> allProducts;
+    HashMap<String,ShopDTO> allShops;
     /**
      * Creates new form FieldsAddProduct
      */
@@ -77,6 +80,8 @@ public class FieldsAddProduct extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         picture = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        displayName = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.BorderLayout());
@@ -128,7 +133,7 @@ public class FieldsAddProduct extends javax.swing.JPanel {
         jScrollPane1.setViewportView(description);
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        jLabel6.setText("Product");
+        jLabel6.setText("Product (Product ID)");
 
         jButton1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 153, 153));
@@ -151,6 +156,17 @@ public class FieldsAddProduct extends javax.swing.JPanel {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
+        jLabel7.setText("Display Name");
+
+        displayName.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        displayName.setToolTipText("");
+        displayName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                displayNameActionPerformed(evt);
             }
         });
 
@@ -177,13 +193,18 @@ public class FieldsAddProduct extends javax.swing.JPanel {
                         .addGap(346, 346, 346))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(price, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
                             .addComponent(productName)
-                            .addComponent(quantity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(displayName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(price, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(quantity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(207, 207, 207)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                         .addComponent(picture, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(78, 78, 78))))
@@ -195,6 +216,9 @@ public class FieldsAddProduct extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(picture, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -202,7 +226,11 @@ public class FieldsAddProduct extends javax.swing.JPanel {
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(1, 1, 1)
                         .addComponent(productName, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel7)
+                        .addGap(1, 1, 1)
+                        .addComponent(displayName, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -210,13 +238,10 @@ public class FieldsAddProduct extends javax.swing.JPanel {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(picture, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(37, 37, 37)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -248,16 +273,99 @@ public class FieldsAddProduct extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        shop = db.getUserShop();
+        allProducts = db.getallProducts();
+        allShops = db.getShop();
+        
+        String display = displayName.getText();
         newProductName = productName.getText();
         newProductPrice = price.getText();
+        double price = Double.parseDouble(newProductPrice);
         newProductQuantity = quantity.getText();
+        Integer quantity1 = Integer.parseInt(newProductQuantity);
+        int newQuantity = quantity1.intValue();
         newProductDescription = description.getText();
         newProductPicture = picture.getText();
+        
+        //  public ProductDTO(int id, int quantity, double price, String name, String store, int storeID,String image) {
+        String generalID = newProductName.toLowerCase().replace(" ", "");
+        
+        String newKey = generateID(createIDKey(newProductName), newProductName); // create ID
+        newKey = newKey.toLowerCase();
+        ProductDTO newProduct = new ProductDTO(newKey,newQuantity,price,display,shop.getShopName(),shop.getShopID(),newProductPicture); // Make product object
+        
+        //storing of product to hashmap
+        // We have to check if there is a "general" category for that product, if there isn't then make a new ID for it and a hashmap, if there is then just put it in that hashmap
+        
+         //checks if the general category doesnt exists
+         if(this.checkIfCategoryExists(generalID)){
+             allProducts.get(generalID).put(newKey, newProduct); // add product to a category that alrdy exists
+         }else{
+            allProducts.put(generalID,new HashMap<String, ProductDTO>());// make new general string and hashmap
+            // add new product
+            allProducts.get(generalID).put(newKey, newProduct);
+             
+         }
+         
+         // add product to shop product list
+         
+         shop.addProducts(newKey);
+         
+         //update all shop hashmap
+         
+         allShops.put(shop.getShopID(),shop); //this will replace the old one with an updated shop
+         
+         //write to json
+          try{
+              //mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
+            //mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops); //write hashmap into JSON
+            
+            //update all shops json
+            mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops);
+            //update all products
+            mapper.writeValue(new File("src\\thrifty\\products.json"), this.allProducts);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+       
         
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void displayNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_displayNameActionPerformed
+    public boolean checkIfCategoryExists(String generalID){
+        boolean result = false;
+        for (String key : allProducts.keySet()){
+            if (key.equalsIgnoreCase(generalID)){ //checks if the general category doesnt exists
+                result = true;
+            }
+        }
+        return result;
+    }
     
+    public String generateID(String ID, String name){ //recursion for creating ID and checks if it exists
+        //ID = Sx where x is a number, S means Shop
+        for (String key : this.allProducts.keySet()){
+            if (key.equals(ID)){ // if ID key exists then create ID
+                String newKey = createIDKey(name); 
+                return generateID(newKey, name);
+            }
+        }
+        
+        return ID;
+    }
+    
+    public static String createIDKey(String name){ //create ID key
+        int randomNumber = random.nextInt(100000);
+        String idNum = String.valueOf(randomNumber);
+        String key = name.concat(idNum);
+        return key;
+        
+    }
     public static void createProductDTO(int id, int quantity,double price, String name, String store, int storeID, String image){
 //        ProductDTO newProduct = ProductDTO()
     }
@@ -275,10 +383,12 @@ public class FieldsAddProduct extends javax.swing.JPanel {
     
     public void setDB(Dashboard db){
         this.db = db;
+        System.out.println("Setting add products db..");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea description;
+    private javax.swing.JTextField displayName;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -287,6 +397,7 @@ public class FieldsAddProduct extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel picture;
