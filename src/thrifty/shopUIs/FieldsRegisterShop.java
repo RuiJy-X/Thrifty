@@ -52,9 +52,10 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
         
     }
     
-    public FieldsRegisterShop(UserDTO user, ShopDTO shop, HashMap<String,ShopDTO> allShops) {
+    public FieldsRegisterShop(UserDTO user, ShopDTO shop, HashMap<String,ShopDTO> allShops, Dashboard db) {
         initComponents();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        this.db = db;
         this.user = user;
         this.shop = shop;
         this.allShops = allShops;
@@ -422,6 +423,7 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // Obtain information and store to variables
+        db = db.getDB();
         allShops = db.getShop();
         user = db.getUser();
         allUsers = db.getUserFiles();
@@ -448,13 +450,19 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
         String newKey = generateID(createIDKey()); //Generate new IDKey
         ShopDTO newShop = new ShopDTO(newKey,shopName,ownerName,address,city,type,number,email,description,new ArrayList<>());
         
-        this.allShops.put(newKey, newShop); //Update the hashmap
-        allUsers.get(user.getUserID()).setShopID(newKey);
+        //public UserDTO(String userID, String name, String password, String location, String city, String shopID, String image, ArrayList<String> cart){
+        //update User with new SHOPID, we have to create another user object
+        UserDTO updateUser = new UserDTO(user.getUserID(),user.getName(),user.getPassword(),user.getlocation(),user.getCity(),newKey,user.getImage(),user.getCart());
+        
+        allShops.put(newKey, newShop); //Update the hashmap
+        allUsers.put(user.getUserID(),updateUser);
+        
+        db.setUser(updateUser);
         
         
         try{
             mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
-            mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops); //write hashmap into JSON
+            mapper.writeValue(new File("src\\thrifty\\shops.json"), allShops); //write hashmap into JSON
         }catch (IOException e){
             e.printStackTrace();
         }

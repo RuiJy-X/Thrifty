@@ -66,7 +66,7 @@ public class ProductPanel extends javax.swing.JPanel {
         add(jPanel2, java.awt.BorderLayout.PAGE_END);
 
         productContainer.setBackground(new java.awt.Color(255, 255, 255));
-        productContainer.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 15, 25));
+        productContainer.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 25, 25));
         add(productContainer, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 

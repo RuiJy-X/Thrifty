@@ -268,7 +268,8 @@ public class FieldsAddProduct extends javax.swing.JPanel {
 
         File image = chooser.getSelectedFile();
         String imageFilePath = image.getAbsolutePath();
-
+        
+        newProductPicture = imageFilePath;
         icon(imageFilePath,picture,445,313);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -286,14 +287,14 @@ public class FieldsAddProduct extends javax.swing.JPanel {
         Integer quantity1 = Integer.parseInt(newProductQuantity);
         int newQuantity = quantity1.intValue();
         newProductDescription = description.getText();
-        newProductPicture = picture.getText();
+        
         
         //  public ProductDTO(int id, int quantity, double price, String name, String store, int storeID,String image) {
         String generalID = newProductName.toLowerCase().replace(" ", "");
         
         String newKey = generateID(createIDKey(newProductName), newProductName); // create ID
         newKey = newKey.toLowerCase();
-        ProductDTO newProduct = new ProductDTO(newKey,newQuantity,price,display,shop.getShopName(),shop.getShopID(),newProductPicture); // Make product object
+        ProductDTO newProduct = new ProductDTO(newKey,newQuantity,price,display,shop.getShopName(),shop.getShopID(),newProductPicture,newProductDescription); // Make product object
         
         //storing of product to hashmap
         // We have to check if there is a "general" category for that product, if there isn't then make a new ID for it and a hashmap, if there is then just put it in that hashmap

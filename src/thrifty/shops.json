@@ -1,4 +1,16 @@
 {
+  "S88851" : {
+    "shopID" : "S88851",
+    "shopName" : "dianne's shop",
+    "ownerName" : "Dianne",
+    "address" : "Bacolod City, Neg. Occ.",
+    "city" : "Bacolod City",
+    "businessType" : "Retail",
+    "phoneNumber" : "09993332212",
+    "email" : "dainne@gmail.com",
+    "description" : "123",
+    "products" : [ ]
+  },
   "S1" : {
     "shopID" : "S1",
     "shopName" : "MARJ Store",
@@ -9,7 +21,7 @@
     "phoneNumber" : "+63 912 345 6789",
     "email" : "marj.store@example.com",
     "description" : "A trusted store providing high-quality stationery products.",
-    "products" : [ "eraser1", "marker1", "pen1", "notebook1", "pen224", "eraser502", "marker677", "lapis658", "lapis550", "eraser738" ]
+    "products" : [ "eraser1", "marker1", "pen1", "notebook1", "pen224", "eraser502", "marker677", "lapis658", "lapis550", "eraser738", "lapis54452", "lapis53208", "pen15906", "pen74744", "pen75211", "lapis56632", "lapis12078" ]
   },
   "S2" : {
     "shopID" : "S2",

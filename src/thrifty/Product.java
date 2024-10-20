@@ -20,7 +20,11 @@ public class Product extends javax.swing.JPanel {
     private String Name;
     private String Location;
     private double Price;
-    
+    private String image;
+    private String shopName;
+    private String description;
+    private String quantity;
+    private Dashboard db;
     public static void icon(String path, JLabel component,int width, int height){
         ImageIcon imageIcon =  new ImageIcon(path);
         Image img = imageIcon.getImage();
@@ -46,6 +50,28 @@ public class Product extends javax.swing.JPanel {
         this.location.setText(Location);
         this.price.setText("PHP"+ String.format("%.2f", Price));
         icon(image,picture,158,104);
+        
+    }
+    
+    public Product(String Name, String Location, double Price,String shopName, String image, String description, int quantity, Dashboard db){
+        initComponents();
+        this.Location = Location;
+        this.Name = Name;
+        this.Price = Price;
+        this.shopName = shopName;
+        
+        // Change default values
+        this.image = image;
+        Name = toTitleCase(Name);
+        this.name.setText(Name);
+        this.location.setText(Location);
+        this.price.setText("PHP"+ String.format("%.2f", Price));
+        this.shopNameInput.setText(shopName);
+        icon(image,picture,158,104);
+        this.description = description;
+        String tempQuantity = String.valueOf(quantity);
+        this.quantity = tempQuantity;
+        this.db = db;
         
     }
    
@@ -78,17 +104,23 @@ public class Product extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        location = new javax.swing.JLabel();
+        shopNameInput = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
         price = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         picture = new javax.swing.JLabel();
+        location = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
-        location.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
-        location.setText("location");
+        shopNameInput.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
+        shopNameInput.setText("location");
 
         name.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         name.setText("item name");
@@ -103,6 +135,9 @@ public class Product extends javax.swing.JPanel {
         picture.setPreferredSize(new java.awt.Dimension(158, 104));
         jPanel1.add(picture, java.awt.BorderLayout.CENTER);
 
+        location.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
+        location.setText("location");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,32 +146,48 @@ public class Product extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(price, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(location, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(location, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(price, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(shopNameInput, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(name, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addComponent(price)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(shopNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        //public ProductViewPanel(String name, String price, String quantity, String description, String pictureIMG, Dashboard db) {
+        //private String Name;
+//    private String Location;
+//    private double Price;
+//    private String image;
+//    private String shopName;
+        String price1 = ("₱" + String.format("%.2f", Price));
+        
+        ProductViewPanel view = new ProductViewPanel(Name,price1,quantity,description,image,db);
+        db.viewProduct(view);
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -145,5 +196,6 @@ public class Product extends javax.swing.JPanel {
     public javax.swing.JLabel name;
     private javax.swing.JLabel picture;
     public javax.swing.JLabel price;
+    public javax.swing.JLabel shopNameInput;
     // End of variables declaration//GEN-END:variables
 }

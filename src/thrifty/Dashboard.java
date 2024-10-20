@@ -6,18 +6,13 @@ package thrifty;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.awt.Component;
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 import static thrifty.Dashboard.file;
 import static thrifty.Dashboard.mapper;
-import static thrifty.Dashboard.uniqueProductList;
 
 
 /**
@@ -65,6 +60,7 @@ public class Dashboard extends javax.swing.JFrame {
         this.userLoggedIn = user;
         navBar1.setDB(this);
         shopOverview2.setAddProduct(this);
+        fieldsRegisterShop1.setDB(this);
         
         this.readFile();
         this.setShop();
@@ -84,7 +80,9 @@ public class Dashboard extends javax.swing.JFrame {
     public HashMap<String,ShopDTO> getShop(){
         return this.allShops;
     }
-    
+    public void updateUser(UserDTO user){
+        this.userLoggedIn = user;
+    }
     public UserDTO getUser(){
         return this.userLoggedIn;
     }
@@ -123,6 +121,7 @@ public class Dashboard extends javax.swing.JFrame {
            
             fieldsRegisterShop1.setUser(userLoggedIn);
             fieldsRegisterShop1.setShopHashMap(allShops);
+            System.out.println("fields");
             fieldsRegisterShop1.setDB(this);
             
             shopOverview2.setDB(this);
@@ -142,6 +141,15 @@ public class Dashboard extends javax.swing.JFrame {
         }
    }
    
+   public String getLocation(String shopID){
+       String location = allShops.get(shopID).getCity();
+       return location;
+   }
+   
+   public Dashboard getDB(){
+       return this;
+   }
+   
    public void createProductComponent(){
        for (String key : allProducts.keySet()){
             for (ProductDTO product : allProducts.get(key).values()){
@@ -149,8 +157,10 @@ public class Dashboard extends javax.swing.JFrame {
 //           if (userCity == stores.get(storeID).get("city")){
 //              then create object
 //          this is to check for proximity
-
-                Product individualProduct = new Product(product.getName(),"location",product.getPrice(),product.getImage());
+            //public Product(String Name, String Location, double Price,String shopName, String image){
+            //public ProductDTO(String id, int quantity, double price, String name, String store, String storeID,String image) {
+                String location = this.getLocation(product.getStoreID());
+                Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this);
                 productPanel2.populate(individualProduct);
         
        }
@@ -172,6 +182,7 @@ public class Dashboard extends javax.swing.JFrame {
             // switches shop tab to register, 0 = register tab, 1 = shop overview tab (if shop exists)
         }else{
            tabs.setSelectedIndex(2);
+           tabs.remove(3);
         }
     }
     
@@ -180,13 +191,22 @@ public class Dashboard extends javax.swing.JFrame {
         productPanel2.removeAll();
         productPanel2.revalidate();
         productPanel2.repaint();
-        
         this.createProductComponent();
+        tabs.remove(3);
+        
+        
         
     }
     
     public void setUser(UserDTO user){
         userLoggedIn = user;
+    }
+    
+    public void viewProduct(Component jpanel){
+        tabs.add(jpanel);
+        tabs.revalidate();
+        tabs.repaint();
+        tabs.setSelectedIndex(3);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

@@ -16,11 +16,12 @@ public class ProductDTO {
     private String store;
     private String storeID;    
     private String image;
+    private String description;
     public ProductDTO(){
         
     }
     
-    public ProductDTO(String id, int quantity, double price, String name, String store, String storeID,String image) {
+    public ProductDTO(String id, int quantity, double price, String name, String store, String storeID,String image, String description) {
         this.id = id;
         this.quantity = quantity;
         this.price = price;
@@ -28,8 +29,10 @@ public class ProductDTO {
         this.store = store;
         this.storeID = storeID;
         this.image = image;
+        this.description = description;
     }
     
+    public String getDescription(){return description;}
     public String getId() { return id; }
     public int getQuantity() {return quantity;}
     public double getPrice() {return price;}
