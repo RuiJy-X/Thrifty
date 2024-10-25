@@ -1,0 +1,22 @@
+{
+  "U1" : {
+    "userID" : "U1",
+    "name" : "Rujz",
+    "password" : "12345",
+    "location" : "Rizal St., Brgy. 3,Pontevedra, Negros Occidental, Philippines",
+    "city" : "Pontevedra",
+    "shopID" : "S1",
+    "image" : "",
+    "cart" : [ ]
+  },
+  "U76105" : {
+    "userID" : "U76105",
+    "name" : "dianne",
+    "password" : "123",
+    "location" : "Bacolod City, Negros Occidental",
+    "city" : "Bacolod City",
+    "shopID" : "S88851",
+    "image" : "null",
+    "cart" : [ ]
+  }
+}

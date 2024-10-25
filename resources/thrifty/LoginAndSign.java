@@ -8,17 +8,13 @@ package thrifty;
  *
  * @author User
  */
-public class LoginAndSignup extends javax.swing.JFrame {
+public class LoginAndSign extends javax.swing.JFrame {
 
     /**
-     * Creates new form LoginAndSignup
+     * Creates new form LoginAndSign
      */
-    public LoginAndSignup() {
+    public LoginAndSign() {
         initComponents();
-        loginForm1.setForm(this);
-        registerForm1.setForm(this);
-        
-        registerForm1.setLogin(loginForm1);
     }
 
     /**
@@ -34,7 +30,7 @@ public class LoginAndSignup extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -35, 1280, -1));
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 1, 1280, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -56,32 +52,25 @@ public class LoginAndSignup extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginAndSignup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginAndSign.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginAndSignup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginAndSign.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginAndSignup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginAndSign.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginAndSignup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginAndSign.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginAndSignup().setVisible(true);
+                new LoginAndSign().setVisible(true);
             }
         });
     }
-    
-    public void switchRegister(){
-        jTabbedPane1.setSelectedIndex(1);
-    }
-    
-    public void switchLogin(){
-        jTabbedPane1.setSelectedIndex(0);
-    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
