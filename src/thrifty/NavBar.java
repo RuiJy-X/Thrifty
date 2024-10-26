@@ -50,8 +50,8 @@ public class NavBar extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        searchItem = new javax.swing.JTextField();
+        searchButton = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -78,20 +78,25 @@ public class NavBar extends javax.swing.JPanel {
         jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jPanel5.setLayout(new java.awt.BorderLayout());
 
-        jTextField1.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
-        jTextField1.setBorder(null);
-        jTextField1.setPreferredSize(new java.awt.Dimension(464, 86));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        searchItem.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
+        searchItem.setBorder(null);
+        searchItem.setPreferredSize(new java.awt.Dimension(464, 86));
+        searchItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                searchItemActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField1, java.awt.BorderLayout.CENTER);
+        jPanel5.add(searchItem, java.awt.BorderLayout.CENTER);
 
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/Group 106 (1).png"))); // NOI18N
-        jPanel5.add(jLabel5, java.awt.BorderLayout.EAST);
+        searchButton.setBackground(new java.awt.Color(255, 255, 255));
+        searchButton.setForeground(new java.awt.Color(255, 255, 255));
+        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/Group 106 (1).png"))); // NOI18N
+        searchButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchButtonMouseClicked(evt);
+            }
+        });
+        jPanel5.add(searchButton, java.awt.BorderLayout.EAST);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.BorderLayout());
@@ -177,9 +182,9 @@ public class NavBar extends javax.swing.JPanel {
         add(jLayeredPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void searchItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_searchItemActionPerformed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         
@@ -193,18 +198,26 @@ public class NavBar extends javax.swing.JPanel {
         db.dashboard();
     }//GEN-LAST:event_logoMouseClicked
 
+    private void searchButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchButtonMouseClicked
+        // TODO add your handling code here:
+        String item = searchItem.getText();
+        searchItem.setText("");
+        db.search(item);
+        db.isSearching = true;
+    }//GEN-LAST:event_searchButtonMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel logo;
+    private javax.swing.JLabel searchButton;
+    private javax.swing.JTextField searchItem;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,8 @@
  */
 package thrifty;
 
+import java.awt.Component;
+
 /**
  *
  * @author User
@@ -13,6 +15,8 @@ public class ProductPanel extends javax.swing.JPanel {
     /**
      * Creates new form ProductPanel
      */
+    private Dashboard db;
+    
     public ProductPanel() {
         initComponents();
     }
@@ -35,23 +39,41 @@ public class ProductPanel extends javax.swing.JPanel {
 
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        filter = new javax.swing.JComboBox<>();
         productContainer = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1280, 688));
         setLayout(new java.awt.BorderLayout());
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(1286, 50));
 
         jButton1.setFont(new java.awt.Font("Outfit", 1, 18)); // NOI18N
         jButton1.setText("Next");
+
+        filter.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No Filter", "₱1.00 -  ₱100.00", "₱100.00 -  ₱300.00", "₱300.00 -  ₱600.00", "₱600.00 -  ₱1000.00", "₱1000.00 -  ₱1500.00", "₱1500.00+" }));
+        filter.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        filter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                filterMouseEntered(evt);
+            }
+        });
+        filter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filterActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(1181, Short.MAX_VALUE)
+                .addContainerGap(959, Short.MAX_VALUE)
+                .addComponent(filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
@@ -59,19 +81,81 @@ public class ProductPanel extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(filter))
                 .addContainerGap())
         );
 
-        add(jPanel2, java.awt.BorderLayout.PAGE_END);
+        add(jPanel2, java.awt.BorderLayout.NORTH);
 
         productContainer.setBackground(new java.awt.Color(255, 255, 255));
         productContainer.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 25, 25));
         add(productContainer, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void filterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterActionPerformed
+        // TODO add your handling code here:
+        //Filter, ₱1.00 -  ₱100.00, ₱100.00 -  ₱300.00, ₱300.00 -  ₱600.00, ₱600.00 -  ₱1000.00, ₱1000.00 -  ₱1500.00, ₱1500.00+
+        String filter1 = "₱1.00 -  ₱100.00";
+        String filter2 = "₱100.00 -  ₱300.00";
+        String filter3 = "₱300.00 -  ₱600.00";
+        String filter4 = "₱600.00 -  ₱1000.00";
+        String filter5 = "₱1000.00 -  ₱1500.00";
+        String filter6 = "₱1500.00+";
+        
+        String choice = (String) filter.getSelectedItem();
+        
+        if (filter1.equals(choice)){
+            
+            System.out.println("item 1 bro");
+            db.filteredComponents(1);
+        }else if(filter2.equals(choice)){
+            
+            System.out.println("item 2");
+            db.filteredComponents(2);
+        }else if(filter3.equals(choice)){
+            
+            System.out.println("item 3");
+            db.filteredComponents(3);
+        }else if(filter4.equals(choice)){
+            
+            System.out.println("item 4");
+            db.filteredComponents(4);
+        }else if(filter5.equals(choice)){
+            
+            System.out.println("item 5");
+            db.filteredComponents(5);
+        }else if(filter6.equals(choice)){
+            
+            System.out.println("item 6");
+            db.filteredComponents(6);
+           
+        }else{
+            System.out.println("no filter");
+            db.createProductComponent();
+        }
+    }//GEN-LAST:event_filterActionPerformed
+
+    private void filterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_filterMouseEntered
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_filterMouseEntered
+    public void setDB(Dashboard db){
+        this.db = db;
+        
+    }
+    
+    public Component[] getProductComponents(){
+        return productContainer.getComponents();
+    }
+    
+    public void removeProduct(Component component){
+        productContainer.remove(component);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> filter;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel productContainer;

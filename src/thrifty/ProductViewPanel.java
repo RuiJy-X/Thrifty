@@ -7,7 +7,10 @@ package thrifty;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-
+import static thrifty.RegisterForm.random;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 /**
  *
  * @author User
@@ -18,11 +21,14 @@ public class ProductViewPanel extends javax.swing.JPanel {
      * Creates new form ProductViewPanel
      */
     Dashboard db;
+    public HashMap<String,OrderDTO> orders;
+    private ProductDTO product;
+    private UserDTO user;
     public ProductViewPanel() {
         initComponents();
     }
     
-    public ProductViewPanel(String name, String price, String quantity, String description, String pictureIMG, Dashboard db) {
+    public ProductViewPanel(String name, String price, String quantity, String description, String pictureIMG, Dashboard db,ProductDTO product) {
         initComponents();
         this.name.setText(name);
         this.price.setText(price);
@@ -133,6 +139,11 @@ public class ProductViewPanel extends javax.swing.JPanel {
         jButton6.setFont(new java.awt.Font("Outfit", 1, 18)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Checkout");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -213,6 +224,47 @@ public class ProductViewPanel extends javax.swing.JPanel {
         db.dashboard();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+        orders = db.getOrder();
+        user = db.getUser();
+        
+        //create id
+        
+        String orderID = generateID(createIDKey());
+        
+        int quantitySold = Integer.valueOf(quantity.getText());
+        
+        double totalPrice = quantitySold * Double.valueOf(product.getPrice());
+        //    public OrderDTO(String orderID,String productID, int quantitySold, String buyerID, String dateBought, int totalPrice){
+        OrderDTO newOrder = new OrderDTO(orderID,product.getId(),quantitySold,user.getUserID(),getCurrentDate(),totalPrice);
+        System.out.println(newOrder + newOrder.getDateBought() + newOrder.getOrderID());
+    }//GEN-LAST:event_jButton6MouseClicked
+    
+    public static String getCurrentDate(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate currentDate = LocalDate.now();
+        return currentDate.format(formatter);
+    }
+    public String generateID(String ID){ //recursion for creating ID and checks if it exists
+     //ID = Ux where x is a number, U means user
+     for (String key : orders.keySet()){
+         if (key.equals(ID)){ // if ID key exists then create ID
+             String newKey = createIDKey(); 
+             return generateID(newKey);
+         }
+     }
+
+     return ID;
+ }
+
+ public static String createIDKey(){ //create ID key
+     int randomNumber = random.nextInt(100000);
+     String idNum = String.valueOf(randomNumber);
+     String key = "O".concat(idNum);
+     return key;
+
+ }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel address;

@@ -25,6 +25,7 @@ public class Dashboard extends javax.swing.JFrame {
     public HashMap<String, HashMap<String, ProductDTO>> allProducts;
     public HashMap<String,ShopDTO> allShops;
     public HashMap<String,UserDTO> allUsers;
+    public HashMap<String,OrderDTO> orders;
     public static ObjectMapper mapper = new ObjectMapper();
     
     public static File file = new File("src\\thrifty\\products.json");
@@ -33,6 +34,10 @@ public class Dashboard extends javax.swing.JFrame {
     
     public static ArrayList<ProductDTO> uniqueProductList = new ArrayList<ProductDTO>();
     
+    public Component[] productComponents;
+    public Component[] allProductComponents;
+    
+    public boolean isSearching = false;
     public UserDTO userLoggedIn;
     public ShopDTO userShop;
     public Dashboard()  {
@@ -94,6 +99,10 @@ public class Dashboard extends javax.swing.JFrame {
     public HashMap<String, UserDTO> getUserFiles(){
         return this.allUsers;
     }
+    
+    public HashMap<String, OrderDTO> getOrder(){
+        return this.orders;
+    }
             
     public void setShop(){
         //If a user doesn't have a shop, shop id is set to null in the register form
@@ -125,6 +134,9 @@ public class Dashboard extends javax.swing.JFrame {
             fieldsRegisterShop1.setDB(this);
             
             shopOverview2.setDB(this);
+            
+            productPanel2.setDB(this);
+                    
         }
     }
     
@@ -136,6 +148,7 @@ public class Dashboard extends javax.swing.JFrame {
             allProducts = mapper.readValue(file, new TypeReference<HashMap<String, HashMap<String, ProductDTO>>>() {}); 
             allShops = mapper.readValue(shopFile, new TypeReference<HashMap<String, ShopDTO>>() {});
             allUsers = mapper.readValue(userFiles, new TypeReference<HashMap<String,UserDTO>>() {});
+            orders = mapper.readValue(new File("src\\thrifty\\orders.json"), new TypeReference<HashMap<String,OrderDTO>>() {});
         }catch(IOException e){
             e.printStackTrace();
         }
@@ -151,6 +164,10 @@ public class Dashboard extends javax.swing.JFrame {
    }
    
    public void createProductComponent(){
+       productComponents = null;
+        productPanel2.removeAll();
+        productPanel2.revalidate();
+        productPanel2.repaint();
        for (String key : allProducts.keySet()){
             for (ProductDTO product : allProducts.get(key).values()){
 //           int storeID = product.getStoreID();
@@ -160,12 +177,148 @@ public class Dashboard extends javax.swing.JFrame {
             //public Product(String Name, String Location, double Price,String shopName, String image){
             //public ProductDTO(String id, int quantity, double price, String name, String store, String storeID,String image) {
                 String location = this.getLocation(product.getStoreID());
-                Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this);
+                Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product);
                 productPanel2.populate(individualProduct);
         
        }
       
        }
+       allProductComponents = productPanel2.getProductComponents();
+       
+   }
+   public void filteredComponents(int i){
+//       productPanel2.removeAll();
+       
+       productPanel2.revalidate();
+       productPanel2.repaint(); 
+       
+       
+       int lowerBound = 0;
+        int upperBound = 0;
+        
+        // //Filter, ₱1.00 -  ₱100.00, ₱100.00 -  ₱300.00, ₱300.00 -  ₱600.00, ₱600.00 -  ₱1000.00, ₱1000.00 -  ₱1500.00, ₱1500.00+
+        if (i == 1){
+            lowerBound = 1;
+            upperBound = 100;
+        }else if (i == 2) {
+            lowerBound = 100;
+            upperBound = 300;
+        
+        }else if (i == 3) {
+            lowerBound = 300;
+            upperBound = 600;
+        
+        }else if (i == 4) {
+            lowerBound = 600;
+            upperBound = 1000;
+        
+        }else if (i == 5) {
+            lowerBound = 1000;
+            upperBound = 1500;
+        
+        }else if (i == 6) {
+            lowerBound = 1500;
+            upperBound = Integer.MAX_VALUE;
+        }
+//         Component[] components = productPanel2.getProductComponents();
+        if (isSearching){
+             productPanel2.removeAll();
+            productPanel2.revalidate();
+            productPanel2.repaint(); 
+             for (Component component : productComponents){
+//           System.out.println(components);
+
+           if (component instanceof Product){
+               
+               Product product = (Product) component;
+               
+               
+               
+               
+               
+               if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
+                  // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
+                  Product individualProduct = new Product(product.getName(),product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct());
+                  productPanel2.populate(individualProduct);
+                  
+                  
+                  
+                   
+               }
+               
+               
+           }
+        }
+      
+       }else{
+            productPanel2.removeAll();
+            productPanel2.revalidate();
+            productPanel2.repaint(); 
+            for (Component component : allProductComponents){
+//           System.out.println(components);
+
+           if (component instanceof Product){
+               
+               Product product = (Product) component;
+               
+               
+               
+               
+               
+               if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
+                  // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
+                  Product individualProduct = new Product(product.getName(),product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct());
+                  productPanel2.populate(individualProduct);
+                  
+                  
+                  
+                   
+               }
+               
+               
+           }
+           
+        }
+            
+        }
+       
+        
+         
+//       for (String key : allProducts.keySet()){
+//           for (ProductDTO product : allProducts.get(key).values()){
+//               if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
+//                  String location = this.getLocation(product.getStoreID());
+//                  Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product);
+//                  productPanel2.populate(individualProduct);
+//               }
+//           }
+//           
+//       }
+   }
+   
+   
+   
+   public void resetPanel(){
+       productPanel2.removeAll();
+       productPanel2.revalidate();
+       productPanel2.repaint(); 
+   }
+    public void searchedComponents(String keyword){
+        productComponents = null;
+        for (String key : allProducts.keySet()){
+            if (keyword.contains(key)){
+
+                for (ProductDTO product : allProducts.get(key).values()){
+
+                    String location = this.getLocation(product.getStoreID());
+                    Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product);
+                    productPanel2.populate(individualProduct);
+                    
+                }
+            }
+        }
+        productComponents = productPanel2.getProductComponents();
+        
    }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -207,6 +360,14 @@ public class Dashboard extends javax.swing.JFrame {
         tabs.revalidate();
         tabs.repaint();
         tabs.setSelectedIndex(3);
+    }
+    
+    public void search(String item){
+        tabs.setSelectedIndex(0);
+        productPanel2.removeAll();
+        productPanel2.revalidate();
+        productPanel2.repaint();
+        this.searchedComponents(item);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

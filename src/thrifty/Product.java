@@ -25,6 +25,7 @@ public class Product extends javax.swing.JPanel {
     private String description;
     private String quantity;
     private Dashboard db;
+     private ProductDTO product;
     public static void icon(String path, JLabel component,int width, int height){
         ImageIcon imageIcon =  new ImageIcon(path);
         Image img = imageIcon.getImage();
@@ -53,7 +54,7 @@ public class Product extends javax.swing.JPanel {
         
     }
     
-    public Product(String Name, String Location, double Price,String shopName, String image, String description, int quantity, Dashboard db){
+    public Product(String Name, String Location, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
         initComponents();
         this.Location = Location;
         this.Name = Name;
@@ -72,6 +73,32 @@ public class Product extends javax.swing.JPanel {
         String tempQuantity = String.valueOf(quantity);
         this.quantity = tempQuantity;
         this.db = db;
+        this.product = product;
+        
+    }
+    
+    public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
+        initComponents();
+        
+        this.Name = Name;
+        this.Price = Price;
+        this.shopName = shopName;
+        
+        // Change default values
+        this.image = image;
+        Name = toTitleCase(Name);
+        this.name.setText(Name);
+        this.location.setText(Location);
+        this.price.setText("PHP"+ String.format("%.2f", Price));
+        this.shopNameInput.setText(shopName);
+        icon(image,picture,158,104);
+        this.description = description;
+        String tempQuantity = String.valueOf(quantity);
+        this.quantity = tempQuantity;
+        this.db = db;
+        this.product = product;
+        
+        this.Location = db.getLocation(product.getStoreID());
         
     }
    
@@ -185,11 +212,48 @@ public class Product extends javax.swing.JPanel {
 //    private String shopName;
         String price1 = ("₱" + String.format("%.2f", Price));
         
-        ProductViewPanel view = new ProductViewPanel(Name,price1,quantity,description,image,db);
+        ProductViewPanel view = new ProductViewPanel(Name,price1,quantity,description,image,db,product);
         db.viewProduct(view);
     }//GEN-LAST:event_formMouseClicked
-
-
+    /*
+    private String Name;
+    private String Location;
+    private double Price;
+    private String image;
+    private String shopName;
+    private String description;
+    private String quantity;
+    private Dashboard db;
+     private ProductDTO product;
+    */
+    //Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product);
+    public int getPrice(){
+        return (int)Price;
+    }
+    
+    public String getName(){
+        return Name;
+    }
+   
+    public String getStore(){
+        return shopName;
+    }
+    
+    public String getImage(){
+        return image;
+    }
+    public String getDescription(){
+        return description;
+    }
+    public int getQuantity(){
+        return Integer.valueOf(quantity);
+    }
+    public ProductDTO getProduct(){
+        return product;
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel location;

@@ -3,7 +3,7 @@
     "pen75211" : {
       "id" : "pen75211",
       "quantity" : 100,
-      "price" : 12.0,
+      "price" : 600.0,
       "name" : "Ballpen pcs",
       "store" : "MARJ Store",
       "storeID" : "S1",
@@ -25,7 +25,7 @@
     "lapis12078" : {
       "id" : "lapis12078",
       "quantity" : 19,
-      "price" : 20.0,
+      "price" : 1100.0,
       "name" : "Lapis red",
       "store" : "MARJ Store",
       "storeID" : "S1",
