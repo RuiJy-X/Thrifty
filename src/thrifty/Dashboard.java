@@ -170,6 +170,8 @@ public class Dashboard extends javax.swing.JFrame {
         productPanel2.repaint();
        for (String key : allProducts.keySet()){
             for (ProductDTO product : allProducts.get(key).values()){
+                
+                
 //           int storeID = product.getStoreID();
 //           if (userCity == stores.get(storeID).get("city")){
 //              then create object
@@ -177,13 +179,21 @@ public class Dashboard extends javax.swing.JFrame {
             //public Product(String Name, String Location, double Price,String shopName, String image){
             //public ProductDTO(String id, int quantity, double price, String name, String store, String storeID,String image) {
                 String location = this.getLocation(product.getStoreID());
-                Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product);
-                productPanel2.populate(individualProduct);
+                System.out.println(userLoggedIn.getCity());
+                System.out.println(location);
+                
+                if (userLoggedIn.getCity().equalsIgnoreCase(location)){
+                    Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product);
+                    productPanel2.populate(individualProduct);
+                }
+                
         
        }
       
        }
+       this.setResults("");
        allProductComponents = productPanel2.getProductComponents();
+       isSearching = false;
        
    }
    public void filteredComponents(int i){
@@ -231,20 +241,15 @@ public class Dashboard extends javax.swing.JFrame {
            if (component instanceof Product){
                
                Product product = (Product) component;
-               
-               
-               
-               
-               
-               if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
-                  // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
-                  Product individualProduct = new Product(product.getName(),product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct());
-                  productPanel2.populate(individualProduct);
-                  
-                  
-                  
-                   
-               }
+               String location = this.getLocation(product.getStoreID());
+               if (userLoggedIn.getCity().equalsIgnoreCase(location)){
+                    if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
+                       // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
+                       Product individualProduct = new Product(product.getName(),product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct());
+                       productPanel2.populate(individualProduct);
+
+                    }
+                }
                
                
            }
@@ -260,22 +265,15 @@ public class Dashboard extends javax.swing.JFrame {
            if (component instanceof Product){
                
                Product product = (Product) component;
-               
-               
-               
-               
-               
-               if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
-                  // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
-                  Product individualProduct = new Product(product.getName(),product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct());
-                  productPanel2.populate(individualProduct);
-                  
-                  
-                  
-                   
+               String location = this.getLocation(product.getStoreID());
+               if (userLoggedIn.getCity().equalsIgnoreCase(location)){
+                    if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
+                       // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
+                       Product individualProduct = new Product(product.getName(),product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct());
+                       productPanel2.populate(individualProduct);
+
+                    }
                }
-               
-               
            }
            
         }
@@ -304,16 +302,18 @@ public class Dashboard extends javax.swing.JFrame {
        productPanel2.repaint(); 
    }
     public void searchedComponents(String keyword){
+        isSearching = true;
         productComponents = null;
         for (String key : allProducts.keySet()){
             if (keyword.contains(key)){
 
                 for (ProductDTO product : allProducts.get(key).values()){
-
-                    String location = this.getLocation(product.getStoreID());
-                    Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product);
-                    productPanel2.populate(individualProduct);
                     
+                    String location = this.getLocation(product.getStoreID());
+                    if (userLoggedIn.getCity().equalsIgnoreCase(location)){
+                        Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product);
+                        productPanel2.populate(individualProduct);
+                    }
                 }
             }
         }
@@ -346,6 +346,7 @@ public class Dashboard extends javax.swing.JFrame {
         productPanel2.repaint();
         this.createProductComponent();
         tabs.remove(3);
+        isSearching = false;
         
         
         
@@ -368,6 +369,10 @@ public class Dashboard extends javax.swing.JFrame {
         productPanel2.revalidate();
         productPanel2.repaint();
         this.searchedComponents(item);
+    }
+    
+    public void setResults(String name){
+        productPanel2.setResults(name);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

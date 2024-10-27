@@ -4,7 +4,12 @@
  */
 package thrifty.shopUIs;
 
+import java.util.HashMap;
+import thrifty.Dashboard;
+import thrifty.OrderDTO;
+import thrifty.ProductDTO;
 import thrifty.ShopDTO;
+import thrifty.UserDTO;
 
 /**
  *
@@ -16,9 +21,17 @@ public class PanelMyProducts extends javax.swing.JPanel {
      * Creates new form PanelMyProducts
      */
     ShopDTO shop;
+    public HashMap<String, HashMap<String, ProductDTO>> allProducts;
+    public HashMap<String,ShopDTO> allShops;
+    public HashMap<String,UserDTO> allUsers;
+    public HashMap<String,OrderDTO> orders;
+    Dashboard db;
+    UserDTO user;
+    
     public PanelMyProducts() {
         initComponents();
     }
+    
     
     
     /**
@@ -148,6 +161,38 @@ public class PanelMyProducts extends javax.swing.JPanel {
     public void setShop(ShopDTO shop){
         this.shop = shop;
     }
+    
+    public void setDB(Dashboard db){
+        this.db = db;
+    }
+    
+    public void setup(Dashboard db,HashMap<String, HashMap<String, ProductDTO>> allProducts,HashMap<String,ShopDTO> allShops, UserDTO user, ShopDTO shop){
+        this.db = db;
+        this.allProducts = allProducts;
+        this.allShops = allShops;
+        this.user = user;
+        this.shop = shop;
+        
+        this.createProduct();
+        
+    }
+    
+    public void createProduct(){
+        HashMap<String, ProductDTO> flattenedProducts = new HashMap<>();
+        
+        for (HashMap<String, ProductDTO> innerMap : allProducts.values()) {
+            flattenedProducts.putAll(innerMap);
+        }
+        
+        for (String productID: shop.getProducts()){
+            System.out.println("test");
+            ProductDTO product = flattenedProducts.get(productID);
+            // public MyProductItems(String name, String image, int quantity, String dateAdded,int purchases, double price)
+            MyProductItems newItem = new MyProductItems(product.getName(),product.getImage(),product.getQuantity(), "NA",0,product.getPrice());
+            scrollPanel.add(newItem);
+        }
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

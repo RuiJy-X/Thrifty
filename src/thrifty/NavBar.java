@@ -202,6 +202,7 @@ public class NavBar extends javax.swing.JPanel {
         // TODO add your handling code here:
         String item = searchItem.getText();
         searchItem.setText("");
+        db.setResults(item);
         db.search(item);
         db.isSearching = true;
     }//GEN-LAST:event_searchButtonMouseClicked

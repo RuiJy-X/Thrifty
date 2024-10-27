@@ -4,6 +4,10 @@
  */
 package thrifty.shopUIs;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author User
@@ -13,8 +17,46 @@ public class MyProductItems extends javax.swing.JPanel {
     /**
      * Creates new form MyProductItems
      */
+    String name;
+    String image;
+    String quantity;
+    String dateAdded;
+    String purchases;
+    String price;
+    
+    
     public MyProductItems() {
         initComponents();
+    }
+    public static void icon(String path, JLabel component,int width, int height){
+        ImageIcon imageIcon =  new ImageIcon(path);
+        Image img = imageIcon.getImage();
+        Image imageScaled = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imageScaled);
+        component.setIcon(scaledIcon);
+        
+    }
+    public MyProductItems(String name, String image, int quantity, String dateAdded,int purchases, double price) {
+        
+        initComponents();
+        this.name = name;
+        this.image = image;
+        String temp1 = String.valueOf(quantity);
+        this.quantity = temp1;
+        this.dateAdded = dateAdded;
+        String temp2 = String.valueOf(purchases);
+        this.purchases = temp2;
+        String temp3 = String.valueOf(price);
+        this.price = temp3;
+        
+        icon(image,imageLabel,45,45);
+        nameLabel.setText(name);
+        priceLabel.setText(this.price);
+        quantityLabel.setText(this.quantity);
+        dateLabel.setText(this.dateAdded);
+        purchasesLabel.setText(this.purchases);
+        
+        
     }
 
     /**
@@ -26,34 +68,38 @@ public class MyProductItems extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        imageLabel = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
+        priceLabel = new javax.swing.JLabel();
+        dateLabel = new javax.swing.JLabel();
+        purchasesLabel = new javax.swing.JLabel();
+        deleteButton = new javax.swing.JLabel();
+        quantityLabel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setPreferredSize(new java.awt.Dimension(1005, 83));
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setPreferredSize(new java.awt.Dimension(45, 45));
+        imageLabel.setBackground(new java.awt.Color(255, 255, 255));
+        imageLabel.setPreferredSize(new java.awt.Dimension(45, 45));
 
-        jLabel2.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        jLabel2.setText("product name");
+        nameLabel.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        nameLabel.setText("product name");
 
-        jLabel3.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabel3.setText("PHP x");
+        priceLabel.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        priceLabel.setText("PHP x");
 
-        jLabel4.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabel4.setText("Date");
+        dateLabel.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        dateLabel.setText("Date");
 
-        jLabel5.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabel5.setText("x");
+        purchasesLabel.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        purchasesLabel.setText("x");
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/delete.png"))); // NOI18N
-        jLabel7.setPreferredSize(new java.awt.Dimension(50, 50));
+        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/delete.png"))); // NOI18N
+        deleteButton.setPreferredSize(new java.awt.Dimension(50, 50));
+
+        quantityLabel.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        quantityLabel.setText("quan");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -61,18 +107,20 @@ public class MyProductItems extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(quantityLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                .addComponent(dateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(purchasesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,26 +129,28 @@ public class MyProductItems extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)))
+                            .addComponent(nameLabel)
+                            .addComponent(priceLabel)
+                            .addComponent(dateLabel)
+                            .addComponent(purchasesLabel)
+                            .addComponent(quantityLabel)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel dateLabel;
+    private javax.swing.JLabel deleteButton;
+    private javax.swing.JLabel imageLabel;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel priceLabel;
+    private javax.swing.JLabel purchasesLabel;
+    private javax.swing.JLabel quantityLabel;
     // End of variables declaration//GEN-END:variables
 }

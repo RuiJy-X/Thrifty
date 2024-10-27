@@ -33,7 +33,7 @@ public class Sidebar extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        productsButton = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -63,11 +63,11 @@ public class Sidebar extends javax.swing.JPanel {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/Product.png"))); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Outfit", 0, 20)); // NOI18N
-        jLabel6.setText("Products");
-        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+        productsButton.setFont(new java.awt.Font("Outfit", 0, 20)); // NOI18N
+        productsButton.setText("Products");
+        productsButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel6MouseClicked(evt);
+                productsButtonMouseClicked(evt);
             }
         });
 
@@ -119,7 +119,7 @@ public class Sidebar extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel6)
+                            .addComponent(productsButton)
                             .addComponent(jLabel10)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
@@ -145,7 +145,7 @@ public class Sidebar extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(productsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
@@ -166,10 +166,10 @@ public class Sidebar extends javax.swing.JPanel {
         so.overviewTab();
     }//GEN-LAST:event_jLabel4MouseClicked
 
-    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+    private void productsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productsButtonMouseClicked
         // TODO add your handling code here:
         so.productsTab();
-    }//GEN-LAST:event_jLabel6MouseClicked
+    }//GEN-LAST:event_productsButtonMouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         // TODO add your handling code here:
@@ -184,6 +184,7 @@ public class Sidebar extends javax.swing.JPanel {
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
         so.addProductTab();
+        
     }//GEN-LAST:event_jLabel8MouseClicked
     
     public void setShopOverview(ShopOverview so){
@@ -199,9 +200,9 @@ public class Sidebar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel productsButton;
     // End of variables declaration//GEN-END:variables
 }

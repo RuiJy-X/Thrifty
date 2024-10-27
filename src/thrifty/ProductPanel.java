@@ -40,6 +40,7 @@ public class ProductPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         filter = new javax.swing.JComboBox<>();
+        results = new javax.swing.JLabel();
         productContainer = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -66,12 +67,16 @@ public class ProductPanel extends javax.swing.JPanel {
             }
         });
 
+        results.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(959, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
+                .addComponent(results)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 936, Short.MAX_VALUE)
                 .addComponent(filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -83,7 +88,8 @@ public class ProductPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(filter))
+                    .addComponent(filter)
+                    .addComponent(results))
                 .addContainerGap())
         );
 
@@ -153,11 +159,21 @@ public class ProductPanel extends javax.swing.JPanel {
     public void removeProduct(Component component){
         productContainer.remove(component);
     }
+    
+    public void setResults(String name){
+        if (name.equals("")){
+            results.setText("");
+        }else{
+            
+            results.setText("Results for: " + name);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> filter;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel productContainer;
+    private javax.swing.JLabel results;
     // End of variables declaration//GEN-END:variables
 }

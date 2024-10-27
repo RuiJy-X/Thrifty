@@ -1,4 +1,16 @@
 {
+  "eraser" : {
+    "eraser77902" : {
+      "id" : "eraser77902",
+      "quantity" : 20,
+      "price" : 15.0,
+      "name" : "Eraser",
+      "store" : "dianne's shop",
+      "storeID" : "S88851",
+      "image" : "D:\\Downloads\\download (1).png",
+      "description" : "Nice"
+    }
+  },
   "pen" : {
     "pen75211" : {
       "id" : "pen75211",

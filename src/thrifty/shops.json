@@ -9,14 +9,14 @@
     "phoneNumber" : "09993332212",
     "email" : "dainne@gmail.com",
     "description" : "123",
-    "products" : [ ]
+    "products" : [ "eraser77902" ]
   },
   "S1" : {
     "shopID" : "S1",
     "shopName" : "MARJ Store",
     "ownerName" : "Maria Reyes",
     "address" : "123 Makati Ave, Makati City, Philippines",
-    "city" : "Makati City",
+    "city" : "Bacolod City",
     "businessType" : "retail",
     "phoneNumber" : "+63 912 345 6789",
     "email" : "marj.store@example.com",

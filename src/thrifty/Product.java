@@ -251,7 +251,9 @@ public class Product extends javax.swing.JPanel {
     public ProductDTO getProduct(){
         return product;
     }
-    
+    public String getStoreID(){
+        return product.getStoreID();
+    }
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
