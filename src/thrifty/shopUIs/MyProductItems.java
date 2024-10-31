@@ -53,7 +53,7 @@ public class MyProductItems extends javax.swing.JPanel {
         nameLabel.setText(name);
         priceLabel.setText(this.price);
         quantityLabel.setText(this.quantity);
-        dateLabel.setText(this.dateAdded);
+       
         purchasesLabel.setText(this.purchases);
         
         
@@ -71,7 +71,6 @@ public class MyProductItems extends javax.swing.JPanel {
         imageLabel = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
         priceLabel = new javax.swing.JLabel();
-        dateLabel = new javax.swing.JLabel();
         purchasesLabel = new javax.swing.JLabel();
         deleteButton = new javax.swing.JLabel();
         quantityLabel = new javax.swing.JLabel();
@@ -88,9 +87,6 @@ public class MyProductItems extends javax.swing.JPanel {
 
         priceLabel.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         priceLabel.setText("PHP x");
-
-        dateLabel.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        dateLabel.setText("Date");
 
         purchasesLabel.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         purchasesLabel.setText("x");
@@ -110,15 +106,13 @@ public class MyProductItems extends javax.swing.JPanel {
                 .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(105, 105, 105)
                 .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addComponent(quantityLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
-                .addComponent(dateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
                 .addComponent(purchasesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
                 .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -131,7 +125,6 @@ public class MyProductItems extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(nameLabel)
                             .addComponent(priceLabel)
-                            .addComponent(dateLabel)
                             .addComponent(purchasesLabel)
                             .addComponent(quantityLabel)))
                     .addGroup(layout.createSequentialGroup()
@@ -145,7 +138,6 @@ public class MyProductItems extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel dateLabel;
     private javax.swing.JLabel deleteButton;
     private javax.swing.JLabel imageLabel;
     private javax.swing.JLabel nameLabel;

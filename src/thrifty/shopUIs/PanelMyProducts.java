@@ -50,7 +50,6 @@ public class PanelMyProducts extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
@@ -89,9 +88,6 @@ public class PanelMyProducts extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel4.setText("Quantity");
 
-        jLabel6.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jLabel6.setText("Date Added");
-
         jLabel7.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         jLabel7.setText("Purchases");
 
@@ -100,10 +96,12 @@ public class PanelMyProducts extends javax.swing.JPanel {
 
         scroll.setBackground(new java.awt.Color(255, 255, 255));
         scroll.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scroll.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scroll.setPreferredSize(new java.awt.Dimension(1042, 500));
 
         scrollPanel.setBackground(new java.awt.Color(255, 255, 255));
-        scrollPanel.setMinimumSize(new java.awt.Dimension(1030, 82));
-        scrollPanel.setPreferredSize(new java.awt.Dimension(1030, 93));
+        scrollPanel.setMinimumSize(new java.awt.Dimension(1030, 93));
+        scrollPanel.setPreferredSize(new java.awt.Dimension(1030, 1000));
         scroll.setViewportView(scrollPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -113,22 +111,20 @@ public class PanelMyProducts extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 1029, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 229, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
-                        .addGap(93, 93, 93)
+                        .addGap(100, 100, 100)
                         .addComponent(jLabel4)
-                        .addGap(74, 74, 74)
-                        .addComponent(jLabel6)
-                        .addGap(79, 79, 79)
+                        .addGap(108, 108, 108)
                         .addComponent(jLabel7)
-                        .addGap(49, 49, 49)
+                        .addGap(79, 79, 79)
                         .addComponent(jLabel8)
                         .addGap(10, 10, 10)))
                 .addGap(26, 26, 26))
@@ -145,7 +141,6 @@ public class PanelMyProducts extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel6)
                     .addComponent(jLabel8)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -193,6 +188,10 @@ public class PanelMyProducts extends javax.swing.JPanel {
         }
     }
     
+    public void clear(){
+        scrollPanel.removeAll();
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -200,7 +199,6 @@ public class PanelMyProducts extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel5;

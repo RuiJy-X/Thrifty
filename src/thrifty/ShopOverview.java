@@ -61,6 +61,7 @@ public class ShopOverview extends javax.swing.JPanel {
     }
     public void productsTab(){
         tabs.setSelectedIndex(1);
+        panelMyProducts1.clear();
         panelMyProducts1.setup(db, allProducts, allShops, user,shop);
     }
     

@@ -17,11 +17,12 @@ public class ProductDTO {
     private String storeID;    
     private String image;
     private String description;
+    private int purchases;
     public ProductDTO(){
         
     }
     
-    public ProductDTO(String id, int quantity, double price, String name, String store, String storeID,String image, String description) {
+    public ProductDTO(String id, int quantity, double price, String name, String store, String storeID,String image, String description, int purchases) {
         this.id = id;
         this.quantity = quantity;
         this.price = price;
@@ -30,8 +31,10 @@ public class ProductDTO {
         this.storeID = storeID;
         this.image = image;
         this.description = description;
+        this.purchases = purchases;
     }
-    
+    public int getPurchases(){return purchases;}
+    public void setPurchases(int purchases){this.purchases = purchases;};
     public String getDescription(){return description;}
     public String getId() { return id; }
     public int getQuantity() {return quantity;}

@@ -4,13 +4,20 @@
  */
 package thrifty;
 
+import com.fasterxml.jackson.databind.SerializationFeature;
 import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import static thrifty.RegisterForm.random;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static thrifty.Dashboard.mapper;
 /**
  *
  * @author User
@@ -24,6 +31,8 @@ public class ProductViewPanel extends javax.swing.JPanel {
     public HashMap<String,OrderDTO> orders;
     private ProductDTO product;
     private UserDTO user;
+    ShopDTO shop;
+    HashMap<String,ShopDTO> allShops;
     public ProductViewPanel() {
         initComponents();
     }
@@ -36,6 +45,7 @@ public class ProductViewPanel extends javax.swing.JPanel {
         this.description.setText(description);
         icon(pictureIMG,picture,451,587);
         this.db = db;
+        this.product = product;
     }
     
     public static void icon(String path, JLabel component,int width, int height){
@@ -144,6 +154,11 @@ public class ProductViewPanel extends javax.swing.JPanel {
                 jButton6MouseClicked(evt);
             }
         });
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -228,6 +243,11 @@ public class ProductViewPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         orders = db.getOrder();
         user = db.getUser();
+        shop = db.getUserShop();
+        allShops = db.getShop();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        
+        
         
         //create id
         
@@ -236,10 +256,42 @@ public class ProductViewPanel extends javax.swing.JPanel {
         int quantitySold = Integer.valueOf(quantity.getText());
         
         double totalPrice = quantitySold * Double.valueOf(product.getPrice());
+         
+        
+        // create order object
         //    public OrderDTO(String orderID,String productID, int quantitySold, String buyerID, String dateBought, int totalPrice){
-        OrderDTO newOrder = new OrderDTO(orderID,product.getId(),quantitySold,user.getUserID(),getCurrentDate(),totalPrice);
-        System.out.println(newOrder + newOrder.getDateBought() + newOrder.getOrderID());
+        OrderDTO newOrder = new OrderDTO(orderID,product.getId(),quantitySold,user.getUserID(),getCurrentDate(),totalPrice,product.getStoreID());
+        
+        // update order hashmap
+        orders.put(orderID, newOrder);
+        
+        // forming a link to Orders arraylist inside the shop
+        ArrayList<String> orderList = allShops.get(product.getStoreID()).getOrders();
+        // Updating the order arraylist of the specific 
+        orderList.add(orderID);
+        
+        // Obtaining the shop where the product is from where the orderlist is updated
+        ShopDTO oldProductShop = allShops.get(product.getStoreID());
+        try {
+            //public ShopDTO(String shopID,String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,List<String> products,ArrayList<String> orders,List<String> sellLog){
+//
+//        ShopDTO newProductShop = new ShopDTO(oldProductShop);
+//        allShops.remove(newProductShop.getShopID());
+//        allShops.put(newProductShop.getShopID(), newProductShop);
+            mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops);
+            mapper.writeValue(new File("src\\thrifty\\orders.json"), orders);
+        } catch (IOException ex) {
+            Logger.getLogger(ProductViewPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+        
     }//GEN-LAST:event_jButton6MouseClicked
+    
+    
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton6ActionPerformed
     
     public static String getCurrentDate(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
