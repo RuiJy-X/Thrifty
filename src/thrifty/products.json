@@ -7,8 +7,9 @@
       "name" : "Eraser",
       "store" : "dianne's shop",
       "storeID" : "S88851",
-      "image" : "D:\\Downloads\\download (1).png",
-      "description" : "Nice"
+      "image" : "C:\\Users\\User\\Downloads\\eraser.jpg",
+      "description" : "Nice",
+      "purchases": 0
     }
   },
   "pen" : {
@@ -19,8 +20,9 @@
       "name" : "Ballpen pcs",
       "store" : "MARJ Store",
       "storeID" : "S1",
-      "image" : "D:\\Downloads\\1641.jpg",
-      "description" : "Ballpen"
+      "image" : "C:\\Users\\User\\Downloads\\ballpen.jpg",
+      "description" : "Ballpen",
+      "purchases": 0
     }
   },
   "lapis" : {
@@ -31,8 +33,9 @@
       "name" : "Lapis pcs",
       "store" : "MARJ Store",
       "storeID" : "S1",
-      "image" : "D:\\Downloads\\1520221303856.jfif",
-      "description" : "Lapis"
+      "image" : "C:\\Users\\User\\Downloads\\pencil2.jpg",
+      "description" : "Lapis",
+      "purchases": 0
     },
     "lapis12078" : {
       "id" : "lapis12078",
@@ -41,8 +44,22 @@
       "name" : "Lapis red",
       "store" : "MARJ Store",
       "storeID" : "S1",
-      "image" : "D:\\Downloads\\q7u8jqbt3ml11.jpg",
-      "description" : "Lapis"
+      "image" : "C:\\Users\\User\\Downloads\\pencil1.jpg",
+      "description" : "Lapis",
+      "purchases": 0
+    }
+  },
+  "notebook" : {
+    "notebook68858" : {
+      "id" : "notebook68858",
+      "quantity" : 15,
+      "price" : 50.0,
+      "name" : "Notebook A5 100 Pages",
+      "store" : "John's Shop",
+      "storeID" : "S95347",
+      "image" : "C:\\Users\\User\\Downloads\\notebook.jpg",
+      "description" : "Wow",
+      "purchases": 0
     }
   }
 }

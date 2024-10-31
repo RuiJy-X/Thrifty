@@ -79,30 +79,7 @@ public class Dashboard extends javax.swing.JFrame {
             
           
     }
-    public HashMap<String, HashMap<String, ProductDTO>> getallProducts(){
-        return this.allProducts;
-    }
-    public HashMap<String,ShopDTO> getShop(){
-        return this.allShops;
-    }
-    public void updateUser(UserDTO user){
-        this.userLoggedIn = user;
-    }
-    public UserDTO getUser(){
-        return this.userLoggedIn;
-    }
     
-    public ShopDTO getUserShop(){
-        return this.userShop;
-    }
-    
-    public HashMap<String, UserDTO> getUserFiles(){
-        return this.allUsers;
-    }
-    
-    public HashMap<String, OrderDTO> getOrder(){
-        return this.orders;
-    }
             
     public void setShop(){
         //If a user doesn't have a shop, shop id is set to null in the register form
@@ -159,10 +136,7 @@ public class Dashboard extends javax.swing.JFrame {
        return location;
    }
    
-   public Dashboard getDB(){
-       return this;
-   }
-   
+
    public void createProductComponent(){
        productComponents = null;
         productPanel2.removeAll();
@@ -179,8 +153,7 @@ public class Dashboard extends javax.swing.JFrame {
             //public Product(String Name, String Location, double Price,String shopName, String image){
             //public ProductDTO(String id, int quantity, double price, String name, String store, String storeID,String image) {
                 String location = this.getLocation(product.getStoreID());
-                System.out.println(userLoggedIn.getCity());
-                System.out.println(location);
+                
                 
                 if (userLoggedIn.getCity().equalsIgnoreCase(location)){
                     Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product);
@@ -242,10 +215,11 @@ public class Dashboard extends javax.swing.JFrame {
                
                Product product = (Product) component;
                String location = this.getLocation(product.getStoreID());
+               
                if (userLoggedIn.getCity().equalsIgnoreCase(location)){
                     if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
                        // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
-                       Product individualProduct = new Product(product.getName(),product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct());
+                       Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct());
                        productPanel2.populate(individualProduct);
 
                     }
@@ -269,7 +243,7 @@ public class Dashboard extends javax.swing.JFrame {
                if (userLoggedIn.getCity().equalsIgnoreCase(location)){
                     if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
                        // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
-                       Product individualProduct = new Product(product.getName(),product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct());
+                       Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct());
                        productPanel2.populate(individualProduct);
 
                     }
@@ -335,7 +309,7 @@ public class Dashboard extends javax.swing.JFrame {
             // switches shop tab to register, 0 = register tab, 1 = shop overview tab (if shop exists)
         }else{
            tabs.setSelectedIndex(2);
-           tabs.remove(3);
+           tabs.remove(4);
         }
     }
     
@@ -345,11 +319,15 @@ public class Dashboard extends javax.swing.JFrame {
         productPanel2.revalidate();
         productPanel2.repaint();
         this.createProductComponent();
-        tabs.remove(3);
+        
+        tabs.remove(4);
+        
+        
         isSearching = false;
         
-        
-        
+    }
+    public void cart(){
+        tabs.setSelectedIndex(3);
     }
     
     public void setUser(UserDTO user){
@@ -360,7 +338,7 @@ public class Dashboard extends javax.swing.JFrame {
         tabs.add(jpanel);
         tabs.revalidate();
         tabs.repaint();
-        tabs.setSelectedIndex(3);
+        tabs.setSelectedIndex(4);
     }
     
     public void search(String item){
@@ -374,6 +352,36 @@ public class Dashboard extends javax.swing.JFrame {
     public void setResults(String name){
         productPanel2.setResults(name);
     }
+    
+    public Dashboard getDB(){
+       return this;
+   }
+   
+   public HashMap<String, HashMap<String, ProductDTO>> getallProducts(){
+        return this.allProducts;
+    }
+    public HashMap<String,ShopDTO> getShop(){
+        return this.allShops;
+    }
+    public void updateUser(UserDTO user){
+        this.userLoggedIn = user;
+    }
+    public UserDTO getUser(){
+        return this.userLoggedIn;
+    }
+    
+    public ShopDTO getUserShop(){
+        return this.userShop;
+    }
+    
+    public HashMap<String, UserDTO> getUserFiles(){
+        return this.allUsers;
+    }
+    
+    public HashMap<String, OrderDTO> getOrder(){
+        return this.orders;
+    }
+   
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -383,6 +391,7 @@ public class Dashboard extends javax.swing.JFrame {
         productPanel2 = new thrifty.ProductPanel();
         fieldsRegisterShop1 = new thrifty.shopUIs.FieldsRegisterShop();
         shopOverview2 = new thrifty.ShopOverview();
+        cart1 = new thrifty.Cart();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1280, 900));
@@ -397,6 +406,7 @@ public class Dashboard extends javax.swing.JFrame {
         tabs.addTab("tab2", productPanel2);
         tabs.addTab("tab2", fieldsRegisterShop1);
         tabs.addTab("tab1", shopOverview2);
+        tabs.addTab("tab4", cart1);
 
         jLayeredPane1.add(tabs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, -1, -1));
 
@@ -442,6 +452,7 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private thrifty.Cart cart1;
     public thrifty.shopUIs.FieldsRegisterShop fieldsRegisterShop1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private thrifty.NavBar navBar1;

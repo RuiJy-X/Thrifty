@@ -448,7 +448,7 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
         // create shop DTO
         //  public ShopDTO(String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,List<String> products){
         String newKey = generateID(createIDKey()); //Generate new IDKey
-        ShopDTO newShop = new ShopDTO(newKey,shopName,ownerName,address,city,type,number,email,description,new ArrayList<>());
+        ShopDTO newShop = new ShopDTO(newKey,shopName,ownerName,address,city,type,number,email,description,new ArrayList<>(),new ArrayList<>(),new ArrayList<>());
         
         //public UserDTO(String userID, String name, String password, String location, String city, String shopID, String image, ArrayList<String> cart){
         //update User with new SHOPID, we have to create another user object

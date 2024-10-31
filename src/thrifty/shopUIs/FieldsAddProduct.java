@@ -294,7 +294,7 @@ public class FieldsAddProduct extends javax.swing.JPanel {
         
         String newKey = generateID(createIDKey(newProductName), newProductName); // create ID
         newKey = newKey.toLowerCase();
-        ProductDTO newProduct = new ProductDTO(newKey,newQuantity,price,display,shop.getShopName(),shop.getShopID(),newProductPicture,newProductDescription); // Make product object
+        ProductDTO newProduct = new ProductDTO(newKey,newQuantity,price,display,shop.getShopName(),shop.getShopID(),newProductPicture,newProductDescription,0); // Make product object
         
         //storing of product to hashmap
         // We have to check if there is a "general" category for that product, if there isn't then make a new ID for it and a hashmap, if there is then just put it in that hashmap

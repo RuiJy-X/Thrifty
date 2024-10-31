@@ -4,6 +4,7 @@
  */
 package thrifty;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,12 +22,14 @@ public class ShopDTO {
     private String email;
     private String description;
     private List<String>products;
+    private ArrayList<String>orders;
+    private List<String>sellLog;
     
     public ShopDTO(){
         
     }
     
-    public ShopDTO(String shopID,String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,List<String> products){
+    public ShopDTO(String shopID,String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,List<String> products,ArrayList<String> orders,List<String> sellLog){
         this.shopID = shopID;
         this.shopName = shopName;
         this.ownerName = ownerName;
@@ -37,7 +40,26 @@ public class ShopDTO {
         this.email = email;
         this.description = description;
         this.products = products;
+        this.orders = orders;
+        this.sellLog = sellLog;
     }
+    
+    public ShopDTO(ShopDTO shop){
+        this.shopID = shop.getShopID();
+        this.shopName = shop.getShopName();
+        this.ownerName = shop.getOwnerName();
+        this.address = shop.getAddress();
+        this.city = shop.getCity();
+        this.businessType = shop.getBusinessType();
+        this.phoneNumber = shop.getPhoneNumber();
+        this.email = shop.getEmail();
+        this.description = shop.getDescription();
+        this.products = shop.getProducts();
+        this.orders = shop.getOrders();
+        this.sellLog = shop.getSellLog();
+    }
+    public List<String> getSellLog(){return sellLog;}
+    public ArrayList<String> getOrders(){return orders;}
     public String getShopID(){return shopID;}
     public String getShopName(){return shopName;}
     public String getOwnerName(){return ownerName;}

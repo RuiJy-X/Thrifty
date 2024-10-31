@@ -15,20 +15,23 @@ public class OrderDTO {
     private String productID;
     private double totalPrice;
     private String orderID;
+    private String shopID;
     
     public OrderDTO(){
         
     }
     
-    public OrderDTO(String orderID,String productID, int quantitySold, String buyerID, String dateBought, double totalPrice){
+    public OrderDTO(String orderID,String productID, int quantitySold, String buyerID, String dateBought, double totalPrice, String shopID){
         this.orderID = orderID;
         this.productID = productID;
         this.quantitySold = quantitySold;
         this.buyerID = buyerID;
         this.dateBought = dateBought;
         this.totalPrice = totalPrice;
+        this.shopID = shopID;
                 
     }
+    public String getShopID(){return shopID;}
     public String getOrderID(){return orderID;}
     public int getQuantitySold(){return quantitySold;}
     public String getBuyerID(){return buyerID;}

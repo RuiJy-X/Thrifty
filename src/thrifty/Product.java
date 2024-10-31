@@ -84,6 +84,7 @@ public class Product extends javax.swing.JPanel {
         this.Price = Price;
         this.shopName = shopName;
         
+        
         // Change default values
         this.image = image;
         Name = toTitleCase(Name);
@@ -254,6 +255,8 @@ public class Product extends javax.swing.JPanel {
     public String getStoreID(){
         return product.getStoreID();
     }
+    
+    
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
