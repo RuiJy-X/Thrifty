@@ -16,6 +16,16 @@ public class PurchasesItem extends javax.swing.JPanel {
     public PurchasesItem() {
         initComponents();
     }
+    
+    public PurchasesItem(String productName, String date,String customerName,String quantity,String price, String totalPrice) {
+        initComponents();
+        dateLabel.setText(date);
+        nameLabel.setText(customerName);
+        productLabel.setText(productName);
+        priceLabel.setText("₱"+price);
+        totalPriceLabel.setText("₱"+totalPrice);
+        quantityLabel.setText(quantity);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,38 +36,37 @@ public class PurchasesItem extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        dateLabel = new javax.swing.JLabel();
+        productLabel = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
+        quantityLabel = new javax.swing.JLabel();
+        priceLabel = new javax.swing.JLabel();
+        totalPriceLabel = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel1.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jLabel1.setText("Date bruh");
+        dateLabel.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        dateLabel.setText("Date bruh");
 
-        jLabel2.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jLabel2.setText("product  name");
+        productLabel.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        productLabel.setText("product  name");
 
-        jLabel3.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jLabel3.setText("customer name");
+        nameLabel.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        nameLabel.setText("customer name");
 
-        jLabel4.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jLabel4.setText("qty");
+        quantityLabel.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        quantityLabel.setText("qty");
 
-        jLabel5.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jLabel5.setText("PHP x");
+        priceLabel.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        priceLabel.setText("PHP x");
 
-        jLabel6.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jLabel6.setText("PHP x");
+        totalPriceLabel.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        totalPriceLabel.setText("PHP x");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/deny.png"))); // NOI18N
-        jLabel7.setPreferredSize(new java.awt.Dimension(40, 40));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/verify.png"))); // NOI18N
 
@@ -67,19 +76,19 @@ public class PurchasesItem extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(productLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(quantityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(totalPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addGap(26, 26, 26))
@@ -94,12 +103,12 @@ public class PurchasesItem extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)))
+                            .addComponent(dateLabel)
+                            .addComponent(productLabel)
+                            .addComponent(nameLabel)
+                            .addComponent(quantityLabel)
+                            .addComponent(priceLabel)
+                            .addComponent(totalPriceLabel)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -109,13 +118,13 @@ public class PurchasesItem extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel dateLabel;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel priceLabel;
+    private javax.swing.JLabel productLabel;
+    private javax.swing.JLabel quantityLabel;
+    private javax.swing.JLabel totalPriceLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,7 +4,12 @@
  */
 package thrifty.shopUIs;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import thrifty.Dashboard;
+import thrifty.OrderDTO;
 import thrifty.ShopDTO;
+import thrifty.UserDTO;
 
 /**
  *
@@ -12,6 +17,10 @@ import thrifty.ShopDTO;
  */
 public class Purchases extends javax.swing.JPanel {
     ShopDTO shop;
+    Dashboard db;
+    HashMap<String,ShopDTO> allShops;
+    HashMap<String,OrderDTO> orders;
+    HashMap<String,UserDTO> allUsers;
     /**
      * Creates new form PanelMyProducts
      */
@@ -21,6 +30,35 @@ public class Purchases extends javax.swing.JPanel {
     public void setShop(ShopDTO shop){
         this.shop = shop;
     }
+    public void clear(){
+        scrollPanel.removeAll();
+    }
+    public void setup(Dashboard db){
+        this.db = db;
+        
+        allShops = db.getShop();
+        shop = db.getUserShop();
+        orders = db.getOrder();
+        allUsers = db.getUserFiles();
+        ArrayList<String> shopOrders = shop.getOrders();
+        
+        for (String orderID: shopOrders){
+            //public PurchasesItem(String productName, String date,String customerName,String quantity,String price, String totalPrice)
+            String customerName = allUsers.get(orders.get(orderID).getBuyerID()).getName();
+            String productName = orders.get(orderID).getProduct().getName();
+            String date = orders.get(orderID).getDateBought();
+            String quantity = String.valueOf(orders.get(orderID).getQuantitySold());
+            String price = orders.get(orderID).getPrice();
+            String totalPrice = String.valueOf(orders.get(orderID).getTotalPrice());
+            
+            PurchasesItem item = new PurchasesItem(productName,date,customerName,quantity,price,totalPrice);
+            scrollPanel.add(item);
+        }
+        
+        
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

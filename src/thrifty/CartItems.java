@@ -23,6 +23,9 @@ public class CartItems extends javax.swing.JPanel {
     String price;
     String totalPrice;
     ProductDTO product;
+    String quantity;
+    String orderID;
+    Dashboard db;
     
     
      public static void icon(String path, JLabel component,int width, int height){
@@ -38,22 +41,30 @@ public class CartItems extends javax.swing.JPanel {
         initComponents();
     }
     
-    public CartItems(String name, String image, String location, String price, String totalPrice, ProductDTO product){
+    
+    
+    public CartItems(String image, String location, String price, String totalPrice,String quantity, ProductDTO product, String orderID,Dashboard db){
         initComponents();
-        this.name = name;
+        this.name = product.getName();
         this.image = image;
         this.location = location;
-        this.price = price;
+        this.price = String.valueOf(price);
         this.totalPrice = totalPrice;
         this.product = product;
+        this.quantity = quantity;
+        this.orderID = orderID;
+        this.db = db;
         icon(image,imageLabel,75,75);
         
         nameLabel.setText(name);
         locationLabel.setText(location);
-        priceLabel.setText(price);
-        totalPriceLabel.setText(totalPrice);
+        priceLabel.setText("₱" + this.price);
+        totalPriceLabel.setText("₱" + totalPrice);
+        quantityLabel.setText(quantity);
         
     }
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,7 +76,6 @@ public class CartItems extends javax.swing.JPanel {
     private void initComponents() {
 
         imageLabel = new javax.swing.JLabel();
-        toggleButton = new javax.swing.JToggleButton();
         nameLabel = new javax.swing.JLabel();
         totalPriceLabel = new javax.swing.JLabel();
         locationLabel = new javax.swing.JLabel();
@@ -74,55 +84,56 @@ public class CartItems extends javax.swing.JPanel {
         deleteButton = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(1240, 91));
+        setMinimumSize(new java.awt.Dimension(1240, 91));
+        setPreferredSize(new java.awt.Dimension(1240, 91));
 
         imageLabel.setBackground(new java.awt.Color(102, 102, 255));
         imageLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         imageLabel.setPreferredSize(new java.awt.Dimension(75, 75));
 
-        toggleButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                toggleButtonActionPerformed(evt);
-            }
-        });
-
-        nameLabel.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        nameLabel.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         nameLabel.setText("Item Name");
 
-        totalPriceLabel.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        totalPriceLabel.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        totalPriceLabel.setForeground(new java.awt.Color(51, 102, 0));
         totalPriceLabel.setText("total price");
 
-        locationLabel.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        locationLabel.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         locationLabel.setText("location");
 
-        priceLabel.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        priceLabel.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         priceLabel.setText("price");
 
-        quantityLabel.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        quantityLabel.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         quantityLabel.setText("qty");
 
         deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/delete.png"))); // NOI18N
         deleteButton.setPreferredSize(new java.awt.Dimension(50, 50));
+        deleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(toggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
+                .addGap(22, 22, 22)
                 .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addComponent(nameLabel)
-                .addGap(192, 192, 192)
-                .addComponent(locationLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
-                .addComponent(priceLabel)
-                .addGap(135, 135, 135)
-                .addComponent(quantityLabel)
-                .addGap(106, 106, 106)
-                .addComponent(totalPriceLabel)
-                .addGap(46, 46, 46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addComponent(locationLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(quantityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(totalPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
@@ -130,9 +141,6 @@ public class CartItems extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(toggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -148,13 +156,14 @@ public class CartItems extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void toggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleButtonActionPerformed
+    private void deleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteButtonMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_toggleButtonActionPerformed
+        db.deleteCartAndOrderItem(orderID,product);
+    }//GEN-LAST:event_deleteButtonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -164,7 +173,6 @@ public class CartItems extends javax.swing.JPanel {
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JLabel quantityLabel;
-    private javax.swing.JToggleButton toggleButton;
     private javax.swing.JLabel totalPriceLabel;
     // End of variables declaration//GEN-END:variables
 }

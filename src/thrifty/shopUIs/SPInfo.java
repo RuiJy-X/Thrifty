@@ -4,6 +4,7 @@
  */
 package thrifty.shopUIs;
 
+import thrifty.Dashboard;
 import thrifty.ShopDTO;
 
 /**
@@ -12,16 +13,31 @@ import thrifty.ShopDTO;
  */
 public class SPInfo extends javax.swing.JPanel {
     ShopDTO shop;
+    Dashboard db;
+    
     /**
      * Creates new form SPInfo
      */
     public SPInfo() {
         initComponents();
     }
-    public void setShop(ShopDTO shop){
+    public void setShop(ShopDTO shop,Dashboard db){
         this.shop = shop;
+        String shopName = shop.getShopName();
+        String addressString = shop.getAddress();
+        String phoneStr = shop.getPhoneNumber();
+        String emailStr = shop.getEmail();
+        String description = shop.getDescription();
+        String type = "Legitimate " + shop.getBusinessType() + " Store";
+        shopName1.setText(shopName);
+        shopType.setText(type);
+        address.setText(addressString);
+        phone.setText(phoneStr);
+        email.setText(emailStr);
+        jTextArea1.setText(description);
         
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,15 +55,15 @@ public class SPInfo extends javax.swing.JPanel {
         email = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         shopName1 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel1.setPreferredSize(new java.awt.Dimension(317, 266));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 336, 548));
 
         jPanel1.setBackground(new java.awt.Color(255, 65, 65));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 25, 5, 25));
@@ -58,17 +74,22 @@ public class SPInfo extends javax.swing.JPanel {
         shopType.setText("Legitimate Retail Store");
         jPanel1.add(shopType, java.awt.BorderLayout.PAGE_START);
 
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, -1, -1));
+
         address.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
         address.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/markerpin.png"))); // NOI18N
         address.setText("address");
+        add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, -1, -1));
 
         phone.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
         phone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/phone.png"))); // NOI18N
         phone.setText("phone");
+        add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, -1, -1));
 
         email.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
         email.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/email.png"))); // NOI18N
         email.setText("email");
+        add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, -1, 29));
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
@@ -80,8 +101,7 @@ public class SPInfo extends javax.swing.JPanel {
         jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(jTextArea1);
 
-        jLabel5.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
-        jLabel5.setText("Products");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 593, 260));
 
         jPanel2.setBackground(new java.awt.Color(238, 9, 9));
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 50, 10, 50));
@@ -92,69 +112,7 @@ public class SPInfo extends javax.swing.JPanel {
         shopName1.setText("name");
         jPanel2.add(shopName1, java.awt.BorderLayout.PAGE_START);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(address)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(phone)
-                                        .addGap(106, 106, 106)
-                                        .addComponent(email)))
-                                .addGap(0, 372, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jScrollPane2))
-                .addGap(31, 31, 31))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(407, 407, 407)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(431, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(address)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(phone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(24, 24, 24)
-                        .addComponent(jScrollPane1))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(59, 59, 59)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(544, Short.MAX_VALUE)))
-        );
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 59, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -162,11 +120,9 @@ public class SPInfo extends javax.swing.JPanel {
     private javax.swing.JLabel address;
     private javax.swing.JLabel email;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel phone;
     private javax.swing.JLabel shopName1;

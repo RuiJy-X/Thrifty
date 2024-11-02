@@ -4,6 +4,8 @@
  */
 package thrifty;
 
+import java.awt.Component;
+
 /**
  *
  * @author User
@@ -38,7 +40,7 @@ public class Cart extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel5 = new javax.swing.JPanel();
+        cartPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.BorderLayout());
@@ -98,15 +100,15 @@ public class Cart extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 348, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(198, 198, 198)
+                .addGap(252, 252, 252)
                 .addComponent(jLabel4)
-                .addGap(90, 90, 90)
+                .addGap(49, 49, 49)
                 .addComponent(jLabel5)
-                .addGap(85, 85, 85)
+                .addGap(41, 41, 41)
                 .addComponent(jLabel6)
-                .addGap(78, 78, 78)
+                .addGap(43, 43, 43)
                 .addComponent(jLabel7)
                 .addGap(38, 38, 38))
         );
@@ -133,17 +135,24 @@ public class Cart extends javax.swing.JPanel {
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(1280, 660));
 
-        jPanel5.setMaximumSize(new java.awt.Dimension(1260, 32767));
-        jPanel5.setPreferredSize(new java.awt.Dimension(1260, 1000));
-        jScrollPane1.setViewportView(jPanel5);
+        cartPanel.setMaximumSize(new java.awt.Dimension(1260, 32767));
+        cartPanel.setPreferredSize(new java.awt.Dimension(1260, 1000));
+        jScrollPane1.setViewportView(cartPanel);
 
         jPanel4.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
         add(jPanel4, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
+    public void addCartItem(Component panel){
+        cartPanel.add(panel);
+    }
+    
+    public void removeAll(){
+        cartPanel.removeAll();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel cartPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -155,7 +164,6 @@ public class Cart extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

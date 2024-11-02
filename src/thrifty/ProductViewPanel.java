@@ -17,7 +17,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import static thrifty.Dashboard.mapper;
+import thrifty.OrderDTO;
 /**
  *
  * @author User
@@ -33,16 +35,31 @@ public class ProductViewPanel extends javax.swing.JPanel {
     private UserDTO user;
     ShopDTO shop;
     HashMap<String,ShopDTO> allShops;
+    HashMap<String,UserDTO> allUsers;
+    ArrayList<String> cart;
+    ArrayList<String> orderList;
+    ArrayList<String> cart1;
     public ProductViewPanel() {
         initComponents();
     }
     
     public ProductViewPanel(String name, String price, String quantity, String description, String pictureIMG, Dashboard db,ProductDTO product) {
         initComponents();
+        orders = db.getOrder();
+        user = db.getUser();
+        shop = db.getUserShop();
+        allShops = db.getShop();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        allUsers = db.getUserFiles();
+        cart = db.getCart();
+        orderList = allShops.get(product.getStoreID()).getOrders();
+        cart1 = allUsers.get(user.getUserID()).getCart();
         this.name.setText(name);
         this.price.setText(price);
-        this.quantity.setText(quantity);
         this.description.setText(description);
+        this.quantity.setText("1");
+        String displayAddress = allShops.get(product.getStoreID()).getAddress();
+        this.address.setText(displayAddress);
         icon(pictureIMG,picture,451,587);
         this.db = db;
         this.product = product;
@@ -78,7 +95,6 @@ public class ProductViewPanel extends javax.swing.JPanel {
         address = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         description = new javax.swing.JTextArea();
-        jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
 
         jButton1.setFont(new java.awt.Font("Outfit", 1, 18)); // NOI18N
@@ -140,11 +156,6 @@ public class ProductViewPanel extends javax.swing.JPanel {
         description.setBorder(null);
         jScrollPane1.setViewportView(description);
 
-        jButton5.setBackground(new java.awt.Color(238, 9, 9));
-        jButton5.setFont(new java.awt.Font("Outfit", 1, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Add to Cart");
-
         jButton6.setBackground(new java.awt.Color(238, 9, 9));
         jButton6.setFont(new java.awt.Font("Outfit", 1, 18)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,7 +183,8 @@ public class ProductViewPanel extends javax.swing.JPanel {
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+                            .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(price)
@@ -181,13 +193,9 @@ public class ProductViewPanel extends javax.swing.JPanel {
                                         .addGap(18, 18, 18)
                                         .addComponent(quantity)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jButton4)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 394, Short.MAX_VALUE)
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addComponent(jButton4))
+                                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jButton1)
@@ -218,10 +226,8 @@ public class ProductViewPanel extends javax.swing.JPanel {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(picture, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
@@ -229,10 +235,23 @@ public class ProductViewPanel extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        int temp;
+        String quantityLabel = quantity.getText();
+        if (Integer.valueOf(quantityLabel) == 1){
+            temp = 1;
+        }else{
+            temp = Integer.valueOf(quantityLabel) - 1;
+        }
+        String newQLabel = String.valueOf(temp);
+        quantity.setText(newQLabel);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        String quantityLabel = quantity.getText();
+        int temp = Integer.valueOf(quantityLabel) + 1;
+        String newQLabel = String.valueOf(temp);
+        quantity.setText(newQLabel);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -241,17 +260,79 @@ public class ProductViewPanel extends javax.swing.JPanel {
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
         // TODO add your handling code here:
+        
+       
+        
+    }//GEN-LAST:event_jButton6MouseClicked
+    
+    public OrderDTO orderChecker(OrderDTO newOrder){
+        
+        for (String orderID : cart){
+            String productID  = orders.get(orderID).getProductID();
+            String newProductID = newOrder.getProductID();
+            if (productID.equals(newProductID)){
+                // remove the old orders, and make a new one 
+                cart.remove(orderID);
+                
+                
+                OrderDTO oldOrder = orders.get(orderID);
+                
+                 //public OrderDTO(OrderDTO order, int quantitySold,double totalPrice){
+                //    change only the quantity sold and the total price
+                int newQuantity = oldOrder.getQuantitySold() + newOrder.getQuantitySold();
+                double newTotalPrice = oldOrder.getTotalPrice() + newOrder.getTotalPrice();
+                OrderDTO updatedOrder = new OrderDTO(newOrder, newQuantity,newTotalPrice);
+                
+                  
+                // update order hashmap
+                orders.remove(orderID);
+                orders.put(updatedOrder.getOrderID(), updatedOrder);
+
+                // forming a link to Orders arraylist inside the shop
+                ShopDTO oldProductShop = allShops.get(product.getStoreID());
+                
+                // Updating the order arraylist of the specific 
+                orderList.remove(orderID);
+                orderList.add(updatedOrder.getOrderID());
+                
+                
+                cart1.remove(orderID);
+                cart1.add(updatedOrder.getOrderID());
+
+                cart.add(updatedOrder.getOrderID());  
+                
+                return updatedOrder;
+                
+                
+            }
+        }
+        orders.put(newOrder.getOrderID(), newOrder);
+        orderList.add(newOrder.getOrderID());
+        cart1.add(newOrder.getOrderID());
+        cart.add(newOrder.getOrderID());
+        
+        
+        return newOrder;
+    }
+    
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         orders = db.getOrder();
         user = db.getUser();
         shop = db.getUserShop();
         allShops = db.getShop();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        allUsers = db.getUserFiles();
+        cart = db.getCart();
+        orderList = allShops.get(product.getStoreID()).getOrders();
+        cart1 = allUsers.get(user.getUserID()).getCart();
         
         
         
-        //create id
-        
-        String orderID = generateID(createIDKey());
+        if (user.getShopID().equals(product.getStoreID())){
+            JOptionPane.showMessageDialog(db, "Cannot checkout an item that you listed", "Error", JOptionPane.ERROR_MESSAGE);
+            
+        }else{
+            String orderID = generateID(createIDKey());
         
         int quantitySold = Integer.valueOf(quantity.getText());
         
@@ -260,18 +341,18 @@ public class ProductViewPanel extends javax.swing.JPanel {
         
         // create order object
         //    public OrderDTO(String orderID,String productID, int quantitySold, String buyerID, String dateBought, int totalPrice){
-        OrderDTO newOrder = new OrderDTO(orderID,product.getId(),quantitySold,user.getUserID(),getCurrentDate(),totalPrice,product.getStoreID());
+        OrderDTO newOrder = new OrderDTO(orderID,product.getId(),quantitySold,user.getUserID(),getCurrentDate(),totalPrice,product.getStoreID(),product.getPrice(),product);
         
-        // update order hashmap
-        orders.put(orderID, newOrder);
-        
-        // forming a link to Orders arraylist inside the shop
-        ArrayList<String> orderList = allShops.get(product.getStoreID()).getOrders();
-        // Updating the order arraylist of the specific 
-        orderList.add(orderID);
-        
+        OrderDTO updatedOrder = orderChecker(newOrder);
+      
         // Obtaining the shop where the product is from where the orderlist is updated
-        ShopDTO oldProductShop = allShops.get(product.getStoreID());
+        
+        
+        //update user by adding it to cart huhu
+        
+        
+        
+        
         try {
             //public ShopDTO(String shopID,String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,List<String> products,ArrayList<String> orders,List<String> sellLog){
 //
@@ -280,16 +361,17 @@ public class ProductViewPanel extends javax.swing.JPanel {
 //        allShops.put(newProductShop.getShopID(), newProductShop);
             mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops);
             mapper.writeValue(new File("src\\thrifty\\orders.json"), orders);
+            mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
+            
         } catch (IOException ex) {
             Logger.getLogger(ProductViewPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
         
-    }//GEN-LAST:event_jButton6MouseClicked
-    
-    
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+            
+        }
+        
+        //create id
+        
         
     }//GEN-LAST:event_jButton6ActionPerformed
     
@@ -325,7 +407,6 @@ public class ProductViewPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;

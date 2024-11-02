@@ -6,11 +6,14 @@ package thrifty;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import java.awt.Component;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static thrifty.Dashboard.file;
 import static thrifty.Dashboard.mapper;
 
@@ -26,6 +29,7 @@ public class Dashboard extends javax.swing.JFrame {
     public HashMap<String,ShopDTO> allShops;
     public HashMap<String,UserDTO> allUsers;
     public HashMap<String,OrderDTO> orders;
+    ArrayList<String> cart;
     public static ObjectMapper mapper = new ObjectMapper();
     
     public static File file = new File("src\\thrifty\\products.json");
@@ -66,7 +70,7 @@ public class Dashboard extends javax.swing.JFrame {
         navBar1.setDB(this);
         shopOverview2.setAddProduct(this);
         fieldsRegisterShop1.setDB(this);
-        
+        this.cart = user.getCart();
         this.readFile();
         this.setShop();
        
@@ -326,8 +330,22 @@ public class Dashboard extends javax.swing.JFrame {
         isSearching = false;
         
     }
-    public void cart(){
+    public void cartTab(){
         tabs.setSelectedIndex(3);
+        cart1.removeAll();
+        //public CartItems(String name, String image, String location, String price, String totalPrice, ProductDTO product){
+        for (String order : cart){
+            
+            String userID = orders.get(order).getBuyerID();
+            
+            String image = allUsers.get(userID).getImage();
+            String location = allShops.get(orders.get(order).getShopID()).getAddress();
+            String price = orders.get(order).getPrice();
+            String totalPrice = String.valueOf(orders.get(order).getTotalPrice());
+            String quantity = String.valueOf(orders.get(order).getQuantitySold());
+            CartItems cartItem = new CartItems(image,location,price,totalPrice,quantity,orders.get(order).getProduct(),order,this);
+            cart1.addCartItem(cartItem);
+        }
     }
     
     public void setUser(UserDTO user){
@@ -347,6 +365,41 @@ public class Dashboard extends javax.swing.JFrame {
         productPanel2.revalidate();
         productPanel2.repaint();
         this.searchedComponents(item);
+    }
+    
+    public void deleteCartAndOrderItem(String order,ProductDTO product){
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        
+        cart.remove(order);
+        ArrayList cartOfUser = userLoggedIn.getCart();
+        cartOfUser.remove(order);
+        
+        allUsers.replace(userLoggedIn.getUserID(), userLoggedIn);
+        
+        orders.remove(order);
+        
+        ArrayList<String> orderList = allShops.get(product.getStoreID()).getOrders();
+        orderList.remove(order);
+        
+       
+        
+        try {
+         
+            mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops);
+            mapper.writeValue(new File("src\\thrifty\\orders.json"), orders);
+            mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(ProductViewPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        this.cartTab();
+        this.revalidate();
+        this.repaint();
+        
+    
+        
+        
     }
     
     public void setResults(String name){
@@ -381,7 +434,10 @@ public class Dashboard extends javax.swing.JFrame {
     public HashMap<String, OrderDTO> getOrder(){
         return this.orders;
     }
-   
+    
+    public ArrayList<String> getCart(){
+        return this.cart;
+    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
