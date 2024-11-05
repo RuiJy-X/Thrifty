@@ -12,7 +12,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static thrifty.Dashboard.file;
@@ -27,6 +26,9 @@ import static thrifty.RegisterForm.random;
 
 public class Dashboard extends javax.swing.JFrame {
    
+     private static final int itemsPerPage = 12;
+    private int currentPage = 0; // Tracks the current page
+    
     public HashMap<String, HashMap<String, ProductDTO>> allProducts;
     public HashMap<String,ShopDTO> allShops;
     public HashMap<String,UserDTO> allUsers;
@@ -146,32 +148,30 @@ public class Dashboard extends javax.swing.JFrame {
    
 
    public void createProductComponent(){
+       int start = currentPage * itemsPerPage;
+       int end = start + itemsPerPage;
+       ArrayList<Component> products = new ArrayList<>();
        productComponents = null;
         productPanel2.removeAll();
         productPanel2.revalidate();
         productPanel2.repaint();
        for (String key : allProducts.keySet()){
             for (ProductDTO product : allProducts.get(key).values()){
-                
-                
-//           int storeID = product.getStoreID();
-//           if (userCity == stores.get(storeID).get("city")){
-//              then create object
-//          this is to check for proximity
-            //public Product(String Name, String Location, double Price,String shopName, String image){
-            //public ProductDTO(String id, int quantity, double price, String name, String store, String storeID,String image) {
                 String location = this.getLocation(product.getStoreID());
-                
-                
+
                 if (userLoggedIn.getCity().equalsIgnoreCase(location)){
                     Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product);
-                    productPanel2.populate(individualProduct);
+                    
+                    products.add(individualProduct);
+                    
                 }
-                
-        
+            }
        }
-      
-       }
+       for (int i = start; i < end; i++) {
+            productPanel2.populate((Product) products.get(i));
+        }
+       
+       
        this.setResults("");
        allProductComponents = productPanel2.getProductComponents();
        isSearching = false;
@@ -324,6 +324,7 @@ public class Dashboard extends javax.swing.JFrame {
     }
     
     public void dashboard(){
+        currentPage = 0;
         tabs.setSelectedIndex(0);
         productPanel2.removeAll();
         productPanel2.revalidate();
@@ -556,6 +557,13 @@ public class Dashboard extends javax.swing.JFrame {
    public thrifty.ShopOverview getSo(){
        return this.shopOverview2;
    }
+   
+   public void nextPageUnfiltered(){
+       currentPage += 1;
+       this.createProductComponent();
+   }
+   
+   
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

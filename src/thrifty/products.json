@@ -13,6 +13,50 @@
     }
   },
   "pen" : {
+    "pen66061" : {
+      "id" : "pen66061",
+      "quantity" : 10,
+      "price" : 12.0,
+      "name" : "Ballpen black",
+      "store" : "dianne's shop",
+      "storeID" : "S88851",
+      "image" : null,
+      "description" : "",
+      "purchases" : 0
+    },
+    "pen22592" : {
+      "id" : "pen22592",
+      "quantity" : 10,
+      "price" : 12.0,
+      "name" : "Ballpen green",
+      "store" : "dianne's shop",
+      "storeID" : "S88851",
+      "image" : null,
+      "description" : "",
+      "purchases" : 0
+    },
+    "pen86395" : {
+      "id" : "pen86395",
+      "quantity" : 10,
+      "price" : 12.0,
+      "name" : "Ballpen glittered",
+      "store" : "dianne's shop",
+      "storeID" : "S88851",
+      "image" : null,
+      "description" : "",
+      "purchases" : 0
+    },
+    "pen55393" : {
+      "id" : "pen55393",
+      "quantity" : 10,
+      "price" : 12.0,
+      "name" : "Ballpen multicolor",
+      "store" : "dianne's shop",
+      "storeID" : "S88851",
+      "image" : null,
+      "description" : "",
+      "purchases" : 0
+    },
     "pen75211" : {
       "id" : "pen75211",
       "quantity" : 100,
@@ -33,6 +77,39 @@
       "storeID" : "S88851",
       "image" : "D:\\Downloads\\1641.jpg",
       "description" : "Wow",
+      "purchases" : 0
+    },
+    "pen22687" : {
+      "id" : "pen22687",
+      "quantity" : 10,
+      "price" : 12.0,
+      "name" : "Ballpen blue",
+      "store" : "dianne's shop",
+      "storeID" : "S88851",
+      "image" : null,
+      "description" : "",
+      "purchases" : 0
+    },
+    "pen14340" : {
+      "id" : "pen14340",
+      "quantity" : 10,
+      "price" : 12.0,
+      "name" : "Ballpen",
+      "store" : "dianne's shop",
+      "storeID" : "S88851",
+      "image" : null,
+      "description" : "",
+      "purchases" : 0
+    },
+    "pen37007" : {
+      "id" : "pen37007",
+      "quantity" : 10,
+      "price" : 12.0,
+      "name" : "Ballpen red",
+      "store" : "dianne's shop",
+      "storeID" : "S88851",
+      "image" : null,
+      "description" : "",
       "purchases" : 0
     }
   },

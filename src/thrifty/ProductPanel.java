@@ -52,6 +52,11 @@ public class ProductPanel extends javax.swing.JPanel {
 
         jButton1.setFont(new java.awt.Font("Outfit", 1, 18)); // NOI18N
         jButton1.setText("Next");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         filter.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No Filter", "₱1.00 -  ₱100.00", "₱100.00 -  ₱300.00", "₱300.00 -  ₱600.00", "₱600.00 -  ₱1000.00", "₱1000.00 -  ₱1500.00", "₱1500.00+" }));
@@ -96,7 +101,7 @@ public class ProductPanel extends javax.swing.JPanel {
         add(jPanel2, java.awt.BorderLayout.NORTH);
 
         productContainer.setBackground(new java.awt.Color(255, 255, 255));
-        productContainer.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 25, 25));
+        productContainer.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 30, 25));
         add(productContainer, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -147,6 +152,11 @@ public class ProductPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_filterMouseEntered
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        db.nextPageUnfiltered();
+    }//GEN-LAST:event_jButton1ActionPerformed
     public void setDB(Dashboard db){
         this.db = db;
         
