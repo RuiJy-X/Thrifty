@@ -4,6 +4,11 @@
  */
 package thrifty.shopUIs;
 
+import thrifty.Dashboard;
+import thrifty.ProductDTO;
+import thrifty.ShopDTO;
+import thrifty.UserDTO;
+
 /**
  *
  * @author User
@@ -13,11 +18,17 @@ public class PurchasesItem extends javax.swing.JPanel {
     /**
      * Creates new form PurchasesItem
      */
+    Dashboard db;
+    String orderID;
+    ProductDTO product;
+    UserDTO buyer;
+    ShopDTO shop;
+    Purchases purchase;
     public PurchasesItem() {
         initComponents();
     }
     
-    public PurchasesItem(String productName, String date,String customerName,String quantity,String price, String totalPrice) {
+    public PurchasesItem(String productName, String date,String customerName,String quantity,String price, String totalPrice,Dashboard db, String orderID, ProductDTO product,UserDTO buyer,ShopDTO shop,Purchases purchase) {
         initComponents();
         dateLabel.setText(date);
         nameLabel.setText(customerName);
@@ -25,6 +36,11 @@ public class PurchasesItem extends javax.swing.JPanel {
         priceLabel.setText("₱"+price);
         totalPriceLabel.setText("₱"+totalPrice);
         quantityLabel.setText(quantity);
+        this.db = db;
+        this.orderID = orderID;
+        this.product = product;
+        this.buyer = buyer;
+        this.shop = shop;
     }
 
     /**
@@ -67,8 +83,18 @@ public class PurchasesItem extends javax.swing.JPanel {
         totalPriceLabel.setText("PHP x");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/deny.png"))); // NOI18N
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/verify.png"))); // NOI18N
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -115,6 +141,24 @@ public class PurchasesItem extends javax.swing.JPanel {
                 .addContainerGap(9, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+        db.approvePurchase(orderID, buyer, shop,product);
+        
+        
+        
+        
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        // TODO add your handling code here:
+        db.deletePurchase(orderID, product,buyer);
+        
+        
+        
+        
+    }//GEN-LAST:event_jLabel7MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

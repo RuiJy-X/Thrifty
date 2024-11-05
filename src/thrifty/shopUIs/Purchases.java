@@ -4,10 +4,12 @@
  */
 package thrifty.shopUIs;
 
+import java.awt.Component;
 import java.util.ArrayList;
 import java.util.HashMap;
 import thrifty.Dashboard;
 import thrifty.OrderDTO;
+import thrifty.ProductDTO;
 import thrifty.ShopDTO;
 import thrifty.UserDTO;
 
@@ -50,10 +52,18 @@ public class Purchases extends javax.swing.JPanel {
             String quantity = String.valueOf(orders.get(orderID).getQuantitySold());
             String price = orders.get(orderID).getPrice();
             String totalPrice = String.valueOf(orders.get(orderID).getTotalPrice());
+            ProductDTO product = orders.get(orderID).getProduct();
+            UserDTO buyer = allUsers.get(orders.get(orderID).getBuyerID());
             
-            PurchasesItem item = new PurchasesItem(productName,date,customerName,quantity,price,totalPrice);
+            
+            PurchasesItem item = new PurchasesItem(productName,date,customerName,quantity,price,totalPrice,db,orderID,product,buyer,shop,this);
             scrollPanel.add(item);
         }
+        
+        
+    }
+    public void removePurchase(Component purchase){
+        scrollPanel.remove(purchase);
         
         
     }

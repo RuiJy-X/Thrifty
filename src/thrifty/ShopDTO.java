@@ -23,13 +23,13 @@ public class ShopDTO {
     private String description;
     private List<String>products;
     private ArrayList<String>orders;
-    private List<String>sellLog;
+    private ArrayList<String>sellLog;
     
     public ShopDTO(){
         
     }
     
-    public ShopDTO(String shopID,String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,List<String> products,ArrayList<String> orders,List<String> sellLog){
+    public ShopDTO(String shopID,String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,List<String> products,ArrayList<String> orders,ArrayList<String> sellLog){
         this.shopID = shopID;
         this.shopName = shopName;
         this.ownerName = ownerName;
@@ -58,7 +58,7 @@ public class ShopDTO {
         this.orders = shop.getOrders();
         this.sellLog = shop.getSellLog();
     }
-    public List<String> getSellLog(){return sellLog;}
+    public ArrayList<String> getSellLog(){return sellLog;}
     public ArrayList<String> getOrders(){return orders;}
     public String getShopID(){return shopID;}
     public String getShopName(){return shopName;}

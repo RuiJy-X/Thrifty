@@ -66,9 +66,12 @@ public class ShopOverview extends javax.swing.JPanel {
     }
     
     public void purchasesTab(){
+        purchases1.revalidate();
+        purchases1.repaint();
         tabs.setSelectedIndex(2);
         purchases1.clear();
         purchases1.setup(db);
+        
     }
     
     public void profileTab(){

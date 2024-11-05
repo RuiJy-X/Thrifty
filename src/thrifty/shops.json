@@ -9,7 +9,7 @@
     "phoneNumber" : "09993332212",
     "email" : "dainne@gmail.com",
     "description" : "123",
-    "products" : [ "eraser77902" ],
+    "products" : [ "eraser77902", "pen89412" ],
     "orders" : [ ],
     "sellLog" : [ ]
   },
@@ -52,7 +52,7 @@
     "email" : "marj.store@example.com",
     "description" : "A trusted store providing high-quality stationery products.",
     "products" : [ "eraser1", "marker1", "pen1", "notebook1", "pen224", "eraser502", "marker677", "lapis658", "lapis550", "eraser738", "lapis54452", "lapis53208", "pen15906", "pen74744", "pen75211", "lapis56632", "lapis12078" ],
-    "orders" : [ ],
+    "orders" : [ "O40521" ],
     "sellLog" : [ ]
   },
   "S2" : {

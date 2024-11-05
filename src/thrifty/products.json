@@ -9,7 +9,7 @@
       "storeID" : "S88851",
       "image" : "C:\\Users\\User\\Downloads\\eraser.jpg",
       "description" : "Nice",
-      "purchases": 0
+      "purchases" : 0
     }
   },
   "pen" : {
@@ -22,7 +22,18 @@
       "storeID" : "S1",
       "image" : "C:\\Users\\User\\Downloads\\ballpen.jpg",
       "description" : "Ballpen",
-      "purchases": 0
+      "purchases" : 0
+    },
+    "pen89412" : {
+      "id" : "pen89412",
+      "quantity" : 12,
+      "price" : 20.0,
+      "name" : "Ballpen black",
+      "store" : "dianne's shop",
+      "storeID" : "S88851",
+      "image" : "D:\\Downloads\\1641.jpg",
+      "description" : "Wow",
+      "purchases" : 0
     }
   },
   "lapis" : {
@@ -35,7 +46,7 @@
       "storeID" : "S1",
       "image" : "C:\\Users\\User\\Downloads\\pencil2.jpg",
       "description" : "Lapis",
-      "purchases": 0
+      "purchases" : 0
     },
     "lapis12078" : {
       "id" : "lapis12078",
@@ -46,7 +57,7 @@
       "storeID" : "S1",
       "image" : "C:\\Users\\User\\Downloads\\pencil1.jpg",
       "description" : "Lapis",
-      "purchases": 0
+      "purchases" : 0
     }
   },
   "notebook" : {
@@ -59,7 +70,7 @@
       "storeID" : "S95347",
       "image" : "C:\\Users\\User\\Downloads\\notebook.jpg",
       "description" : "Wow",
-      "purchases": 0
+      "purchases" : 0
     }
   }
 }

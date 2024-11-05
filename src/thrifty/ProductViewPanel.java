@@ -273,7 +273,7 @@ public class ProductViewPanel extends javax.swing.JPanel {
             if (productID.equals(newProductID)){
                 // remove the old orders, and make a new one 
                 cart.remove(orderID);
-                
+                cart1.remove(orderID);
                 
                 OrderDTO oldOrder = orders.get(orderID);
                 
@@ -296,9 +296,8 @@ public class ProductViewPanel extends javax.swing.JPanel {
                 orderList.add(updatedOrder.getOrderID());
                 
                 
-                cart1.remove(orderID);
+                
                 cart1.add(updatedOrder.getOrderID());
-
                 cart.add(updatedOrder.getOrderID());  
                 
                 return updatedOrder;

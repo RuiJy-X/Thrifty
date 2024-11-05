@@ -12,10 +12,12 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static thrifty.Dashboard.file;
 import static thrifty.Dashboard.mapper;
+import static thrifty.RegisterForm.random;
 
 
 /**
@@ -29,6 +31,7 @@ public class Dashboard extends javax.swing.JFrame {
     public HashMap<String,ShopDTO> allShops;
     public HashMap<String,UserDTO> allUsers;
     public HashMap<String,OrderDTO> orders;
+    public HashMap<String,SoldItemDTO> soldItems;
     ArrayList<String> cart;
     public static ObjectMapper mapper = new ObjectMapper();
     
@@ -130,6 +133,7 @@ public class Dashboard extends javax.swing.JFrame {
             allShops = mapper.readValue(shopFile, new TypeReference<HashMap<String, ShopDTO>>() {});
             allUsers = mapper.readValue(userFiles, new TypeReference<HashMap<String,UserDTO>>() {});
             orders = mapper.readValue(new File("src\\thrifty\\orders.json"), new TypeReference<HashMap<String,OrderDTO>>() {});
+            soldItems = mapper.readValue(new File("src\\thrifty\\solditems.json"), new TypeReference<HashMap<String,SoldItemDTO>>() {});
         }catch(IOException e){
             e.printStackTrace();
         }
@@ -369,8 +373,10 @@ public class Dashboard extends javax.swing.JFrame {
     
     public void deleteCartAndOrderItem(String order,ProductDTO product){
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
+       
         
         cart.remove(order);
+
         ArrayList cartOfUser = userLoggedIn.getCart();
         cartOfUser.remove(order);
         
@@ -399,6 +405,88 @@ public class Dashboard extends javax.swing.JFrame {
         
     
         
+        
+    }
+    
+    public void deletePurchase(String order,ProductDTO product,UserDTO buyer){
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        
+        cart.remove(order);
+        ArrayList cartOfUser = buyer.getCart();
+        cartOfUser.remove(order);
+        
+        allUsers.replace(buyer.getUserID(), buyer);
+        
+        orders.remove(order);
+        
+        ArrayList<String> orderList = allShops.get(product.getStoreID()).getOrders();
+        orderList.remove(order);
+        
+       
+        
+        try {
+         
+            mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops);
+            mapper.writeValue(new File("src\\thrifty\\orders.json"), orders);
+            mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(ProductViewPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        this.shopOverview2.purchasesTab();
+       
+        
+    
+        
+        
+    }
+    
+    public void approvePurchase(String orderID,UserDTO buyer, ShopDTO shop,ProductDTO product){
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        OrderDTO order = orders.get(orderID);
+        
+        /*
+        1. delete the order on object, user, shop, order json
+        2. make a sell item object
+        3. put the sell item on the shop's sell order list
+        */
+        //delete
+        cart.remove(orderID);
+        ArrayList cartOfUser = buyer.getCart();
+        cartOfUser.remove(order);
+        
+        allUsers.replace(buyer.getUserID(), buyer);
+        
+        orders.remove(orderID);
+        
+        ArrayList<String> orderList = allShops.get(product.getStoreID()).getOrders();
+        orderList.remove(orderID);
+        
+        
+        //Make sold item object
+        // public SoldItemDTO(String orderID,String productID, int quantitySold, String buyerID, String dateBought, double totalPrice, String shopID,double price,ProductDTO product)
+        String key = this.generateID(createIDKey());
+        double price = Double.parseDouble(order.getPrice());
+        SoldItemDTO soldItem = new SoldItemDTO(key,order.getProductID(),order.getQuantitySold(),order.getBuyerID(),order.getDateBought(),order.getTotalPrice(),order.getShopID(),price);
+        soldItems.put(key,soldItem);
+        ArrayList<String> userShopItemsInstance = userShop.getSellLog();
+//        ArrayList<String> userShopSoldItemsHashmap = allShops.get(userShop.getShopID()).getSellLog();
+//        userShopSoldItemsHashmap.add(key);
+        userShopItemsInstance.add(key);
+        
+           try {
+         
+            mapper.writeValue(new File("src\\thrifty\\solditems.json"), this.soldItems);
+            mapper.writeValue(new File("src\\thrifty\\shops.json"),this.allShops);
+            mapper.writeValue(new File("src\\thrifty\\orders.json"), orders);
+            mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(ProductViewPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         this.shopOverview2.purchasesTab();
         
     }
     
@@ -438,6 +526,31 @@ public class Dashboard extends javax.swing.JFrame {
     public ArrayList<String> getCart(){
         return this.cart;
     }
+    
+     public String generateID(String ID){ //recursion for creating ID and checks if it exists
+        //ID = Sx where x is a number, S means Shop
+        for (String key : this.soldItems.keySet()){
+            if (key.equals(ID)){ // if ID key exists then create ID
+                String newKey = createIDKey(); 
+                return generateID(newKey);
+            }
+        }
+        
+        return ID;
+    }
+    
+    public static String createIDKey(){ //create ID key
+        int randomNumber = random.nextInt(100000);
+        String idNum = String.valueOf(randomNumber);
+        String key = "SI".concat(idNum);
+        return key;
+        
+    }
+    
+   public thrifty.ShopOverview getSo(){
+       return this.shopOverview2;
+   }
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

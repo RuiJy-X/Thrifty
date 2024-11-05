@@ -8,21 +8,39 @@ package thrifty;
  *
  * @author User
  */
-public class SoldItemDTO extends OrderDTO{
+public class SoldItemDTO{
     private int quantitySold;
     private String buyerID;
     private String dateBought;
     private String productID;
     private double totalPrice;
-    private String orderID;
     private String shopID;
     private String price;
-    private ProductDTO product;
+    private String soldItemID;
    
     
-    public SoldItemDTO(String orderID,String productID, int quantitySold, String buyerID, String dateBought, double totalPrice, String shopID,double price,ProductDTO product){
-       super(orderID,productID,quantitySold,buyerID,dateBought,totalPrice,shopID,price,product);
+    public SoldItemDTO(String soldItemID,String productID, int quantitySold, String buyerID, String dateBought, double totalPrice, String shopID,double price){
+   
+       this.soldItemID = soldItemID;
+       this.quantitySold = quantitySold;
+       this.buyerID = buyerID;
+       this.productID = productID;
+       this.dateBought = dateBought;
+       this.totalPrice = totalPrice;
+       this.shopID = shopID;
+       String temp = String.valueOf(price);
+       this.price = temp;
+       
     }
     
+  
+    public String getPrice(){return price;}
+    public String getShopID(){return shopID;}
+    public String getSoldItemID(){return soldItemID;}
+    public int getQuantitySold(){return quantitySold;}
+    public String getBuyerID(){return buyerID;}
+    public String getDateBought(){return dateBought;}
+    public String getProductID(){return productID;}
+    public double getTotalPrice(){return totalPrice;}
     
 }
