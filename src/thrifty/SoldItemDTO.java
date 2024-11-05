@@ -17,9 +17,13 @@ public class SoldItemDTO{
     private String shopID;
     private String price;
     private String soldItemID;
+    private String productName;
    
+    public SoldItemDTO(){
+        
+    }
     
-    public SoldItemDTO(String soldItemID,String productID, int quantitySold, String buyerID, String dateBought, double totalPrice, String shopID,double price){
+    public SoldItemDTO(String soldItemID,String productID, int quantitySold, String buyerID, String dateBought, double totalPrice, String shopID,double price, String productName){
    
        this.soldItemID = soldItemID;
        this.quantitySold = quantitySold;
@@ -30,10 +34,11 @@ public class SoldItemDTO{
        this.shopID = shopID;
        String temp = String.valueOf(price);
        this.price = temp;
+       this.productName = productName;
        
     }
     
-  
+    public String getProductName(){return productName;}
     public String getPrice(){return price;}
     public String getShopID(){return shopID;}
     public String getSoldItemID(){return soldItemID;}

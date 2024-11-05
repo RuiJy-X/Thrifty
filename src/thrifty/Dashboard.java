@@ -316,7 +316,9 @@ public class Dashboard extends javax.swing.JFrame {
            tabs.setSelectedIndex(1);// Switches tab to shop tab
             // switches shop tab to register, 0 = register tab, 1 = shop overview tab (if shop exists)
         }else{
+          
            tabs.setSelectedIndex(2);
+           this.shopOverview2.overviewTab();
            tabs.remove(4);
         }
     }
@@ -454,7 +456,7 @@ public class Dashboard extends javax.swing.JFrame {
         //delete
         cart.remove(orderID);
         ArrayList cartOfUser = buyer.getCart();
-        cartOfUser.remove(order);
+        cartOfUser.remove(orderID);
         
         allUsers.replace(buyer.getUserID(), buyer);
         
@@ -468,7 +470,7 @@ public class Dashboard extends javax.swing.JFrame {
         // public SoldItemDTO(String orderID,String productID, int quantitySold, String buyerID, String dateBought, double totalPrice, String shopID,double price,ProductDTO product)
         String key = this.generateID(createIDKey());
         double price = Double.parseDouble(order.getPrice());
-        SoldItemDTO soldItem = new SoldItemDTO(key,order.getProductID(),order.getQuantitySold(),order.getBuyerID(),order.getDateBought(),order.getTotalPrice(),order.getShopID(),price);
+        SoldItemDTO soldItem = new SoldItemDTO(key,order.getProductID(),order.getQuantitySold(),order.getBuyerID(),order.getDateBought(),order.getTotalPrice(),order.getShopID(),price,order.getProduct().getName());
         soldItems.put(key,soldItem);
         ArrayList<String> userShopItemsInstance = userShop.getSellLog();
 //        ArrayList<String> userShopSoldItemsHashmap = allShops.get(userShop.getShopID()).getSellLog();
@@ -525,6 +527,10 @@ public class Dashboard extends javax.swing.JFrame {
     
     public ArrayList<String> getCart(){
         return this.cart;
+    }
+    
+    public HashMap<String,SoldItemDTO> getSoldItems(){
+        return this.soldItems;
     }
     
      public String generateID(String ID){ //recursion for creating ID and checks if it exists

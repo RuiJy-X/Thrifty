@@ -21,7 +21,7 @@ public class ShopDTO {
     private String phoneNumber;
     private String email;
     private String description;
-    private List<String>products;
+    private ArrayList<String>products;
     private ArrayList<String>orders;
     private ArrayList<String>sellLog;
     
@@ -29,7 +29,7 @@ public class ShopDTO {
         
     }
     
-    public ShopDTO(String shopID,String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,List<String> products,ArrayList<String> orders,ArrayList<String> sellLog){
+    public ShopDTO(String shopID,String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,ArrayList<String> products,ArrayList<String> orders,ArrayList<String> sellLog){
         this.shopID = shopID;
         this.shopName = shopName;
         this.ownerName = ownerName;
@@ -69,7 +69,7 @@ public class ShopDTO {
     public String getPhoneNumber(){return phoneNumber;}
     public String getEmail(){return email;}
     public String getDescription(){return description;}
-    public List<String> getProducts(){return products;}
+    public ArrayList<String> getProducts(){return products;}
     
     public void addProducts(String productID){
         products.add(productID);

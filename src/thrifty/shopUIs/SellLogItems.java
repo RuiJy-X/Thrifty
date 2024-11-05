@@ -16,7 +16,17 @@ public class SellLogItems extends javax.swing.JPanel {
     public SellLogItems() {
         initComponents();
     }
-
+    
+     public SellLogItems(String productName, String customerName, double unitPrice, int quantity, double totalPrice, String date) {
+        initComponents();
+        productNameLabel.setText(productName);
+        customerNameLabel.setText(customerName);
+        String tempUnitPrice = String.valueOf(unitPrice);
+        priceLabel.setText(tempUnitPrice);
+        totalPriceLabel.setText(String.valueOf(totalPrice));
+        dateLabel.setText(date);
+        quantityLabel.setText(String.valueOf(quantity));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,55 +37,77 @@ public class SellLogItems extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        productNameLabel = new javax.swing.JLabel();
+        customerNameLabel = new javax.swing.JLabel();
+        priceLabel = new javax.swing.JLabel();
+        quantityLabel = new javax.swing.JLabel();
+        totalPriceLabel = new javax.swing.JLabel();
+        dateLabel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        setLayout(new java.awt.GridBagLayout());
+        setPreferredSize(new java.awt.Dimension(1000, 35));
 
-        jLabel1.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jLabel1.setText("product name");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.ipadx = 206;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 4);
-        add(jLabel1, gridBagConstraints);
+        productNameLabel.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        productNameLabel.setText("product name");
 
-        jLabel2.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jLabel2.setText("customer name");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 7, 0, 167);
-        add(jLabel2, gridBagConstraints);
+        customerNameLabel.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        customerNameLabel.setText("customer name");
 
-        jLabel3.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jLabel3.setText("unit price");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 45, 0, 45);
-        add(jLabel3, gridBagConstraints);
+        priceLabel.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        priceLabel.setText("unit price");
 
-        jLabel4.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jLabel4.setText("qty");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 35, 0, 35);
-        add(jLabel4, gridBagConstraints);
+        quantityLabel.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        quantityLabel.setText("qty");
 
-        jLabel5.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        jLabel5.setText("date");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 50, 0, 50);
-        add(jLabel5, gridBagConstraints);
+        totalPriceLabel.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        totalPriceLabel.setText("total PRice");
+
+        dateLabel.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        dateLabel.setText("date");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(productNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(customerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(quantityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(totalPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(dateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(productNameLabel)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(dateLabel)
+                        .addComponent(totalPriceLabel)
+                        .addComponent(quantityLabel)
+                        .addComponent(priceLabel)
+                        .addComponent(customerNameLabel)))
+                .addGap(7, 7, 7))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel customerNameLabel;
+    private javax.swing.JLabel dateLabel;
+    private javax.swing.JLabel priceLabel;
+    private javax.swing.JLabel productNameLabel;
+    private javax.swing.JLabel quantityLabel;
+    private javax.swing.JLabel totalPriceLabel;
     // End of variables declaration//GEN-END:variables
 }
