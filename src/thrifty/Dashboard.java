@@ -557,15 +557,22 @@ public class Dashboard extends javax.swing.JFrame {
    
    public void displayComponents(){
        int start = currentPage * itemsPerPage;
-       int end = start + itemsPerPage;
+       int end = Math.min(start + itemsPerPage, uniqueProductList.size());
        productPanel2.removeAll();
        productPanel2.revalidate();
        productPanel2.repaint();
-       for (int i = start; i < end; i++) {
+       if (uniqueProductList.isEmpty()){
+           
+       }else{
+       for (int i = start; i < end ; i++) {
             productPanel2.populate((Product) uniqueProductList.get(i));
         }
+       }
    }
    
+   public void setUserShop(ShopDTO shop){
+       this.userShop = shop;
+   }
    
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

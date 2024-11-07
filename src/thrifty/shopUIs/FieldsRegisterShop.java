@@ -458,6 +458,7 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
         allUsers.put(user.getUserID(),updateUser);
         
         db.setUser(updateUser);
+        db.setUserShop(newShop);
         
         
         try{

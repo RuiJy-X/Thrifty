@@ -1,51 +1,21 @@
 {
-  "U82081" : {
-    "userID" : "U82081",
-    "name" : "george",
+  "U3696" : {
+    "userID" : "U3696",
+    "name" : "rujz",
     "password" : "123",
     "location" : "Bacolod City, Negros Occidental",
     "city" : "Bacolod City",
-    "shopID" : "S78518",
+    "shopID" : "S47415",
     "image" : "null",
     "cart" : [ ]
   },
-  "U48427" : {
-    "userID" : "U48427",
-    "name" : "test",
-    "password" : "123",
-    "location" : "Bacolod City, Neg Occ",
-    "city" : "Bacolod City",
-    "shopID" : "null",
-    "image" : "null",
-    "cart" : [ ]
-  },
-  "U7346" : {
-    "userID" : "U7346",
-    "name" : "john",
-    "password" : "123",
-    "location" : "Bacolod City, Negros Occidental",
-    "city" : "Bacolod City",
-    "shopID" : "S95347",
-    "image" : "null",
-    "cart" : [ ]
-  },
-  "U1" : {
-    "userID" : "U1",
-    "name" : "Rujz",
-    "password" : "12345",
-    "location" : "Rizal St., Brgy. 3,Pontevedra, Negros Occidental, Philippines",
-    "city" : "Pontevedra",
-    "shopID" : "S1",
-    "image" : "",
-    "cart" : [ ]
-  },
-  "U76105" : {
-    "userID" : "U76105",
+  "U34243" : {
+    "userID" : "U34243",
     "name" : "dianne",
     "password" : "123",
     "location" : "Bacolod City, Negros Occidental",
     "city" : "Bacolod City",
-    "shopID" : "S88851",
+    "shopID" : "S67771",
     "image" : "null",
     "cart" : [ ]
   }

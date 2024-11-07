@@ -1,152 +1,27 @@
 {
-  "eraser" : {
-    "eraser77902" : {
-      "id" : "eraser77902",
-      "quantity" : 20,
-      "price" : 15.0,
-      "name" : "Eraser",
-      "store" : "dianne's shop",
-      "storeID" : "S88851",
-      "image" : "C:\\Users\\User\\Downloads\\eraser.jpg",
-      "description" : "Nice",
-      "purchases" : 0
-    }
-  },
-  "pen" : {
-    "pen66061" : {
-      "id" : "pen66061",
-      "quantity" : 10,
-      "price" : 12.0,
-      "name" : "Ballpen black",
-      "store" : "dianne's shop",
-      "storeID" : "S88851",
-      "image" : null,
-      "description" : "",
-      "purchases" : 0
-    },
-    "pen22592" : {
-      "id" : "pen22592",
-      "quantity" : 10,
-      "price" : 12.0,
-      "name" : "Ballpen green",
-      "store" : "dianne's shop",
-      "storeID" : "S88851",
-      "image" : null,
-      "description" : "",
-      "purchases" : 0
-    },
-    "pen86395" : {
-      "id" : "pen86395",
-      "quantity" : 10,
-      "price" : 12.0,
-      "name" : "Ballpen glittered",
-      "store" : "dianne's shop",
-      "storeID" : "S88851",
-      "image" : null,
-      "description" : "",
-      "purchases" : 0
-    },
-    "pen55393" : {
-      "id" : "pen55393",
-      "quantity" : 10,
-      "price" : 12.0,
-      "name" : "Ballpen multicolor",
-      "store" : "dianne's shop",
-      "storeID" : "S88851",
-      "image" : null,
-      "description" : "",
-      "purchases" : 0
-    },
-    "pen75211" : {
-      "id" : "pen75211",
-      "quantity" : 100,
-      "price" : 600.0,
-      "name" : "Ballpen pcs",
-      "store" : "MARJ Store",
-      "storeID" : "S1",
-      "image" : "C:\\Users\\User\\Downloads\\ballpen.jpg",
-      "description" : "Ballpen",
-      "purchases" : 0
-    },
-    "pen89412" : {
-      "id" : "pen89412",
-      "quantity" : 12,
-      "price" : 20.0,
-      "name" : "Ballpen black",
-      "store" : "dianne's shop",
-      "storeID" : "S88851",
-      "image" : "D:\\Downloads\\1641.jpg",
-      "description" : "Wow",
-      "purchases" : 0
-    },
-    "pen22687" : {
-      "id" : "pen22687",
-      "quantity" : 10,
-      "price" : 12.0,
-      "name" : "Ballpen blue",
-      "store" : "dianne's shop",
-      "storeID" : "S88851",
-      "image" : null,
-      "description" : "",
-      "purchases" : 0
-    },
-    "pen14340" : {
-      "id" : "pen14340",
-      "quantity" : 10,
-      "price" : 12.0,
-      "name" : "Ballpen",
-      "store" : "dianne's shop",
-      "storeID" : "S88851",
-      "image" : null,
-      "description" : "",
-      "purchases" : 0
-    },
-    "pen37007" : {
-      "id" : "pen37007",
-      "quantity" : 10,
-      "price" : 12.0,
-      "name" : "Ballpen red",
-      "store" : "dianne's shop",
-      "storeID" : "S88851",
-      "image" : null,
-      "description" : "",
-      "purchases" : 0
-    }
-  },
-  "lapis" : {
-    "lapis56632" : {
-      "id" : "lapis56632",
-      "quantity" : 100,
-      "price" : 12.0,
-      "name" : "Lapis pcs",
-      "store" : "MARJ Store",
-      "storeID" : "S1",
-      "image" : "C:\\Users\\User\\Downloads\\pencil2.jpg",
-      "description" : "Lapis",
-      "purchases" : 0
-    },
-    "lapis12078" : {
-      "id" : "lapis12078",
-      "quantity" : 19,
-      "price" : 1100.0,
-      "name" : "Lapis red",
-      "store" : "MARJ Store",
-      "storeID" : "S1",
-      "image" : "C:\\Users\\User\\Downloads\\pencil1.jpg",
-      "description" : "Lapis",
-      "purchases" : 0
-    }
-  },
-  "notebook" : {
-    "notebook68858" : {
-      "id" : "notebook68858",
+  "marker" : {
+    "marker82554" : {
+      "id" : "marker82554",
       "quantity" : 15,
       "price" : 50.0,
-      "name" : "Notebook A5 100 Pages",
-      "store" : "John's Shop",
-      "storeID" : "S95347",
-      "image" : "C:\\Users\\User\\Downloads\\notebook.jpg",
-      "description" : "Wow",
+      "name" : "Marker red blue black",
+      "store" : "Rujz' Shop",
+      "storeID" : "S47415",
+      "image" : "C:\\Users\\User\\Downloads\\marker1.jpg",
+      "description" : "This is a marker",
+      "purchases" : 0
+    }
+  },
+  "ballpen" : {
+    "ballpen4371" : {
+      "id" : "ballpen4371",
+      "quantity" : 20,
+      "price" : 15.0,
+      "name" : "Ballpen Black",
+      "store" : "Dianne's Food Store",
+      "storeID" : "S67771",
+      "image" : "C:\\Users\\User\\Downloads\\ballpen.jpg",
+      "description" : "Fine black ballpen",
       "purchases" : 0
     }
   }
