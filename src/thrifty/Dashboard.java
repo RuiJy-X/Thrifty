@@ -25,7 +25,9 @@ import static thrifty.RegisterForm.random;
  */
 
 public class Dashboard extends javax.swing.JFrame {
-   
+    private static boolean isFiltered = false;
+    
+    
      private static final int itemsPerPage = 12;
     private int currentPage = 0; // Tracks the current page
     
@@ -41,7 +43,7 @@ public class Dashboard extends javax.swing.JFrame {
     public static File shopFile = new File("src\\thrifty\\shops.json");
     public static File userFiles = new File("src\\thrifty\\userFiles.json");
     
-    public static ArrayList<ProductDTO> uniqueProductList = new ArrayList<ProductDTO>();
+    public static ArrayList<Component> uniqueProductList = new ArrayList<>();
     
     public Component[] productComponents;
     public Component[] allProductComponents;
@@ -148,9 +150,8 @@ public class Dashboard extends javax.swing.JFrame {
    
 
    public void createProductComponent(){
-       int start = currentPage * itemsPerPage;
-       int end = start + itemsPerPage;
-       ArrayList<Component> products = new ArrayList<>();
+       
+       uniqueProductList.clear();
        productComponents = null;
         productPanel2.removeAll();
         productPanel2.revalidate();
@@ -161,17 +162,14 @@ public class Dashboard extends javax.swing.JFrame {
 
                 if (userLoggedIn.getCity().equalsIgnoreCase(location)){
                     Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product);
-                    
-                    products.add(individualProduct);
+                    uniqueProductList.add(individualProduct);
                     
                 }
             }
        }
-       for (int i = start; i < end; i++) {
-            productPanel2.populate((Product) products.get(i));
-        }
        
        
+      this.displayComponents();
        this.setResults("");
        allProductComponents = productPanel2.getProductComponents();
        isSearching = false;
@@ -180,6 +178,8 @@ public class Dashboard extends javax.swing.JFrame {
    public void filteredComponents(int i){
 //       productPanel2.removeAll();
        
+       uniqueProductList.clear();
+
        productPanel2.revalidate();
        productPanel2.repaint(); 
        
@@ -228,7 +228,8 @@ public class Dashboard extends javax.swing.JFrame {
                     if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
                        // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
                        Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct());
-                       productPanel2.populate(individualProduct);
+                       
+                       uniqueProductList.add(individualProduct);
 
                     }
                 }
@@ -252,7 +253,7 @@ public class Dashboard extends javax.swing.JFrame {
                     if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
                        // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
                        Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct());
-                       productPanel2.populate(individualProduct);
+                       uniqueProductList.add(individualProduct);
 
                     }
                }
@@ -262,18 +263,8 @@ public class Dashboard extends javax.swing.JFrame {
             
         }
        
-        
-         
-//       for (String key : allProducts.keySet()){
-//           for (ProductDTO product : allProducts.get(key).values()){
-//               if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
-//                  String location = this.getLocation(product.getStoreID());
-//                  Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product);
-//                  productPanel2.populate(individualProduct);
-//               }
-//           }
-//           
-//       }
+       
+        this.displayComponents();
    }
    
    
@@ -284,6 +275,7 @@ public class Dashboard extends javax.swing.JFrame {
        productPanel2.repaint(); 
    }
     public void searchedComponents(String keyword){
+        uniqueProductList.clear();
         isSearching = true;
         productComponents = null;
         for (String key : allProducts.keySet()){
@@ -294,13 +286,13 @@ public class Dashboard extends javax.swing.JFrame {
                     String location = this.getLocation(product.getStoreID());
                     if (userLoggedIn.getCity().equalsIgnoreCase(location)){
                         Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product);
-                        productPanel2.populate(individualProduct);
+                        uniqueProductList.add(individualProduct);
                     }
                 }
             }
         }
         productComponents = productPanel2.getProductComponents();
-        
+        this.displayComponents();
    }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -333,7 +325,7 @@ public class Dashboard extends javax.swing.JFrame {
         
         tabs.remove(4);
         
-        
+        isFiltered = false;
         isSearching = false;
         
     }
@@ -560,7 +552,18 @@ public class Dashboard extends javax.swing.JFrame {
    
    public void nextPageUnfiltered(){
        currentPage += 1;
-       this.createProductComponent();
+       this.displayComponents();
+   }
+   
+   public void displayComponents(){
+       int start = currentPage * itemsPerPage;
+       int end = start + itemsPerPage;
+       productPanel2.removeAll();
+       productPanel2.revalidate();
+       productPanel2.repaint();
+       for (int i = start; i < end; i++) {
+            productPanel2.populate((Product) uniqueProductList.get(i));
+        }
    }
    
    

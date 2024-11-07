@@ -32,6 +32,17 @@
     "soldItemID" : "SI61120",
     "productName" : "Ballpen black"
   },
+  "SI21029" : {
+    "quantitySold" : 2,
+    "buyerID" : "U7346",
+    "dateBought" : "2024-11-06",
+    "productID" : "eraser77902",
+    "totalPrice" : 30.0,
+    "shopID" : "S88851",
+    "price" : "15.0",
+    "soldItemID" : "SI21029",
+    "productName" : "Eraser"
+  },
   "SI4808" : {
     "quantitySold" : 5,
     "buyerID" : "U7346",
