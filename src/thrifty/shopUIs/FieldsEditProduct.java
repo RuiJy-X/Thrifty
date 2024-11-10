@@ -11,6 +11,7 @@ import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.HashSet;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
@@ -23,7 +24,7 @@ import static thrifty.RegisterForm.random;
  *
  * @author User
  */
-public class FieldsAddProduct extends javax.swing.JPanel {
+public class FieldsEditProduct extends javax.swing.JPanel {
     String newProductName;
     String newProductPrice;
     String newProductQuantity;
@@ -45,8 +46,22 @@ public class FieldsAddProduct extends javax.swing.JPanel {
         component.setIcon(scaledIcon);
         
     }
-    public FieldsAddProduct() {
+    public FieldsEditProduct() {
         initComponents();
+    }
+    
+    public FieldsEditProduct(String productID, String productName,String price,String quantity, String description, String picturePath,Dashboard db){
+        initComponents();
+        
+        this.productName.setText(productID);
+        this.productName.setEditable(false);
+        this.displayName.setText(productName);
+        this.price.setText(price);
+        this.quantity.setText(quantity);
+        this.icon(picturePath,picture,445,313);
+        this.db = db;
+        
+        
     }
     public void setShop(ShopDTO shop){
         this.shop = shop;
@@ -90,8 +105,8 @@ public class FieldsAddProduct extends javax.swing.JPanel {
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Roboto Black", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel1.setText("Add Product");
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel1.setText("Edit Product");
 
         jLabel2.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
         jLabel2.setText("Image:");
@@ -152,7 +167,7 @@ public class FieldsAddProduct extends javax.swing.JPanel {
         jButton2.setBackground(new java.awt.Color(46, 173, 213));
         jButton2.setFont(new java.awt.Font("Outfit", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Add Product");
+        jButton2.setText("Update Product");
         jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(46, 173, 213)));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -289,36 +304,14 @@ public class FieldsAddProduct extends javax.swing.JPanel {
         int newQuantity = quantity1.intValue();
         newProductDescription = description.getText();
         
+        String generalID = newProductName.replaceAll("\\d", "");
+        ProductDTO existingProduct = allProducts.get(generalID).get(newProductName);
+        existingProduct.setQuantity(newQuantity);
+        existingProduct.setPrice(price);
+        existingProduct.setDescription(newProductDescription);
+        existingProduct.setName(display); 
         
-        //  public ProductDTO(int id, int quantity, double price, String name, String store, int storeID,String image) {
-        String generalID = newProductName.toLowerCase().replace(" ", "");
         
-        String newKey = generateID(createIDKey(newProductName), newProductName); // create ID
-        newKey = newKey.toLowerCase();
-        ProductDTO newProduct = new ProductDTO(newKey,newQuantity,price,display,shop.getShopName(),shop.getShopID(),newProductPicture,newProductDescription,0); // Make product object
-        
-        //storing of product to hashmap
-        // We have to check if there is a "general" category for that product, if there isn't then make a new ID for it and a hashmap, if there is then just put it in that hashmap
-        
-         //checks if the general category doesnt exists
-         if(this.checkIfCategoryExists(generalID)){
-             allProducts.get(generalID).put(newKey, newProduct); // add product to a category that alrdy exists
-         }else{
-            allProducts.put(generalID,new HashMap<String, ProductDTO>());// make new general string and hashmap
-            // add new product
-            allProducts.get(generalID).put(newKey, newProduct);
-             
-         }
-         
-         // add product to shop product list
-         
-         shop.addProducts(newKey);
-         
-         //update all shop hashmap
-         
-         allShops.put(shop.getShopID(),shop); //this will replace the old one with an updated shop
-         
-         //write to json
           try{
               //mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
             //mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops); //write hashmap into JSON

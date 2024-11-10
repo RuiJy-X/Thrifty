@@ -183,7 +183,7 @@ public class PanelMyProducts extends javax.swing.JPanel {
             System.out.println("test");
             ProductDTO product = flattenedProducts.get(productID);
             // public MyProductItems(String name, String image, int quantity, String dateAdded,int purchases, double price)
-            MyProductItems newItem = new MyProductItems(product.getName(),product.getImage(),product.getQuantity(), "NA",0,product.getPrice());
+            MyProductItems newItem = new MyProductItems(product.getName(),product.getImage(),product.getQuantity(), "NA",0,product.getPrice(),db,productID,product.getDescription());
             scrollPanel.add(newItem);
         }
     }

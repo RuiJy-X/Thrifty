@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import static thrifty.Dashboard.file;
 import static thrifty.Dashboard.mapper;
 import static thrifty.RegisterForm.random;
+import thrifty.shopUIs.FieldsEditProduct;
 
 
 /**
@@ -311,7 +312,12 @@ public class Dashboard extends javax.swing.JFrame {
           
            tabs.setSelectedIndex(2);
            this.shopOverview2.overviewTab();
-           tabs.remove(4);
+           try{
+               tabs.remove(4);
+           }catch (IndexOutOfBoundsException e){
+               
+           }
+           
         }
     }
     
@@ -323,7 +329,11 @@ public class Dashboard extends javax.swing.JFrame {
         productPanel2.repaint();
         this.createProductComponent();
         
-        tabs.remove(4);
+        try{
+            tabs.remove(4);
+        }catch (IndexOutOfBoundsException e){
+               
+        }
         
         isFiltered = false;
         isSearching = false;
@@ -574,6 +584,19 @@ public class Dashboard extends javax.swing.JFrame {
        this.userShop = shop;
    }
    
+   public void editProduct(FieldsEditProduct edit){
+       
+       try{
+           shopOverview2.tabs.remove(6);
+           shopOverview2.tabs.add(edit);
+           shopOverview2.tabs.setSelectedIndex(6);
+       }catch (IndexOutOfBoundsException e  ){
+           shopOverview2.tabs.add(edit);
+           shopOverview2.tabs.setSelectedIndex(6);
+       }
+       
+       
+   }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

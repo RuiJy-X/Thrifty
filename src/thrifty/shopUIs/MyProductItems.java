@@ -7,6 +7,7 @@ package thrifty.shopUIs;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import thrifty.Dashboard;
 
 /**
  *
@@ -23,6 +24,9 @@ public class MyProductItems extends javax.swing.JPanel {
     String dateAdded;
     String purchases;
     String price;
+    Dashboard db;
+    String productID;
+    String description;
     
     
     public MyProductItems() {
@@ -36,7 +40,7 @@ public class MyProductItems extends javax.swing.JPanel {
         component.setIcon(scaledIcon);
         
     }
-    public MyProductItems(String name, String image, int quantity, String dateAdded,int purchases, double price) {
+    public MyProductItems(String name, String image, int quantity, String dateAdded,int purchases, double price,Dashboard db,String productID,String description) {
         
         initComponents();
         this.name = name;
@@ -48,6 +52,9 @@ public class MyProductItems extends javax.swing.JPanel {
         this.purchases = temp2;
         String temp3 = String.valueOf(price);
         this.price = temp3;
+        this.db = db;
+        this.productID = productID;
+        this.description = description;
         
         icon(image,imageLabel,45,45);
         nameLabel.setText(name);
@@ -78,6 +85,11 @@ public class MyProductItems extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setPreferredSize(new java.awt.Dimension(1005, 83));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         imageLabel.setBackground(new java.awt.Color(255, 255, 255));
         imageLabel.setPreferredSize(new java.awt.Dimension(45, 45));
@@ -135,6 +147,13 @@ public class MyProductItems extends javax.swing.JPanel {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        //public FieldsEditProduct(String productID, String productName,String price,String quantity, String description, String picturePath,Dashboard db){
+        FieldsEditProduct edit = new FieldsEditProduct(productID,name,price,quantity,description,image,db);
+        db.editProduct(edit);
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

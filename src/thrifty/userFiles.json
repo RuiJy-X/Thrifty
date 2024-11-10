@@ -18,5 +18,15 @@
     "shopID" : "S67771",
     "image" : "null",
     "cart" : [ ]
+  },
+  "U1603" : {
+    "userID" : "U1603",
+    "name" : "john",
+    "password" : "123",
+    "location" : "Bacolod City, Neg. Occ.",
+    "city" : "Bacolod City",
+    "shopID" : "null",
+    "image" : "null",
+    "cart" : [ ]
   }
 }

@@ -15,13 +15,13 @@
   "ballpen" : {
     "ballpen4371" : {
       "id" : "ballpen4371",
-      "quantity" : 20,
+      "quantity" : 25,
       "price" : 15.0,
       "name" : "Ballpen Black",
       "store" : "Dianne's Food Store",
       "storeID" : "S67771",
       "image" : "C:\\Users\\User\\Downloads\\ballpen.jpg",
-      "description" : "Fine black ballpen",
+      "description" : "This is a description",
       "purchases" : 0
     }
   }
