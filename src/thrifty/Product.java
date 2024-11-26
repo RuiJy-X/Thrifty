@@ -26,6 +26,7 @@ public class Product extends javax.swing.JPanel {
     private String quantity;
     private Dashboard db;
      private ProductDTO product;
+     private ShopDTO shop;
     public static void icon(String path, JLabel component,int width, int height){
         ImageIcon imageIcon =  new ImageIcon(path);
         Image img = imageIcon.getImage();
@@ -54,7 +55,7 @@ public class Product extends javax.swing.JPanel {
         
     }
     
-    public Product(String Name, String Location, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
+    public Product(String Name, String Location, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product,ShopDTO shop){
         initComponents();
         this.Location = Location;
         this.Name = Name;
@@ -74,10 +75,11 @@ public class Product extends javax.swing.JPanel {
         this.quantity = tempQuantity;
         this.db = db;
         this.product = product;
+        this.shop = shop;
         
     }
     
-    public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
+    public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product,ShopDTO shop){
         initComponents();
         
         this.Name = Name;
@@ -98,7 +100,7 @@ public class Product extends javax.swing.JPanel {
         this.quantity = tempQuantity;
         this.db = db;
         this.product = product;
-        
+        this.shop = shop;
         this.Location = db.getLocation(product.getStoreID());
         
     }
@@ -213,7 +215,7 @@ public class Product extends javax.swing.JPanel {
 //    private String shopName;
         String price1 = ("₱" + String.format("%.2f", Price));
         
-        ProductViewPanel view = new ProductViewPanel(Name,price1,quantity,description,image,db,product);
+        ProductViewPanel view = new ProductViewPanel(Name,price1,quantity,description,image,db,product,shop);
         db.viewProduct(view);
     }//GEN-LAST:event_formMouseClicked
     /*

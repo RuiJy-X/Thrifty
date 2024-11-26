@@ -21,6 +21,12 @@ public class SPInfo extends javax.swing.JPanel {
     public SPInfo() {
         initComponents();
     }
+    
+    public SPInfo(ShopDTO shop,Dashboard db) {
+        initComponents();
+        this.setShop(shop,db);
+    }
+    
     public void setShop(ShopDTO shop,Dashboard db){
         this.shop = shop;
         String shopName = shop.getShopName();

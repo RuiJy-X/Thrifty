@@ -19,7 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static thrifty.Dashboard.mapper;
-import thrifty.OrderDTO;
+import thrifty.shopUIs.SPInfo;
 /**
  *
  * @author User
@@ -43,11 +43,11 @@ public class ProductViewPanel extends javax.swing.JPanel {
         initComponents();
     }
     
-    public ProductViewPanel(String name, String price, String quantity, String description, String pictureIMG, Dashboard db,ProductDTO product) {
+    public ProductViewPanel(String name, String price, String quantity, String description, String pictureIMG, Dashboard db,ProductDTO product,ShopDTO shop) {
         initComponents();
         orders = db.getOrder();
         user = db.getUser();
-        shop = db.getUserShop();
+        this.shop = shop;
         allShops = db.getShop();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
         allUsers = db.getUserFiles();
@@ -85,7 +85,7 @@ public class ProductViewPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         picture = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        visitShopButton = new javax.swing.JButton();
         price = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         quantity = new javax.swing.JLabel();
@@ -110,10 +110,15 @@ public class ProductViewPanel extends javax.swing.JPanel {
         name.setFont(new java.awt.Font("Roboto", 0, 48)); // NOI18N
         name.setText("Name");
 
-        jButton2.setBackground(new java.awt.Color(238, 9, 9));
-        jButton2.setFont(new java.awt.Font("Outfit", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Visit Shop");
+        visitShopButton.setBackground(new java.awt.Color(238, 9, 9));
+        visitShopButton.setFont(new java.awt.Font("Outfit", 1, 24)); // NOI18N
+        visitShopButton.setForeground(new java.awt.Color(255, 255, 255));
+        visitShopButton.setText("Visit Shop");
+        visitShopButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visitShopButtonActionPerformed(evt);
+            }
+        });
 
         price.setFont(new java.awt.Font("Roboto", 1, 64)); // NOI18N
         price.setForeground(new java.awt.Color(238, 9, 9));
@@ -200,7 +205,7 @@ public class ProductViewPanel extends javax.swing.JPanel {
                         .addGap(20, 20, 20)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
+                        .addComponent(visitShopButton)))
                 .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(
@@ -209,7 +214,7 @@ public class ProductViewPanel extends javax.swing.JPanel {
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(visitShopButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -373,6 +378,11 @@ public class ProductViewPanel extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void visitShopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visitShopButtonActionPerformed
+        SPInfo shopInfo = new SPInfo(shop,db);
+        db.displayShop(shopInfo);
+    }//GEN-LAST:event_visitShopButtonActionPerformed
     
     public static String getCurrentDate(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -403,7 +413,6 @@ public class ProductViewPanel extends javax.swing.JPanel {
     private javax.swing.JLabel address;
     private javax.swing.JTextArea description;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
@@ -414,5 +423,6 @@ public class ProductViewPanel extends javax.swing.JPanel {
     private javax.swing.JLabel picture;
     private javax.swing.JLabel price;
     private javax.swing.JLabel quantity;
+    private javax.swing.JButton visitShopButton;
     // End of variables declaration//GEN-END:variables
 }

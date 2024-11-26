@@ -162,7 +162,7 @@ public class Dashboard extends javax.swing.JFrame {
                 String location = this.getLocation(product.getStoreID());
 
                 if (userLoggedIn.getCity().equalsIgnoreCase(location)){
-                    Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product);
+                    Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product,allShops.get(product.getStoreID()));
                     uniqueProductList.add(individualProduct);
                     
                 }
@@ -228,7 +228,7 @@ public class Dashboard extends javax.swing.JFrame {
                if (userLoggedIn.getCity().equalsIgnoreCase(location)){
                     if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
                        // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
-                       Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct());
+                       Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct(),allShops.get(product.getStoreID()));
                        
                        uniqueProductList.add(individualProduct);
 
@@ -253,7 +253,7 @@ public class Dashboard extends javax.swing.JFrame {
                if (userLoggedIn.getCity().equalsIgnoreCase(location)){
                     if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
                        // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
-                       Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct());
+                       Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct(),allShops.get(product.getStoreID()));
                        uniqueProductList.add(individualProduct);
 
                     }
@@ -286,7 +286,7 @@ public class Dashboard extends javax.swing.JFrame {
                     
                     String location = this.getLocation(product.getStoreID());
                     if (userLoggedIn.getCity().equalsIgnoreCase(location)){
-                        Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product);
+                        Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product,allShops.get(product.getStoreID()));
                         uniqueProductList.add(individualProduct);
                     }
                 }
@@ -313,6 +313,7 @@ public class Dashboard extends javax.swing.JFrame {
            tabs.setSelectedIndex(2);
            this.shopOverview2.overviewTab();
            try{
+               tabs.remove(5);
                tabs.remove(4);
            }catch (IndexOutOfBoundsException e){
                
@@ -330,6 +331,7 @@ public class Dashboard extends javax.swing.JFrame {
         this.createProductComponent();
         
         try{
+            tabs.remove(5);
             tabs.remove(4);
         }catch (IndexOutOfBoundsException e){
                
@@ -595,6 +597,12 @@ public class Dashboard extends javax.swing.JFrame {
            shopOverview2.tabs.setSelectedIndex(6);
        }
        
+       
+   }
+   
+   public void displayShop(Component shopInfo){
+       tabs.add(shopInfo);
+       tabs.setSelectedIndex(5);
        
    }
     
