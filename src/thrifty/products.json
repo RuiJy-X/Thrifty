@@ -24,5 +24,18 @@
       "description" : "This is a description",
       "purchases" : 0
     }
+  },
+  "pen" : {
+    "pen53143" : {
+      "id" : "pen53143",
+      "quantity" : 25,
+      "price" : 15.0,
+      "name" : "Ballpen Black",
+      "store" : "Rujz' Shop",
+      "storeID" : "S47415",
+      "image" : "C:\\Users\\User\\Downloads\\ballpen2.jpg",
+      "description" : "This is a black ballpen.",
+      "purchases" : 0
+    }
   }
 }

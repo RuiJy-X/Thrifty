@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -273,12 +274,16 @@ public class RegisterForm extends javax.swing.JPanel {
         String city = inputCity.getText();
         //UserDTO(String userID, String name, String password, String location, String city, String shopID, String image, ArrayList<String> cart)
         String userID = generateID(createIDKey());
+        if(name.isBlank() || password.isBlank() || address.isBlank() || city.isBlank()){
+            JOptionPane.showMessageDialog(this,"All fields must not be empty","Input Error",JOptionPane.ERROR_MESSAGE);
+        }else{
+            UserDTO user = new UserDTO(userID,name,password,address,city,"null","null", new ArrayList<>());
         
-        UserDTO user = new UserDTO(userID,name,password,address,city,"null","null", new ArrayList<>());
+            userHashmap.put(userID, user);
+            login.updateHashMap(userHashmap);
+            this.updateJSON();
+        }
         
-        userHashmap.put(userID, user);
-        login.updateHashMap(userHashmap);
-        this.updateJSON();
         
         
         

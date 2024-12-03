@@ -15,6 +15,7 @@ import java.util.HashSet;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import thrifty.Dashboard;
 import static thrifty.RegisterForm.random;
 import thrifty.ShopDTO;
@@ -35,6 +36,7 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
     HashMap<String,ShopDTO> allShops;
     ShopDTO shop;
     HashMap<String,UserDTO> allUsers;
+    static String logoPath;
     
     public void icon(String path, JLabel component,int width, int height){
         ImageIcon imageIcon =  new ImageIcon(path);
@@ -409,7 +411,7 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
         
         File image = chooser.getSelectedFile();
         String imageFilePath = image.getAbsolutePath();
-        
+        logoPath = imageFilePath;
         icon(imageFilePath,logo,346,272);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -445,28 +447,36 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
             type = "Not Specified";
         }
         
-        // create shop DTO
-        //  public ShopDTO(String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,List<String> products){
-        String newKey = generateID(createIDKey()); //Generate new IDKey
-        ShopDTO newShop = new ShopDTO(newKey,shopName,ownerName,address,city,type,number,email,description,new ArrayList<>(),new ArrayList<>(),new ArrayList<>());
-        
-        //public UserDTO(String userID, String name, String password, String location, String city, String shopID, String image, ArrayList<String> cart){
-        //update User with new SHOPID, we have to create another user object
-        UserDTO updateUser = new UserDTO(user.getUserID(),user.getName(),user.getPassword(),user.getlocation(),user.getCity(),newKey,user.getImage(),user.getCart());
-        
-        allShops.put(newKey, newShop); //Update the hashmap
-        allUsers.put(user.getUserID(),updateUser);
-        
-        db.setUser(updateUser);
-        db.setUserShop(newShop);
-        
-        
-        try{
-            mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
-            mapper.writeValue(new File("src\\thrifty\\shops.json"), allShops); //write hashmap into JSON
-        }catch (IOException e){
-            e.printStackTrace();
+        if(shopName.isBlank() || ownerName.isBlank() || address.isBlank() || city.isBlank() || number.isBlank() || email.isBlank() || description.isBlank() || type.isBlank()|| logoPath.isBlank() ){
+            JOptionPane.showMessageDialog(db, "All input fields must not be empty.", "Missing Input Error",JOptionPane.WARNING_MESSAGE);
+            
+        }else{
+                // create shop DTO
+           //  public ShopDTO(String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,List<String> products){
+           String newKey = generateID(createIDKey()); //Generate new IDKey
+           ShopDTO newShop = new ShopDTO(newKey,shopName,ownerName,address,city,type,number,email,description,new ArrayList<>(),new ArrayList<>(),new ArrayList<>(), logoPath);
+
+           //public UserDTO(String userID, String name, String password, String location, String city, String shopID, String image, ArrayList<String> cart){
+           //update User with new SHOPID, we have to create another user object
+           UserDTO updateUser = new UserDTO(user.getUserID(),user.getName(),user.getPassword(),user.getlocation(),user.getCity(),newKey,user.getImage(),user.getCart());
+
+           allShops.put(newKey, newShop); //Update the hashmap
+           allUsers.put(user.getUserID(),updateUser);
+
+           db.setUser(updateUser);
+           db.setUserShop(newShop);
+
+
+           try{
+               mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
+               mapper.writeValue(new File("src\\thrifty\\shops.json"), allShops); //write hashmap into JSON
+           }catch (IOException e){
+               e.printStackTrace();
+           }
+            
         }
+        
+       
         
     }//GEN-LAST:event_jButton3ActionPerformed
 

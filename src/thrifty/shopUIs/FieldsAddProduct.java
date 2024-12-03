@@ -14,6 +14,7 @@ import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import static thrifty.Dashboard.file;
 import static thrifty.Dashboard.mapper;
@@ -280,56 +281,69 @@ public class FieldsAddProduct extends javax.swing.JPanel {
         allProducts = db.getallProducts();
         allShops = db.getShop();
         
-        String display = displayName.getText();
-        newProductName = productName.getText();
-        newProductPrice = price.getText();
-        double price = Double.parseDouble(newProductPrice);
-        newProductQuantity = quantity.getText();
-        Integer quantity1 = Integer.parseInt(newProductQuantity);
-        int newQuantity = quantity1.intValue();
-        newProductDescription = description.getText();
+        try{
+            String display = displayName.getText();
+            newProductName = productName.getText();
+            newProductPrice = price.getText();
+            double price = Double.parseDouble(newProductPrice);
+            newProductQuantity = quantity.getText();
+            Integer quantity1 = Integer.parseInt(newProductQuantity);
+            int newQuantity = quantity1.intValue();
+            newProductDescription = description.getText();
         
         
-        //  public ProductDTO(int id, int quantity, double price, String name, String store, int storeID,String image) {
-        String generalID = newProductName.toLowerCase().replace(" ", "");
         
-        String newKey = generateID(createIDKey(newProductName), newProductName); // create ID
-        newKey = newKey.toLowerCase();
-        ProductDTO newProduct = new ProductDTO(newKey,newQuantity,price,display,shop.getShopName(),shop.getShopID(),newProductPicture,newProductDescription,0); // Make product object
-        
-        //storing of product to hashmap
-        // We have to check if there is a "general" category for that product, if there isn't then make a new ID for it and a hashmap, if there is then just put it in that hashmap
-        
-         //checks if the general category doesnt exists
-         if(this.checkIfCategoryExists(generalID)){
-             allProducts.get(generalID).put(newKey, newProduct); // add product to a category that alrdy exists
-         }else{
-            allProducts.put(generalID,new HashMap<String, ProductDTO>());// make new general string and hashmap
-            // add new product
-            allProducts.get(generalID).put(newKey, newProduct);
-             
-         }
-         
-         // add product to shop product list
-         
-         shop.addProducts(newKey);
-         
-         //update all shop hashmap
-         
-         allShops.put(shop.getShopID(),shop); //this will replace the old one with an updated shop
-         
-         //write to json
-          try{
-              //mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
-            //mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops); //write hashmap into JSON
-            
-            //update all shops json
-            mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops);
-            //update all products
-            mapper.writeValue(new File("src\\thrifty\\products.json"), this.allProducts);
-        }catch (IOException e){
-            e.printStackTrace();
+            if (display.isBlank() || newProductName.isBlank() || newProductPrice.isBlank() || newProductQuantity.isBlank()|| newProductDescription.isBlank()|| newProductPicture.isBlank()){
+                JOptionPane.showMessageDialog(this,"All fields must not be empty","Input Error",JOptionPane.ERROR_MESSAGE);
+                this.clearText();
+            }else{
+                    //  public ProductDTO(int id, int quantity, double price, String name, String store, int storeID,String image) {
+                String generalID = newProductName.toLowerCase().replace(" ", "");
+
+                String newKey = generateID(createIDKey(newProductName), newProductName); // create ID
+                newKey = newKey.toLowerCase();
+                ProductDTO newProduct = new ProductDTO(newKey,newQuantity,price,display,shop.getShopName(),shop.getShopID(),newProductPicture,newProductDescription,0); // Make product object
+
+                //storing of product to hashmap
+                // We have to check if there is a "general" category for that product, if there isn't then make a new ID for it and a hashmap, if there is then just put it in that hashmap
+
+                 //checks if the general category doesnt exists
+                 if(this.checkIfCategoryExists(generalID)){
+                     allProducts.get(generalID).put(newKey, newProduct); // add product to a category that alrdy exists
+                 }else{
+                    allProducts.put(generalID,new HashMap<String, ProductDTO>());// make new general string and hashmap
+                    // add new product
+                    allProducts.get(generalID).put(newKey, newProduct);
+
+                 }
+
+                 // add product to shop product list
+
+                 shop.addProducts(newKey);
+
+                 //update all shop hashmap
+
+                 allShops.put(shop.getShopID(),shop); //this will replace the old one with an updated shop
+                 this.clearText();
+                 //write to json
+                  try{
+                      //mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
+                    //mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops); //write hashmap into JSON
+
+                    //update all shops json
+                    mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops);
+                    //update all products
+                    mapper.writeValue(new File("src\\thrifty\\products.json"), this.allProducts);
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+
+            }
+        }catch(Exception e ){
+            JOptionPane.showMessageDialog(this,"Something went wrong, try again.", "Error",JOptionPane.ERROR_MESSAGE);
+            this.clearText();
         }
+        
        
         
         
@@ -386,6 +400,17 @@ public class FieldsAddProduct extends javax.swing.JPanel {
     public void setDB(Dashboard db){
         this.db = db;
         System.out.println("Setting add products db..");
+    }
+    
+    public void clearText(){
+
+        displayName.setText("");
+        productName.setText("");
+        price.setText("");
+        quantity.setText("");
+        description.setText("");
+        newProductPicture = "";
+        picture.setIcon(null);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

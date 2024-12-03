@@ -9,6 +9,7 @@
     "phoneNumber" : "09693512345",
     "email" : "dianne@gmail.com",
     "description" : "Diannes cuisine ",
+    "image" : null,
     "products" : [ "ballpen4371" ],
     "orders" : [ ],
     "sellLog" : [ ]
@@ -23,7 +24,8 @@
     "phoneNumber" : "09994372832",
     "email" : "rujzjmar@gmail.com",
     "description" : "This is a description",
-    "products" : [ "marker82554" ],
+    "image" : null,
+    "products" : [ "marker82554", "pen53143" ],
     "orders" : [ ],
     "sellLog" : [ "SI66145", "SI435", "SI66283" ]
   }

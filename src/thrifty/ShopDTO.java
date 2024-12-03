@@ -21,6 +21,7 @@ public class ShopDTO {
     private String phoneNumber;
     private String email;
     private String description;
+    private String image;
     private ArrayList<String>products;
     private ArrayList<String>orders;
     private ArrayList<String>sellLog;
@@ -29,7 +30,7 @@ public class ShopDTO {
         
     }
     
-    public ShopDTO(String shopID,String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,ArrayList<String> products,ArrayList<String> orders,ArrayList<String> sellLog){
+    public ShopDTO(String shopID,String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,ArrayList<String> products,ArrayList<String> orders,ArrayList<String> sellLog, String image){
         this.shopID = shopID;
         this.shopName = shopName;
         this.ownerName = ownerName;
@@ -42,6 +43,7 @@ public class ShopDTO {
         this.products = products;
         this.orders = orders;
         this.sellLog = sellLog;
+        this.image = image;
     }
     
     public ShopDTO(ShopDTO shop){
@@ -57,6 +59,7 @@ public class ShopDTO {
         this.products = shop.getProducts();
         this.orders = shop.getOrders();
         this.sellLog = shop.getSellLog();
+        this.image = shop.getImage();
     }
     public ArrayList<String> getSellLog(){return sellLog;}
     public ArrayList<String> getOrders(){return orders;}
@@ -70,6 +73,7 @@ public class ShopDTO {
     public String getEmail(){return email;}
     public String getDescription(){return description;}
     public ArrayList<String> getProducts(){return products;}
+    public String getImage(){return image;}
     
     public void addProducts(String productID){
         products.add(productID);

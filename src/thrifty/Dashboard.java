@@ -605,6 +605,8 @@ public class Dashboard extends javax.swing.JFrame {
        tabs.setSelectedIndex(5);
        
    }
+   
+   
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
