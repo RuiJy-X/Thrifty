@@ -4,6 +4,9 @@
  */
 package thrifty.shopUIs;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import thrifty.Dashboard;
 import thrifty.ShopDTO;
 
@@ -27,6 +30,15 @@ public class SPInfo extends javax.swing.JPanel {
         this.setShop(shop,db);
     }
     
+    public void icon(String path, JLabel component,int width, int height){
+        ImageIcon imageIcon =  new ImageIcon(path);
+        Image img = imageIcon.getImage();
+        Image imageScaled = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(imageScaled);
+        component.setIcon(scaledIcon);
+        
+    }
+    
     public void setShop(ShopDTO shop,Dashboard db){
         this.shop = shop;
         String shopName = shop.getShopName();
@@ -35,12 +47,14 @@ public class SPInfo extends javax.swing.JPanel {
         String emailStr = shop.getEmail();
         String description = shop.getDescription();
         String type = "Legitimate " + shop.getBusinessType() + " Store";
+        String shopIcon = shop.getImage();
         shopName1.setText(shopName);
         shopType.setText(type);
         address.setText(addressString);
         phone.setText(phoneStr);
         email.setText(emailStr);
         jTextArea1.setText(description);
+        icon(shopIcon,pictureLabel,371,266);
         
     }
     
@@ -53,7 +67,7 @@ public class SPInfo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        pictureLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         shopType = new javax.swing.JLabel();
         address = new javax.swing.JLabel();
@@ -67,9 +81,9 @@ public class SPInfo extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel1.setPreferredSize(new java.awt.Dimension(317, 266));
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 336, 548));
+        pictureLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pictureLabel.setPreferredSize(new java.awt.Dimension(317, 266));
+        add(pictureLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 30, 320, 250));
 
         jPanel1.setBackground(new java.awt.Color(255, 65, 65));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 25, 5, 25));
@@ -80,24 +94,25 @@ public class SPInfo extends javax.swing.JPanel {
         shopType.setText("Legitimate Retail Store");
         jPanel1.add(shopType, java.awt.BorderLayout.PAGE_START);
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, -1, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
 
         address.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
         address.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/markerpin.png"))); // NOI18N
         address.setText("address");
-        add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, -1, -1));
+        add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
 
         phone.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
         phone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/phone.png"))); // NOI18N
         phone.setText("phone");
-        add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, -1, -1));
+        add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
 
         email.setFont(new java.awt.Font("Roboto", 0, 15)); // NOI18N
         email.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/email.png"))); // NOI18N
         email.setText("email");
-        add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, -1, 29));
+        add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, 29));
 
         jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jTextArea1.setLineWrap(true);
@@ -107,7 +122,7 @@ public class SPInfo extends javax.swing.JPanel {
         jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(jTextArea1);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 593, 260));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 593, 260));
 
         jPanel2.setBackground(new java.awt.Color(238, 9, 9));
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 50, 10, 50));
@@ -118,19 +133,19 @@ public class SPInfo extends javax.swing.JPanel {
         shopName1.setText("name");
         jPanel2.add(shopName1, java.awt.BorderLayout.PAGE_START);
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 59, -1, -1));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel address;
     private javax.swing.JLabel email;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel phone;
+    private javax.swing.JLabel pictureLabel;
     private javax.swing.JLabel shopName1;
     private javax.swing.JLabel shopType;
     // End of variables declaration//GEN-END:variables

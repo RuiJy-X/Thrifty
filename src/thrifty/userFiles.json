@@ -1,29 +1,9 @@
 {
-  "U3696" : {
-    "userID" : "U3696",
-    "name" : "rujz",
+  "U38650" : {
+    "userID" : "U38650",
+    "name" : "Rujz",
     "password" : "123",
-    "location" : "Bacolod City, Negros Occidental",
-    "city" : "Bacolod City",
-    "shopID" : "S47415",
-    "image" : "null",
-    "cart" : [ ]
-  },
-  "U34243" : {
-    "userID" : "U34243",
-    "name" : "dianne",
-    "password" : "123",
-    "location" : "Bacolod City, Negros Occidental",
-    "city" : "Bacolod City",
-    "shopID" : "S67771",
-    "image" : "null",
-    "cart" : [ ]
-  },
-  "U1603" : {
-    "userID" : "U1603",
-    "name" : "john",
-    "password" : "123",
-    "location" : "Bacolod City, Neg. Occ.",
+    "location" : "Bacolod City",
     "city" : "Bacolod City",
     "shopID" : "null",
     "image" : "null",

@@ -1,35 +1,3 @@
 {
-  "SI435" : {
-    "quantitySold" : 1,
-    "buyerID" : "U34243",
-    "dateBought" : "2024-11-11",
-    "productID" : "marker82554",
-    "totalPrice" : 50.0,
-    "shopID" : "S47415",
-    "price" : "50.0",
-    "soldItemID" : "SI435",
-    "productName" : "Marker red blue black"
-  },
-  "SI66145" : {
-    "quantitySold" : 4,
-    "buyerID" : "U34243",
-    "dateBought" : "2024-11-11",
-    "productID" : "marker82554",
-    "totalPrice" : 200.0,
-    "shopID" : "S47415",
-    "price" : "50.0",
-    "soldItemID" : "SI66145",
-    "productName" : "Marker red blue black"
-  },
-  "SI66283" : {
-    "quantitySold" : 3,
-    "buyerID" : "U34243",
-    "dateBought" : "2024-11-11",
-    "productID" : "marker82554",
-    "totalPrice" : 150.0,
-    "shopID" : "S47415",
-    "price" : "50.0",
-    "soldItemID" : "SI66283",
-    "productName" : "Marker red blue black"
-  }
+ 
 }

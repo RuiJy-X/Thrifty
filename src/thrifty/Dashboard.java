@@ -323,6 +323,7 @@ public class Dashboard extends javax.swing.JFrame {
     }
     
     public void dashboard(){
+        fieldsRegisterShop1.clear();
         currentPage = 0;
         tabs.setSelectedIndex(0);
         productPanel2.removeAll();

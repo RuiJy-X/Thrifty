@@ -1,32 +1,3 @@
 {
-  "S67771" : {
-    "shopID" : "S67771",
-    "shopName" : "Dianne's Food Store",
-    "ownerName" : "Dianne Artifice",
-    "address" : "Bacolod City, Neg. Occ.",
-    "city" : "Bacolod City",
-    "businessType" : "Food",
-    "phoneNumber" : "09693512345",
-    "email" : "dianne@gmail.com",
-    "description" : "Diannes cuisine ",
-    "image" : null,
-    "products" : [ "ballpen4371" ],
-    "orders" : [ ],
-    "sellLog" : [ ]
-  },
-  "S47415" : {
-    "shopID" : "S47415",
-    "shopName" : "Rujz' Shop",
-    "ownerName" : "Rujz Jeamar Bernaldez",
-    "address" : "Bacolod City, Negros Occidental",
-    "city" : "Bacolod City",
-    "businessType" : "Retail",
-    "phoneNumber" : "09994372832",
-    "email" : "rujzjmar@gmail.com",
-    "description" : "This is a description",
-    "image" : null,
-    "products" : [ "marker82554", "pen53143" ],
-    "orders" : [ ],
-    "sellLog" : [ "SI66145", "SI435", "SI66283" ]
-  }
+
 }
