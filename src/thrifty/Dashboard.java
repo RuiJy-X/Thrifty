@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingUtilities;
 import static thrifty.Dashboard.file;
 import static thrifty.Dashboard.mapper;
 import static thrifty.RegisterForm.random;
@@ -45,6 +46,7 @@ public class Dashboard extends javax.swing.JFrame {
     public static File userFiles = new File("src\\thrifty\\userFiles.json");
     
     public static ArrayList<Component> uniqueProductList = new ArrayList<>();
+    public static ArrayList<Component> searchUniqueProductList = new ArrayList<>();
     
     public Component[] productComponents;
     public Component[] allProductComponents;
@@ -179,8 +181,8 @@ public class Dashboard extends javax.swing.JFrame {
    public void filteredComponents(int i){
 //       productPanel2.removeAll();
        
-       uniqueProductList.clear();
-
+//       uniqueProductList.clear();
+       ArrayList<Component> newUniqueProductList =  new ArrayList<>();
        productPanel2.revalidate();
        productPanel2.repaint(); 
        
@@ -211,56 +213,86 @@ public class Dashboard extends javax.swing.JFrame {
         }else if (i == 6) {
             lowerBound = 1500;
             upperBound = Integer.MAX_VALUE;
+        }else{
+            lowerBound = 0;
+            upperBound = Integer.MAX_VALUE;
         }
 //         Component[] components = productPanel2.getProductComponents();
-        if (isSearching){
-             productPanel2.removeAll();
-            productPanel2.revalidate();
-            productPanel2.repaint(); 
-             for (Component component : productComponents){
-//           System.out.println(components);
-
-           if (component instanceof Product){
-               
-               Product product = (Product) component;
-               String location = this.getLocation(product.getStoreID());
-               
-               if (userLoggedIn.getCity().equalsIgnoreCase(location)){
-                    if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
-                       // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
-                       Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct(),allShops.get(product.getStoreID()));
-                       
-                       uniqueProductList.add(individualProduct);
-
-                    }
-                }
-               
-               
-           }
-        }
-      
-       }else{
+        if (!isSearching){
             productPanel2.removeAll();
             productPanel2.revalidate();
             productPanel2.repaint(); 
-            for (Component component : allProductComponents){
+            for (String key : allProducts.keySet()){
+                for(ProductDTO product : allProducts.get(key).values()){
+                    String location = this.getLocation(product.getStoreID());
+                    if (userLoggedIn.getCity().equalsIgnoreCase(location)){
+                        if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
+                           // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
+                           Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product,allShops.get(product.getStoreID()));
+
+                           newUniqueProductList.add(individualProduct);
+
+                        }
+                    }
+                    
+                }
+            }
+//             for (Component component : productComponents){
+////           System.out.println(components);
+//
+//           if (component instanceof Product){
+//               
+//               Product product = (Product) component;
+//               String location = this.getLocation(product.getStoreID());
+//               
+//               if (userLoggedIn.getCity().equalsIgnoreCase(location)){
+//                    if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
+//                       // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
+//                       Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct(),allShops.get(product.getStoreID()));
+//                       
+//                       uniqueProductList.add(individualProduct);
+//
+//                    }
+//                }
+//               
+//               
+//           }
+//        }
+        uniqueProductList.clear();
+        
+        uniqueProductList.addAll(newUniqueProductList);
+      
+       }else{
+            // If searching
+            
+            uniqueProductList.clear();
+            
+            
+            productPanel2.removeAll();
+            productPanel2.revalidate();
+            productPanel2.repaint(); 
+            
+            for (Component component : searchUniqueProductList){
 //           System.out.println(components);
 
-           if (component instanceof Product){
+            if (component instanceof Product){
                
                Product product = (Product) component;
                String location = this.getLocation(product.getStoreID());
                if (userLoggedIn.getCity().equalsIgnoreCase(location)){
-                    if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
+                    if ((product.getPrice() >= lowerBound) && (product.getPrice() <= upperBound)){
                        // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
                        Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct(),allShops.get(product.getStoreID()));
                        uniqueProductList.add(individualProduct);
-
+                        
                     }
                }
            }
            
         }
+        
+        
+      
             
         }
        
@@ -288,6 +320,7 @@ public class Dashboard extends javax.swing.JFrame {
                     if (userLoggedIn.getCity().equalsIgnoreCase(location)){
                         Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product,allShops.get(product.getStoreID()));
                         uniqueProductList.add(individualProduct);
+                        searchUniqueProductList.add(individualProduct);
                     }
                 }
             }
@@ -322,6 +355,14 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }
     
+    public void back(){
+        int lastIndex = tabs.getTabCount() -1;
+        tabs.remove(lastIndex);
+        
+        tabs.setSelectedIndex(0);
+        
+    }
+    
     public void dashboard(){
         fieldsRegisterShop1.clear();
         currentPage = 0;
@@ -337,7 +378,7 @@ public class Dashboard extends javax.swing.JFrame {
         }catch (IndexOutOfBoundsException e){
                
         }
-        
+        searchUniqueProductList.clear();
         isFiltered = false;
         isSearching = false;
         
@@ -350,7 +391,7 @@ public class Dashboard extends javax.swing.JFrame {
             
             String userID = orders.get(order).getBuyerID();
             
-            String image = allUsers.get(userID).getImage();
+            String image = orders.get(order).getProduct().getImage();
             String location = allShops.get(orders.get(order).getShopID()).getAddress();
             String price = orders.get(order).getPrice();
             String totalPrice = String.valueOf(orders.get(order).getTotalPrice());
@@ -365,10 +406,14 @@ public class Dashboard extends javax.swing.JFrame {
     }
     
     public void viewProduct(Component jpanel){
+        
         tabs.add(jpanel);
+        int newIndex = tabs.getTabCount() - 1;
         tabs.revalidate();
         tabs.repaint();
-        tabs.setSelectedIndex(4);
+        SwingUtilities.invokeLater(()->{tabs.setSelectedIndex(newIndex);});
+        
+        
     }
     
     public void search(String item){
@@ -563,6 +608,14 @@ public class Dashboard extends javax.swing.JFrame {
        return this.shopOverview2;
    }
    
+   public void backPage(){
+       if (currentPage != 0){
+           currentPage -= 1;
+       }
+       
+       this.displayComponents();
+   }
+   
    public void nextPageUnfiltered(){
        currentPage += 1;
        this.displayComponents();
@@ -575,7 +628,9 @@ public class Dashboard extends javax.swing.JFrame {
        productPanel2.revalidate();
        productPanel2.repaint();
        if (uniqueProductList.isEmpty()){
-           
+//           for (int i = start; i < end ; i++) {
+//            productPanel2.populate((Product) searchUniqueProductList.get(i));
+//        }
        }else{
        for (int i = start; i < end ; i++) {
             productPanel2.populate((Product) uniqueProductList.get(i));
@@ -584,7 +639,9 @@ public class Dashboard extends javax.swing.JFrame {
    }
    
    public void setUserShop(ShopDTO shop){
+       
        this.userShop = shop;
+       this.setShop();
    }
    
    public void editProduct(FieldsEditProduct edit){

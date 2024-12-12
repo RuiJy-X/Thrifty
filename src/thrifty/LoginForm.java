@@ -250,16 +250,23 @@ public class LoginForm extends javax.swing.JPanel {
     }
     
     public void verifyUser(String username, String password){
-        
+        boolean userExists = false;
+        UserDTO user1 = null;
         for (UserDTO user: userHashmap.values()){
             if (user.getName().equals(username)){
+                userExists = true;
+                user1 = user;
                 System.out.println("Username exists");
-            }else{
-                JOptionPane.showMessageDialog(this, "Username does not exist","Username Error",JOptionPane.ERROR_MESSAGE);
-                break;
             }
-            if (user.getName().equals(username) && user.getPassword().equals(password)){
-                userLoggedIn = user;
+        }
+        
+        if(!userExists){
+            JOptionPane.showMessageDialog(this, "Username does not exist","Username Error",JOptionPane.ERROR_MESSAGE);
+            
+        }else {
+           
+            if (user1.getName().equals(username) && user1.getPassword().equals(password)){
+                userLoggedIn = user1;
                 this.accessDashboard();
                 LAS.dispose();
                 System.out.println("Password matches");
@@ -268,7 +275,10 @@ public class LoginForm extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Password does not match","Password mismatch",JOptionPane.ERROR_MESSAGE);
                 System.out.println("failed");
             }
+            
         }
+        
+        
             
     }
     

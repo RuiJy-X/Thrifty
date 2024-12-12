@@ -5,7 +5,27 @@
     "password" : "123",
     "location" : "Bacolod City",
     "city" : "Bacolod City",
-    "shopID" : "null",
+    "shopID" : "S7305",
+    "image" : "null",
+    "cart" : [ "O33884", "O52584" ]
+  },
+  "U73014" : {
+    "userID" : "U73014",
+    "name" : "Dianne",
+    "password" : "123",
+    "location" : "Burgos St., Bacolod City, Neg Occ.",
+    "city" : "Bacolod City",
+    "shopID" : "S26420",
+    "image" : "null",
+    "cart" : [ ]
+  },
+  "U9994" : {
+    "userID" : "U9994",
+    "name" : "John",
+    "password" : "123",
+    "location" : "BS Aquino St., Bacolod City",
+    "city" : "Bacolod City",
+    "shopID" : "S18669",
     "image" : "null",
     "cart" : [ ]
   }

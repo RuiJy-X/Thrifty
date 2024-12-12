@@ -34,6 +34,7 @@ public class ShopOverview extends javax.swing.JPanel {
         fieldsAddProduct1.setProductMap(allProducts); // The objects needs to access the hashmap of products when we add new products.
         fieldsRegisterShop1.setShopHashMap(allShops); //The register tab needs to access the hashmap of shops.
         
+        
         fieldsRegisterShop1.setUser(user);
     }
     
@@ -76,8 +77,9 @@ public class ShopOverview extends javax.swing.JPanel {
     }
     
     public void profileTab(){
-        tabs.setSelectedIndex(3);
+        
         sPInfo1.setShop(shop,db);
+        tabs.setSelectedIndex(3);
     }
     
     public void addProductTab(){

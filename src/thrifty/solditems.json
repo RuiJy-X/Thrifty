@@ -1,3 +1,13 @@
 {
- 
+  "SI6140" : {
+    "quantitySold" : 1,
+    "buyerID" : "U9994",
+    "dateBought" : "2024-12-12",
+    "productID" : "eraser55699",
+    "totalPrice" : 10.0,
+    "shopID" : "S7305",
+    "price" : "10.0",
+    "soldItemID" : "SI6140",
+    "productName" : "Eraser"
+  }
 }

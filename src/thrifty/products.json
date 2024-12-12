@@ -1,3 +1,183 @@
 {
- 
+  "eraser" : {
+    "eraser22280" : {
+      "id" : "eraser22280",
+      "quantity" : 30,
+      "price" : 10.0,
+      "name" : "Sand Eraser",
+      "store" : "Rujz' Shop",
+      "storeID" : "S7305",
+      "image" : "C:\\Users\\User\\Downloads\\eraser2.jpg",
+      "description" : "This eraser is a reliable tool for clean and precise corrections. Made from high-quality materials, it gently removes pencil marks without smudging or damaging the paper. Perfect for school, office, or art use, its smooth texture ensures effortless erasing, making it an essential addition to any pencil case or workspace. Simple, effective, and built for everyday use!",
+      "purchases" : 0
+    },
+    "eraser55699" : {
+      "id" : "eraser55699",
+      "quantity" : 30,
+      "price" : 10.0,
+      "name" : "Eraser",
+      "store" : "Rujz' Shop",
+      "storeID" : "S7305",
+      "image" : "C:\\Users\\User\\Downloads\\eraser.jpg",
+      "description" : "This eraser is a reliable tool for clean and precise corrections. Made from high-quality materials, it gently removes pencil marks without smudging or damaging the paper. Perfect for school, office, or art use, its smooth texture ensures effortless erasing, making it an essential addition to any pencil case or workspace. Simple, effective, and built for everyday use!",
+      "purchases" : 0
+    }
+  },
+  "marker" : {
+    "marker49890" : {
+      "id" : "marker49890",
+      "quantity" : 25,
+      "price" : 59.0,
+      "name" : "Red Blue Black marker pack",
+      "store" : "Rujz' Shop",
+      "storeID" : "S7305",
+      "image" : "C:\\Users\\User\\Downloads\\marker1.jpg",
+      "description" : "Our ballpen markers combine the smooth writing of a ballpen with the bold, vibrant colors of a marker. Perfect for writing, underlining, or highlighting, they offer consistent ink flow and precision for both creative and practical tasks. Designed with a comfortable grip and durable tip, these markers are ideal for school, office, or art projects. Add a pop of color to your work with ease and style!",
+      "purchases" : 0
+    },
+    "marker63532" : {
+      "id" : "marker63532",
+      "quantity" : 10,
+      "price" : 20.0,
+      "name" : "Black Marker",
+      "store" : "Rujz' Shop",
+      "storeID" : "S7305",
+      "image" : "C:\\Users\\User\\Downloads\\marker2.jpg",
+      "description" : "Our ballpen markers combine the smooth writing of a ballpen with the bold, vibrant colors of a marker. Perfect for writing, underlining, or highlighting, they offer consistent ink flow and precision for both creative and practical tasks. Designed with a comfortable grip and durable tip, these markers are ideal for school, office, or art projects. Add a pop of color to your work with ease and style!",
+      "purchases" : 0
+    }
+  },
+  "hansel" : {
+    "hansel56517" : {
+      "id" : "hansel56517",
+      "quantity" : 20,
+      "price" : 12.0,
+      "name" : "Hansel Chocolate",
+      "store" : "John's Convenience Store",
+      "storeID" : "S18669",
+      "image" : "C:\\thrifty\\Thrifty\\images\\images (2).jpg",
+      "description" : "Hancel Chocolate Biscuit is a delightful treat that combines the perfect crunch with a rich, indulgent flavor. Infused with a smooth mocha essence, each biscuit offers a delicious balance of coffee and chocolate notes. Ideal for a quick snack, it’s perfect with your favorite hot drink or as a sweet bite during any time of the day. Hancel Moha Biscuit is a must-try for those who enjoy a little extra flavor in their everyday treats!",
+      "purchases" : 0
+    },
+    "hansel53714" : {
+      "id" : "hansel53714",
+      "quantity" : 25,
+      "price" : 12.0,
+      "name" : "Hansel Mocha",
+      "store" : "John's Convenience Store",
+      "storeID" : "S18669",
+      "image" : "C:\\thrifty\\Thrifty\\images\\images (1).jpg",
+      "description" : "Hancel Moha Biscuit is a delightful treat that combines the perfect crunch with a rich, indulgent flavor. Infused with a smooth mocha essence, each biscuit offers a delicious balance of coffee and chocolate notes. Ideal for a quick snack, it’s perfect with your favorite hot drink or as a sweet bite during any time of the day. Hancel Moha Biscuit is a must-try for those who enjoy a little extra flavor in their everyday treats!",
+      "purchases" : 0
+    }
+  },
+  "pen" : {
+    "pen56011" : {
+      "id" : "pen56011",
+      "quantity" : 20,
+      "price" : 15.0,
+      "name" : "Ballpen",
+      "store" : "Rujz' Shop",
+      "storeID" : "S7305",
+      "image" : "C:\\Users\\User\\Downloads\\ballpen2.jpg",
+      "description" : "This ballpen is a reliable and smooth-writing tool, perfect for everyday use. Designed with a comfortable grip and a durable tip, it delivers consistent ink flow for clean and precise writing. Whether for school, work, or home, this ballpen is an essential companion for note-taking, journaling, or creative tasks. Simple, efficient, and built to last!",
+      "purchases" : 0
+    },
+    "pen93675" : {
+      "id" : "pen93675",
+      "quantity" : 25,
+      "price" : 12.0,
+      "name" : "Black Ballpen ",
+      "store" : "Rujz' Shop",
+      "storeID" : "S7305",
+      "image" : "C:\\Users\\User\\Downloads\\ballpen.jpg",
+      "description" : "This ballpen is a reliable and smooth-writing tool, perfect for everyday use. Designed with a comfortable grip and a durable tip, it delivers consistent ink flow for clean and precise writing. Whether for school, work, or home, this ballpen is an essential companion for note-taking, journaling, or creative tasks. Simple, efficient, and built to last!",
+      "purchases" : 0
+    }
+  },
+  "lapis" : {
+    "lapis42858" : {
+      "id" : "lapis42858",
+      "quantity" : 25,
+      "price" : 39.0,
+      "name" : "Lapis 3 pcs",
+      "store" : "Rujz' Shop",
+      "storeID" : "S7305",
+      "image" : "C:\\Users\\User\\Downloads\\pencil2.jpg",
+      "description" : "These pencils are a timeless writing and drawing tool, perfect for school, work, or creative projects. Crafted with high-quality graphite, they provide smooth, consistent lines for writing, sketching, or shading. Designed with a sturdy body and a comfortable grip, they are easy to hold and sharpen. Whether for notes, art, or drafting, these reliable pencils are a must-have for any workspace or pencil case!",
+      "purchases" : 0
+    },
+    "lapis28696" : {
+      "id" : "lapis28696",
+      "quantity" : 50,
+      "price" : 12.0,
+      "name" : "Lapis mongol 2",
+      "store" : "Rujz' Shop",
+      "storeID" : "S7305",
+      "image" : "C:\\Users\\User\\Downloads\\pencil1.jpg",
+      "description" : "These pencils are a timeless writing and drawing tool, perfect for school, work, or creative projects. Crafted with high-quality graphite, they provide smooth, consistent lines for writing, sketching, or shading. Designed with a sturdy body and a comfortable grip, they are easy to hold and sharpen. Whether for notes, art, or drafting, these reliable pencils are a must-have for any workspace or pencil case!",
+      "purchases" : 0
+    }
+  },
+  "notebook" : {
+    "notebook38705" : {
+      "id" : "notebook38705",
+      "quantity" : 50,
+      "price" : 60.0,
+      "name" : "Notebook A5 100 pages",
+      "store" : "Rujz' Shop",
+      "storeID" : "S7305",
+      "image" : "C:\\Users\\User\\Downloads\\notebook.jpg",
+      "description" : "This A5 notebook is the perfect companion for jotting down notes, ideas, or sketches. Compact and portable, it features high-quality, smooth pages that are ideal for writing with pens, pencils, or markers. Its durable cover ensures long-lasting use, making it great for school, work, or personal journaling. Whether for planning, studying, or creativity, this notebook is a versatile essential for everyday use!",
+      "purchases" : 0
+    }
+  },
+  "flower" : {
+    "flower74626" : {
+      "id" : "flower74626",
+      "quantity" : 5,
+      "price" : 750.0,
+      "name" : "Red Flower Bouqet",
+      "store" : "Dianne's Flower Shop",
+      "storeID" : "S26420",
+      "image" : "C:\\thrifty\\Thrifty\\images\\ebb98f6f89a53f71f0c3500dff167fed.jpg",
+      "description" : "This flower bouquet is a stunning arrangement of fresh, hand-picked blooms, thoughtfully crafted to suit any occasion. Bursting with vibrant colors, delicate fragrances, and natural beauty, it’s perfect for expressing love, gratitude, or celebration. Each bouquet is elegantly wrapped to add a touch of charm, making it an ideal gift or centerpiece. Share joy and beauty with this timeless floral creation!",
+      "purchases" : 0
+    },
+    "flower8978" : {
+      "id" : "flower8978",
+      "quantity" : 10,
+      "price" : 80.0,
+      "name" : "Blue Flowers",
+      "store" : "Dianne's Flower Shop",
+      "storeID" : "S26420",
+      "image" : "C:\\thrifty\\Thrifty\\images\\ph-11134207-7r98t-lyvkc8q0xiim24.jpg",
+      "description" : "This flower bouqet is a stunning arrangement of fresh, hand-picked blooms, thoughtfully crafted to suit any occasion. Bursting with vibrant colors, delicate fragrances, and natural beauty, it’s perfect for expressing love, gratitude, or celebration. Each bouquet is elegantly wrapped to add a touch of charm, making it an ideal gift or centerpiece. Share joy and beauty with this timeless floral creation!",
+      "purchases" : 0
+    },
+    "flower28695" : {
+      "id" : "flower28695",
+      "quantity" : 10,
+      "price" : 1000.0,
+      "name" : "Premium Flower Bouqet",
+      "store" : "Dianne's Flower Shop",
+      "storeID" : "S26420",
+      "image" : "C:\\thrifty\\Thrifty\\images\\premium_photo-1677005708723-c0dabb815e4b.jpg",
+      "description" : "This flower bouquet is a stunning arrangement of fresh, hand-picked blooms, thoughtfully crafted to suit any occasion. Bursting with vibrant colors, delicate fragrances, and natural beauty, it’s perfect for expressing love, gratitude, or celebration. Each bouquet is elegantly wrapped to add a touch of charm, making it an ideal gift or centerpiece. Share joy and beauty with this timeless floral creation!",
+      "purchases" : 0
+    }
+  },
+  "nova" : {
+    "nova2244" : {
+      "id" : "nova2244",
+      "quantity" : 30,
+      "price" : 20.0,
+      "name" : "Nova chips big",
+      "store" : "John's Convenience Store",
+      "storeID" : "S18669",
+      "image" : "C:\\thrifty\\Thrifty\\images\\SM5244904-16.jpg",
+      "description" : "Nova Chips are a crispy and flavorful snack perfect for any occasion. Made from wholesome, multigrain ingredients, they offer a satisfying crunch in every bite. Lightly seasoned for a delicious taste, Nova Chips are a great companion for movie nights, lunch breaks, or on-the-go munching. Enjoy a tasty and guilt-free snack that’s sure to keep you coming back for more!",
+      "purchases" : 0
+    }
+  }
 }

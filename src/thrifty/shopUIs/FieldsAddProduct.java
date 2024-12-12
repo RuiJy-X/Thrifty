@@ -131,7 +131,10 @@ public class FieldsAddProduct extends javax.swing.JPanel {
         jLabel5.setText("Description");
 
         description.setColumns(20);
+        description.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        description.setLineWrap(true);
         description.setRows(5);
+        description.setWrapStyleWord(true);
         jScrollPane1.setViewportView(description);
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N

@@ -83,7 +83,7 @@ public class SPInfo extends javax.swing.JPanel {
 
         pictureLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pictureLabel.setPreferredSize(new java.awt.Dimension(317, 266));
-        add(pictureLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 30, 320, 250));
+        add(pictureLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 30, 330, 250));
 
         jPanel1.setBackground(new java.awt.Color(255, 65, 65));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 25, 5, 25));
@@ -114,7 +114,7 @@ public class SPInfo extends javax.swing.JPanel {
         jTextArea1.setEditable(false);
         jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jTextArea1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
         jTextArea1.setText("Description");

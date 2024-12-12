@@ -1,1 +1,44 @@
-{ }
+{
+  "O33884" : {
+    "quantitySold" : 1,
+    "buyerID" : "U38650",
+    "dateBought" : "2024-12-12",
+    "productID" : "flower74626",
+    "totalPrice" : 750.0,
+    "orderID" : "O33884",
+    "shopID" : "S26420",
+    "price" : "750.0",
+    "product" : {
+      "id" : "flower74626",
+      "quantity" : 5,
+      "price" : 750.0,
+      "name" : "Red Flower Bouqet",
+      "store" : "Dianne's Flower Shop",
+      "storeID" : "S26420",
+      "image" : "C:\\thrifty\\Thrifty\\images\\ebb98f6f89a53f71f0c3500dff167fed.jpg",
+      "description" : "This flower bouquet is a stunning arrangement of fresh, hand-picked blooms, thoughtfully crafted to suit any occasion. Bursting with vibrant colors, delicate fragrances, and natural beauty, it’s perfect for expressing love, gratitude, or celebration. Each bouquet is elegantly wrapped to add a touch of charm, making it an ideal gift or centerpiece. Share joy and beauty with this timeless floral creation!",
+      "purchases" : 0
+    }
+  },
+  "O52584" : {
+    "quantitySold" : 2,
+    "buyerID" : "U38650",
+    "dateBought" : "2024-12-12",
+    "productID" : "hansel53714",
+    "totalPrice" : 24.0,
+    "orderID" : "O52584",
+    "shopID" : "S18669",
+    "price" : "12.0",
+    "product" : {
+      "id" : "hansel53714",
+      "quantity" : 25,
+      "price" : 12.0,
+      "name" : "Hansel Mocha",
+      "store" : "John's Convenience Store",
+      "storeID" : "S18669",
+      "image" : "C:\\thrifty\\Thrifty\\images\\images (1).jpg",
+      "description" : "Hancel Moha Biscuit is a delightful treat that combines the perfect crunch with a rich, indulgent flavor. Infused with a smooth mocha essence, each biscuit offers a delicious balance of coffee and chocolate notes. Ideal for a quick snack, it’s perfect with your favorite hot drink or as a sweet bite during any time of the day. Hancel Moha Biscuit is a must-try for those who enjoy a little extra flavor in their everyday treats!",
+      "purchases" : 0
+    }
+  }
+}

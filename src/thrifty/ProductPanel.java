@@ -41,6 +41,7 @@ public class ProductPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         filter = new javax.swing.JComboBox<>();
         results = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         productContainer = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -74,6 +75,14 @@ public class ProductPanel extends javax.swing.JPanel {
 
         results.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
 
+        jButton2.setFont(new java.awt.Font("Outfit", 1, 18)); // NOI18N
+        jButton2.setText("Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -81,9 +90,11 @@ public class ProductPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(results)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 936, Short.MAX_VALUE)
-                .addComponent(filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 827, Short.MAX_VALUE)
+                .addComponent(filter, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
@@ -94,7 +105,8 @@ public class ProductPanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                     .addComponent(filter)
-                    .addComponent(results))
+                    .addComponent(results)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -144,7 +156,8 @@ public class ProductPanel extends javax.swing.JPanel {
            
         }else{
             System.out.println("no filter");
-            db.createProductComponent();
+            db.filteredComponents(7);
+            
         }
     }//GEN-LAST:event_filterActionPerformed
 
@@ -157,6 +170,11 @@ public class ProductPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         db.nextPageUnfiltered();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        db.backPage();
+    }//GEN-LAST:event_jButton2ActionPerformed
     public void setDB(Dashboard db){
         this.db = db;
         
@@ -182,6 +200,7 @@ public class ProductPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> filter;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel productContainer;
     private javax.swing.JLabel results;
