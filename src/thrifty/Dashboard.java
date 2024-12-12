@@ -54,6 +54,8 @@ public class Dashboard extends javax.swing.JFrame {
     public boolean isSearching = false;
     public UserDTO userLoggedIn;
     public ShopDTO userShop;
+    
+    
     public Dashboard()  {
        
         
@@ -134,8 +136,6 @@ public class Dashboard extends javax.swing.JFrame {
     
    public void readFile(){
         try{
-
-
             allProducts = mapper.readValue(file, new TypeReference<HashMap<String, HashMap<String, ProductDTO>>>() {}); 
             allShops = mapper.readValue(shopFile, new TypeReference<HashMap<String, ShopDTO>>() {});
             allUsers = mapper.readValue(userFiles, new TypeReference<HashMap<String,UserDTO>>() {});
@@ -179,13 +179,10 @@ public class Dashboard extends javax.swing.JFrame {
        
    }
    public void filteredComponents(int i){
-//       productPanel2.removeAll();
-       
-//       uniqueProductList.clear();
+
        ArrayList<Component> newUniqueProductList =  new ArrayList<>();
        productPanel2.revalidate();
        productPanel2.repaint(); 
-       
        
        int lowerBound = 0;
         int upperBound = 0;
@@ -217,7 +214,6 @@ public class Dashboard extends javax.swing.JFrame {
             lowerBound = 0;
             upperBound = Integer.MAX_VALUE;
         }
-//         Component[] components = productPanel2.getProductComponents();
         if (!isSearching){
             productPanel2.removeAll();
             productPanel2.revalidate();
@@ -227,53 +223,22 @@ public class Dashboard extends javax.swing.JFrame {
                     String location = this.getLocation(product.getStoreID());
                     if (userLoggedIn.getCity().equalsIgnoreCase(location)){
                         if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
-                           // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
                            Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product,allShops.get(product.getStoreID()));
-
                            newUniqueProductList.add(individualProduct);
-
                         }
                     }
-                    
                 }
             }
-//             for (Component component : productComponents){
-////           System.out.println(components);
-//
-//           if (component instanceof Product){
-//               
-//               Product product = (Product) component;
-//               String location = this.getLocation(product.getStoreID());
-//               
-//               if (userLoggedIn.getCity().equalsIgnoreCase(location)){
-//                    if (product.getPrice() >= lowerBound && product.getPrice() <= upperBound){
-//                       // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
-//                       Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct(),allShops.get(product.getStoreID()));
-//                       
-//                       uniqueProductList.add(individualProduct);
-//
-//                    }
-//                }
-//               
-//               
-//           }
-//        }
         uniqueProductList.clear();
-        
         uniqueProductList.addAll(newUniqueProductList);
-      
        }else{
             // If searching
-            
             uniqueProductList.clear();
-            
-            
             productPanel2.removeAll();
             productPanel2.revalidate();
             productPanel2.repaint(); 
             
             for (Component component : searchUniqueProductList){
-//           System.out.println(components);
 
             if (component instanceof Product){
                
@@ -281,22 +246,13 @@ public class Dashboard extends javax.swing.JFrame {
                String location = this.getLocation(product.getStoreID());
                if (userLoggedIn.getCity().equalsIgnoreCase(location)){
                     if ((product.getPrice() >= lowerBound) && (product.getPrice() <= upperBound)){
-                       // public Product(String Name, double Price,String shopName, String image, String description, int quantity, Dashboard db, ProductDTO product){
                        Product individualProduct = new Product(product.getName(),location,product.getPrice(),product.getStore(),product.getImage(),product.getDescription(),product.getQuantity(),this,product.getProduct(),allShops.get(product.getStoreID()));
-                       uniqueProductList.add(individualProduct);
-                        
+                       uniqueProductList.add(individualProduct);            
                     }
                }
-           }
-           
+           }  
+        }   
         }
-        
-        
-      
-            
-        }
-       
-       
         this.displayComponents();
    }
    
@@ -308,6 +264,7 @@ public class Dashboard extends javax.swing.JFrame {
        productPanel2.repaint(); 
    }
     public void searchedComponents(String keyword){
+        keyword = keyword.toLowerCase();
         uniqueProductList.clear();
         isSearching = true;
         productComponents = null;
@@ -342,8 +299,8 @@ public class Dashboard extends javax.swing.JFrame {
            tabs.setSelectedIndex(1);// Switches tab to shop tab
             // switches shop tab to register, 0 = register tab, 1 = shop overview tab (if shop exists)
         }else{
-          
-           tabs.setSelectedIndex(2);
+          SwingUtilities.invokeLater(()->{tabs.setSelectedIndex(2);});
+           
            this.shopOverview2.overviewTab();
            try{
                tabs.remove(5);
@@ -364,6 +321,7 @@ public class Dashboard extends javax.swing.JFrame {
     }
     
     public void dashboard(){
+        searchUniqueProductList.clear();
         fieldsRegisterShop1.clear();
         currentPage = 0;
         tabs.setSelectedIndex(0);
@@ -386,7 +344,6 @@ public class Dashboard extends javax.swing.JFrame {
     public void cartTab(){
         tabs.setSelectedIndex(3);
         cart1.removeAll();
-        //public CartItems(String name, String image, String location, String price, String totalPrice, ProductDTO product){
         for (String order : cart){
             
             String userID = orders.get(order).getBuyerID();
@@ -417,6 +374,7 @@ public class Dashboard extends javax.swing.JFrame {
     }
     
     public void search(String item){
+        searchUniqueProductList.clear();
         tabs.setSelectedIndex(0);
         productPanel2.removeAll();
         productPanel2.revalidate();
@@ -461,6 +419,58 @@ public class Dashboard extends javax.swing.JFrame {
         
     }
     
+    public void deleteProduct(String productID, ProductDTO product){
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        String orderID1 = null;
+        for(String orderID : orders.keySet()){
+            
+            String O = orders.get(orderID).getProductID();
+            if(O.equals(productID)){
+                orderID1 = orderID;
+            }
+        }
+                orders.remove(orders.get(orderID1));
+                orders.values().remove(orders.get(orderID1));
+                cart.remove(orderID1);
+                ArrayList<String> orderList = userShop.getOrders();
+                
+                orderList.remove(orderID1);
+                allShops.replace(userShop.getShopID(), userShop);
+                
+            for (String userID : allUsers.keySet()){
+                UserDTO user = allUsers.get(userID);
+                ArrayList<String> cartOfUsers = user.getCart();
+
+                cartOfUsers.remove(orderID1);
+
+                allUsers.replace(user.getUserID(), user);
+            }
+            
+           
+   
+        System.out.println(orders);
+        
+        //delete product from products 
+         for (HashMap<String, ProductDTO> innerMap : allProducts.values()) {
+             innerMap.remove(productID);
+         }
+        
+        // delete product from orders
+        
+        
+        
+        // delete prroduct from shops item list
+        ArrayList<String> productList = userShop.getProducts();
+        productList.remove(productID);
+        allShops.replace(userShop.getShopID(), userShop);
+        
+
+        
+       
+        SwingUtilities.invokeLater(()->{this.shopOverview2.productsTab();});
+        
+    }
+    
     public void deletePurchase(String order,ProductDTO product,UserDTO buyer){
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
         
@@ -499,12 +509,7 @@ public class Dashboard extends javax.swing.JFrame {
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
         OrderDTO order = orders.get(orderID);
         
-        /*
-        1. delete the order on object, user, shop, order json
-        2. make a sell item object
-        3. put the sell item on the shop's sell order list
-        */
-        //delete
+        
         cart.remove(orderID);
         ArrayList cartOfUser = buyer.getCart();
         cartOfUser.remove(orderID);
@@ -524,8 +529,7 @@ public class Dashboard extends javax.swing.JFrame {
         SoldItemDTO soldItem = new SoldItemDTO(key,order.getProductID(),order.getQuantitySold(),order.getBuyerID(),order.getDateBought(),order.getTotalPrice(),order.getShopID(),price,order.getProduct().getName());
         soldItems.put(key,soldItem);
         ArrayList<String> userShopItemsInstance = userShop.getSellLog();
-//        ArrayList<String> userShopSoldItemsHashmap = allShops.get(userShop.getShopID()).getSellLog();
-//        userShopSoldItemsHashmap.add(key);
+
         userShopItemsInstance.add(key);
         
            try {
@@ -628,9 +632,7 @@ public class Dashboard extends javax.swing.JFrame {
        productPanel2.revalidate();
        productPanel2.repaint();
        if (uniqueProductList.isEmpty()){
-//           for (int i = start; i < end ; i++) {
-//            productPanel2.populate((Product) searchUniqueProductList.get(i));
-//        }
+
        }else{
        for (int i = start; i < end ; i++) {
             productPanel2.populate((Product) uniqueProductList.get(i));
@@ -649,18 +651,22 @@ public class Dashboard extends javax.swing.JFrame {
        try{
            shopOverview2.tabs.remove(6);
            shopOverview2.tabs.add(edit);
-           shopOverview2.tabs.setSelectedIndex(6);
+           SwingUtilities.invokeLater(()->{shopOverview2.tabs.setSelectedIndex(6);});
+           
        }catch (IndexOutOfBoundsException e  ){
            shopOverview2.tabs.add(edit);
-           shopOverview2.tabs.setSelectedIndex(6);
+           
+           SwingUtilities.invokeLater(()->{shopOverview2.tabs.setSelectedIndex(6);});
        }
+       
        
        
    }
    
    public void displayShop(Component shopInfo){
        tabs.add(shopInfo);
-       tabs.setSelectedIndex(5);
+       SwingUtilities.invokeLater(()->{tabs.setSelectedIndex(5);});
+       
        
    }
    

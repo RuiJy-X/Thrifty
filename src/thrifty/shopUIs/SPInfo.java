@@ -54,7 +54,8 @@ public class SPInfo extends javax.swing.JPanel {
         phone.setText(phoneStr);
         email.setText(emailStr);
         jTextArea1.setText(description);
-        icon(shopIcon,pictureLabel,371,266);
+        icon(shopIcon,pictureLabel,330,250);
+        
         
     }
     
@@ -82,7 +83,7 @@ public class SPInfo extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pictureLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pictureLabel.setPreferredSize(new java.awt.Dimension(317, 266));
+        pictureLabel.setPreferredSize(new java.awt.Dimension(330, 250));
         add(pictureLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 30, 330, 250));
 
         jPanel1.setBackground(new java.awt.Color(255, 65, 65));

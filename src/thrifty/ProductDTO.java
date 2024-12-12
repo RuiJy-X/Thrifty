@@ -45,23 +45,10 @@ public class ProductDTO {
     public String getStore() {return store;}
     public String getStoreID(){return storeID;}
     public String getImage(){return image;}
-    
-    
-    public void setName(String name){
-        this.name = name;
-    }
-    
-    public void setPrice(double price){
-        this.price = price;
-    }
-    
-    public void setDescription(String description){
-        this.description = description;
-    }
-    
-    public void setQuantity(int quantity){
-        this.quantity = quantity;
-    }
+    public void setName(String name){this.name = name;}
+    public void setPrice(double price){this.price = price;}
+    public void setDescription(String description){this.description = description;}
+    public void setQuantity(int quantity){this.quantity = quantity;}
     
     
 }

@@ -40,5 +40,26 @@
       "description" : "Hancel Moha Biscuit is a delightful treat that combines the perfect crunch with a rich, indulgent flavor. Infused with a smooth mocha essence, each biscuit offers a delicious balance of coffee and chocolate notes. Ideal for a quick snack, it’s perfect with your favorite hot drink or as a sweet bite during any time of the day. Hancel Moha Biscuit is a must-try for those who enjoy a little extra flavor in their everyday treats!",
       "purchases" : 0
     }
+  },
+  "O59750" : {
+    "quantitySold" : 3,
+    "buyerID" : "U9994",
+    "dateBought" : "2024-12-12",
+    "productID" : "notebook38705",
+    "totalPrice" : 180.0,
+    "orderID" : "O59750",
+    "shopID" : "S7305",
+    "price" : "60.0",
+    "product" : {
+      "id" : "notebook38705",
+      "quantity" : 50,
+      "price" : 60.0,
+      "name" : "Notebook A5 100 pages",
+      "store" : "Rujz' Shop",
+      "storeID" : "S7305",
+      "image" : "C:\\Users\\User\\Downloads\\notebook.jpg",
+      "description" : "This A5 notebook is the perfect companion for jotting down notes, ideas, or sketches. Compact and portable, it features high-quality, smooth pages that are ideal for writing with pens, pencils, or markers. Its durable cover ensures long-lasting use, making it great for school, work, or personal journaling. Whether for planning, studying, or creativity, this notebook is a versatile essential for everyday use!",
+      "purchases" : 0
+    }
   }
 }

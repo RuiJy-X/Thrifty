@@ -45,6 +45,7 @@ public class Purchases extends javax.swing.JPanel {
         ArrayList<String> shopOrders = shop.getOrders();
         
         for (String orderID: shopOrders){
+            System.out.println(orderID);
             //public PurchasesItem(String productName, String date,String customerName,String quantity,String price, String totalPrice)
             String customerName = allUsers.get(orders.get(orderID).getBuyerID()).getName();
             String productName = orders.get(orderID).getProduct().getName();

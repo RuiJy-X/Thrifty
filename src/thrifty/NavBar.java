@@ -210,6 +210,7 @@ public class NavBar extends javax.swing.JPanel {
 
     private void searchButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchButtonMouseClicked
         // TODO add your handling code here:
+        
         String item = searchItem.getText();
         searchItem.setText("");
         db.setResults(item);

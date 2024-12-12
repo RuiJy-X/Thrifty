@@ -24,17 +24,6 @@
     }
   },
   "marker" : {
-    "marker49890" : {
-      "id" : "marker49890",
-      "quantity" : 25,
-      "price" : 59.0,
-      "name" : "Red Blue Black marker pack",
-      "store" : "Rujz' Shop",
-      "storeID" : "S7305",
-      "image" : "C:\\Users\\User\\Downloads\\marker1.jpg",
-      "description" : "Our ballpen markers combine the smooth writing of a ballpen with the bold, vibrant colors of a marker. Perfect for writing, underlining, or highlighting, they offer consistent ink flow and precision for both creative and practical tasks. Designed with a comfortable grip and durable tip, these markers are ideal for school, office, or art projects. Add a pop of color to your work with ease and style!",
-      "purchases" : 0
-    },
     "marker63532" : {
       "id" : "marker63532",
       "quantity" : 10,
@@ -44,6 +33,17 @@
       "storeID" : "S7305",
       "image" : "C:\\Users\\User\\Downloads\\marker2.jpg",
       "description" : "Our ballpen markers combine the smooth writing of a ballpen with the bold, vibrant colors of a marker. Perfect for writing, underlining, or highlighting, they offer consistent ink flow and precision for both creative and practical tasks. Designed with a comfortable grip and durable tip, these markers are ideal for school, office, or art projects. Add a pop of color to your work with ease and style!",
+      "purchases" : 0
+    },
+    "marker65162" : {
+      "id" : "marker65162",
+      "quantity" : 20,
+      "price" : 60.0,
+      "name" : "Marker blue,green,red",
+      "store" : "Rujz' Shop",
+      "storeID" : "S7305",
+      "image" : "C:\\Users\\User\\Downloads\\marker1.jpg",
+      "description" : "Buy these markers in pair for only 60 pesos.",
       "purchases" : 0
     }
   },
@@ -87,26 +87,15 @@
       "id" : "pen93675",
       "quantity" : 25,
       "price" : 12.0,
-      "name" : "Black Ballpen ",
+      "name" : "Black Ballpen 1pcs",
       "store" : "Rujz' Shop",
       "storeID" : "S7305",
       "image" : "C:\\Users\\User\\Downloads\\ballpen.jpg",
-      "description" : "This ballpen is a reliable and smooth-writing tool, perfect for everyday use. Designed with a comfortable grip and a durable tip, it delivers consistent ink flow for clean and precise writing. Whether for school, work, or home, this ballpen is an essential companion for note-taking, journaling, or creative tasks. Simple, efficient, and built to last!",
+      "description" : "",
       "purchases" : 0
     }
   },
   "lapis" : {
-    "lapis42858" : {
-      "id" : "lapis42858",
-      "quantity" : 25,
-      "price" : 39.0,
-      "name" : "Lapis 3 pcs",
-      "store" : "Rujz' Shop",
-      "storeID" : "S7305",
-      "image" : "C:\\Users\\User\\Downloads\\pencil2.jpg",
-      "description" : "These pencils are a timeless writing and drawing tool, perfect for school, work, or creative projects. Crafted with high-quality graphite, they provide smooth, consistent lines for writing, sketching, or shading. Designed with a sturdy body and a comfortable grip, they are easy to hold and sharpen. Whether for notes, art, or drafting, these reliable pencils are a must-have for any workspace or pencil case!",
-      "purchases" : 0
-    },
     "lapis28696" : {
       "id" : "lapis28696",
       "quantity" : 50,

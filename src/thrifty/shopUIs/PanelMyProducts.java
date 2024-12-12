@@ -173,17 +173,18 @@ public class PanelMyProducts extends javax.swing.JPanel {
     }
     
     public void createProduct(){
+        
         HashMap<String, ProductDTO> flattenedProducts = new HashMap<>();
         
-        for (HashMap<String, ProductDTO> innerMap : allProducts.values()) {
+        for (HashMap<String, ProductDTO> innerMap : db.getallProducts().values()) {
             flattenedProducts.putAll(innerMap);
         }
         
-        for (String productID: shop.getProducts()){
-            System.out.println("test");
+        for (String productID: db.getUserShop().getProducts()){
+            
             ProductDTO product = flattenedProducts.get(productID);
             // public MyProductItems(String name, String image, int quantity, String dateAdded,int purchases, double price)
-            MyProductItems newItem = new MyProductItems(product.getName(),product.getImage(),product.getQuantity(), "NA",0,product.getPrice(),db,productID,product.getDescription());
+            MyProductItems newItem = new MyProductItems(product.getName(),product.getImage(),product.getQuantity(), "NA",0,product.getPrice(),db,productID,product.getDescription(),product);
             scrollPanel.add(newItem);
         }
     }

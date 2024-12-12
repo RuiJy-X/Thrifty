@@ -8,6 +8,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import thrifty.Dashboard;
+import thrifty.ProductDTO;
 
 /**
  *
@@ -27,6 +28,7 @@ public class MyProductItems extends javax.swing.JPanel {
     Dashboard db;
     String productID;
     String description;
+    ProductDTO product;
     
     
     public MyProductItems() {
@@ -40,7 +42,7 @@ public class MyProductItems extends javax.swing.JPanel {
         component.setIcon(scaledIcon);
         
     }
-    public MyProductItems(String name, String image, int quantity, String dateAdded,int purchases, double price,Dashboard db,String productID,String description) {
+    public MyProductItems(String name, String image, int quantity, String dateAdded,int purchases, double price,Dashboard db,String productID,String description,ProductDTO product) {
         
         initComponents();
         this.name = name;
@@ -55,6 +57,7 @@ public class MyProductItems extends javax.swing.JPanel {
         this.db = db;
         this.productID = productID;
         this.description = description;
+        this.product = product;
         
         icon(image,imageLabel,45,45);
         nameLabel.setText(name);
@@ -105,6 +108,11 @@ public class MyProductItems extends javax.swing.JPanel {
 
         deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/delete.png"))); // NOI18N
         deleteButton.setPreferredSize(new java.awt.Dimension(50, 50));
+        deleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteButtonMouseClicked(evt);
+            }
+        });
 
         quantityLabel.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         quantityLabel.setText("quan");
@@ -154,6 +162,11 @@ public class MyProductItems extends javax.swing.JPanel {
         FieldsEditProduct edit = new FieldsEditProduct(productID,name,price,quantity,description,image,db);
         db.editProduct(edit);
     }//GEN-LAST:event_formMouseClicked
+
+    private void deleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteButtonMouseClicked
+        // TODO add your handling code here:
+        db.deleteProduct(productID, product);
+    }//GEN-LAST:event_deleteButtonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

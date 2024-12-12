@@ -42,9 +42,9 @@
     "email" : "rujz@gmail.com",
     "description" : "Welcome to our basic retail shop! We offer a variety of everyday essentials, including household goods, personal care items, snacks, and basic supplies. Our goal is to provide quality products at affordable prices in a friendly and convenient setting. Whether you're here for a quick stop or your daily needs, we've got you covered!",
     "image" : "C:\\thrifty\\Thrifty\\images\\store-logo-design-template-3ac57f780d1cae2a6d3a049f82c62437_screen.jpg",
-    "products" : [ "pen93675", "marker49890", "marker63532", "pen56011", "eraser55699", "eraser22280", "notebook38705", "lapis28696", "lapis42858" ],
-    "orders" : [ ],
-    "sellLog" : [ "SI6140" ],
+    "products" : [ "pen93675", "marker63532", "pen56011", "eraser55699", "eraser22280", "notebook38705", "lapis28696", "marker65162" ],
+    "orders" : [ "O59750" ],
+    "sellLog" : [ "SI6140", "SI59649" ],
     "legalDocuments" : "C:\\thrifty\\Thrifty\\images\\images.jpg"
   }
 }

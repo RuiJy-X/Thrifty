@@ -9,5 +9,16 @@
     "price" : "10.0",
     "soldItemID" : "SI6140",
     "productName" : "Eraser"
+  },
+  "SI59649" : {
+    "quantitySold" : 2,
+    "buyerID" : "U9994",
+    "dateBought" : "2024-12-12",
+    "productID" : "pen93675",
+    "totalPrice" : 24.0,
+    "shopID" : "S7305",
+    "price" : "12.0",
+    "soldItemID" : "SI59649",
+    "productName" : "Black Ballpen "
   }
 }
