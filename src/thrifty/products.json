@@ -61,13 +61,13 @@
     },
     "hansel53714" : {
       "id" : "hansel53714",
-      "quantity" : 25,
+      "quantity" : 20,
       "price" : 12.0,
       "name" : "Hansel Mocha",
       "store" : "John's Convenience Store",
       "storeID" : "S18669",
       "image" : "C:\\thrifty\\Thrifty\\images\\images (1).jpg",
-      "description" : "Hancel Moha Biscuit is a delightful treat that combines the perfect crunch with a rich, indulgent flavor. Infused with a smooth mocha essence, each biscuit offers a delicious balance of coffee and chocolate notes. Ideal for a quick snack, it’s perfect with your favorite hot drink or as a sweet bite during any time of the day. Hancel Moha Biscuit is a must-try for those who enjoy a little extra flavor in their everyday treats!",
+      "description" : "",
       "purchases" : 0
     }
   },
@@ -96,6 +96,17 @@
     }
   },
   "lapis" : {
+    "lapis58067" : {
+      "id" : "lapis58067",
+      "quantity" : 15,
+      "price" : 30.0,
+      "name" : "Lapis 3 pcs",
+      "store" : "Rujz' Shop",
+      "storeID" : "S7305",
+      "image" : "C:\\Users\\User\\Downloads\\pencil2.jpg",
+      "description" : "Buy these 3 pcs pencils for only 30 PESOS!",
+      "purchases" : 0
+    },
     "lapis28696" : {
       "id" : "lapis28696",
       "quantity" : 50,

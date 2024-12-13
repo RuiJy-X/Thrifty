@@ -1,4 +1,92 @@
 {
+  "SI19400" : {
+    "quantitySold" : 2,
+    "buyerID" : "U38650",
+    "dateBought" : "2024-12-12",
+    "productID" : "hansel53714",
+    "totalPrice" : 24.0,
+    "shopID" : "S18669",
+    "price" : "12.0",
+    "soldItemID" : "SI19400",
+    "productName" : "Hansel Mocha"
+  },
+  "SI24836" : {
+    "quantitySold" : 3,
+    "buyerID" : "U13169",
+    "dateBought" : "2024-12-13",
+    "productID" : "lapis28696",
+    "totalPrice" : 36.0,
+    "shopID" : "S7305",
+    "price" : "12.0",
+    "soldItemID" : "SI24836",
+    "productName" : "Lapis mongol 2"
+  },
+  "SI34354" : {
+    "quantitySold" : 3,
+    "buyerID" : "U38650",
+    "dateBought" : "2024-12-13",
+    "productID" : "hansel53714",
+    "totalPrice" : 36.0,
+    "shopID" : "S18669",
+    "price" : "12.0",
+    "soldItemID" : "SI34354",
+    "productName" : "Hansel Mocha"
+  },
+  "SI36444" : {
+    "quantitySold" : 3,
+    "buyerID" : "U38650",
+    "dateBought" : "2024-12-13",
+    "productID" : "hansel53714",
+    "totalPrice" : 36.0,
+    "shopID" : "S18669",
+    "price" : "12.0",
+    "soldItemID" : "SI36444",
+    "productName" : "Hansel Mocha"
+  },
+  "SI98101" : {
+    "quantitySold" : 5,
+    "buyerID" : "U38650",
+    "dateBought" : "2024-12-13",
+    "productID" : "hansel56517",
+    "totalPrice" : 60.0,
+    "shopID" : "S18669",
+    "price" : "12.0",
+    "soldItemID" : "SI98101",
+    "productName" : "Hansel Chocolate"
+  },
+  "SI50278" : {
+    "quantitySold" : 5,
+    "buyerID" : "U38650",
+    "dateBought" : "2024-12-13",
+    "productID" : "hansel53714",
+    "totalPrice" : 60.0,
+    "shopID" : "S18669",
+    "price" : "12.0",
+    "soldItemID" : "SI50278",
+    "productName" : "Hansel Mocha"
+  },
+  "SI33173" : {
+    "quantitySold" : 5,
+    "buyerID" : "U38650",
+    "dateBought" : "2024-12-13",
+    "productID" : "hansel53714",
+    "totalPrice" : 60.0,
+    "shopID" : "S18669",
+    "price" : "12.0",
+    "soldItemID" : "SI33173",
+    "productName" : "Hansel Mocha"
+  },
+  "SI21659" : {
+    "quantitySold" : 21,
+    "buyerID" : "U38650",
+    "dateBought" : "2024-12-13",
+    "productID" : "hansel56517",
+    "totalPrice" : 252.0,
+    "shopID" : "S18669",
+    "price" : "12.0",
+    "soldItemID" : "SI21659",
+    "productName" : "Hansel Chocolate"
+  },
   "SI6140" : {
     "quantitySold" : 1,
     "buyerID" : "U9994",
@@ -20,5 +108,16 @@
     "price" : "12.0",
     "soldItemID" : "SI59649",
     "productName" : "Black Ballpen "
+  },
+  "SI9354" : {
+    "quantitySold" : 22,
+    "buyerID" : "U38650",
+    "dateBought" : "2024-12-13",
+    "productID" : "hansel53714",
+    "totalPrice" : 264.0,
+    "shopID" : "S18669",
+    "price" : "12.0",
+    "soldItemID" : "SI9354",
+    "productName" : "Hansel Mocha"
   }
 }

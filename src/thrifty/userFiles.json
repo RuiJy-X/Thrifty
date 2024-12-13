@@ -7,7 +7,7 @@
     "city" : "Bacolod City",
     "shopID" : "S7305",
     "image" : "null",
-    "cart" : [ "O33884", "O52584" ]
+    "cart" : [ "O33884" ]
   },
   "U73014" : {
     "userID" : "U73014",
@@ -27,6 +27,16 @@
     "city" : "Bacolod City",
     "shopID" : "S18669",
     "image" : "null",
-    "cart" : [ "O59750" ]
+    "cart" : [ ]
+  },
+  "U13169" : {
+    "userID" : "U13169",
+    "name" : "zeke",
+    "password" : "234",
+    "location" : "burgos",
+    "city" : "Bacolod City",
+    "shopID" : "null",
+    "image" : "null",
+    "cart" : [ "O58456" ]
   }
 }

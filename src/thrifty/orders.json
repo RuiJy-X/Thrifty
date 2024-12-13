@@ -20,45 +20,24 @@
       "purchases" : 0
     }
   },
-  "O52584" : {
-    "quantitySold" : 2,
-    "buyerID" : "U38650",
-    "dateBought" : "2024-12-12",
-    "productID" : "hansel53714",
-    "totalPrice" : 24.0,
-    "orderID" : "O52584",
-    "shopID" : "S18669",
-    "price" : "12.0",
-    "product" : {
-      "id" : "hansel53714",
-      "quantity" : 25,
-      "price" : 12.0,
-      "name" : "Hansel Mocha",
-      "store" : "John's Convenience Store",
-      "storeID" : "S18669",
-      "image" : "C:\\thrifty\\Thrifty\\images\\images (1).jpg",
-      "description" : "Hancel Moha Biscuit is a delightful treat that combines the perfect crunch with a rich, indulgent flavor. Infused with a smooth mocha essence, each biscuit offers a delicious balance of coffee and chocolate notes. Ideal for a quick snack, it’s perfect with your favorite hot drink or as a sweet bite during any time of the day. Hancel Moha Biscuit is a must-try for those who enjoy a little extra flavor in their everyday treats!",
-      "purchases" : 0
-    }
-  },
-  "O59750" : {
-    "quantitySold" : 3,
-    "buyerID" : "U9994",
-    "dateBought" : "2024-12-12",
-    "productID" : "notebook38705",
-    "totalPrice" : 180.0,
-    "orderID" : "O59750",
+  "O58456" : {
+    "quantitySold" : 1,
+    "buyerID" : "U13169",
+    "dateBought" : "2024-12-13",
+    "productID" : "eraser22280",
+    "totalPrice" : 10.0,
+    "orderID" : "O58456",
     "shopID" : "S7305",
-    "price" : "60.0",
+    "price" : "10.0",
     "product" : {
-      "id" : "notebook38705",
-      "quantity" : 50,
-      "price" : 60.0,
-      "name" : "Notebook A5 100 pages",
+      "id" : "eraser22280",
+      "quantity" : 30,
+      "price" : 10.0,
+      "name" : "Sand Eraser",
       "store" : "Rujz' Shop",
       "storeID" : "S7305",
-      "image" : "C:\\Users\\User\\Downloads\\notebook.jpg",
-      "description" : "This A5 notebook is the perfect companion for jotting down notes, ideas, or sketches. Compact and portable, it features high-quality, smooth pages that are ideal for writing with pens, pencils, or markers. Its durable cover ensures long-lasting use, making it great for school, work, or personal journaling. Whether for planning, studying, or creativity, this notebook is a versatile essential for everyday use!",
+      "image" : "C:\\Users\\User\\Downloads\\eraser2.jpg",
+      "description" : "This eraser is a reliable tool for clean and precise corrections. Made from high-quality materials, it gently removes pencil marks without smudging or damaging the paper. Perfect for school, office, or art use, its smooth texture ensures effortless erasing, making it an essential addition to any pencil case or workspace. Simple, effective, and built for everyday use!",
       "purchases" : 0
     }
   }

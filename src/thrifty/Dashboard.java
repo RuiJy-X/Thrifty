@@ -522,6 +522,7 @@ public class Dashboard extends javax.swing.JFrame {
         orderList.remove(orderID);
         
         
+        
         //Make sold item object
         // public SoldItemDTO(String orderID,String productID, int quantitySold, String buyerID, String dateBought, double totalPrice, String shopID,double price,ProductDTO product)
         String key = this.generateID(createIDKey());
@@ -529,7 +530,18 @@ public class Dashboard extends javax.swing.JFrame {
         SoldItemDTO soldItem = new SoldItemDTO(key,order.getProductID(),order.getQuantitySold(),order.getBuyerID(),order.getDateBought(),order.getTotalPrice(),order.getShopID(),price,order.getProduct().getName());
         soldItems.put(key,soldItem);
         ArrayList<String> userShopItemsInstance = userShop.getSellLog();
-
+        
+        int newQ = product.getQuantity() - order.getQuantitySold();
+        product.setQuantity(newQ);
+        
+     
+        
+        for (HashMap<String, ProductDTO> innerMap : allProducts.values()) {
+            innerMap.replace(product.getId(), product);
+        }
+        
+       
+        
         userShopItemsInstance.add(key);
         
            try {
@@ -538,6 +550,7 @@ public class Dashboard extends javax.swing.JFrame {
             mapper.writeValue(new File("src\\thrifty\\shops.json"),this.allShops);
             mapper.writeValue(new File("src\\thrifty\\orders.json"), orders);
             mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
+            mapper.writeValue(new File("src\\thrifty\\products.json"), allProducts);
             
             
         } catch (IOException ex) {

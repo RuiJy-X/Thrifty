@@ -267,16 +267,31 @@ public class RegisterForm extends javax.swing.JPanel {
         this.LAS = LAS;
     }
     
+    boolean isExisted = false;
+    
     public void createUser(){
         String name = inputUsername.getText();
         String password = inputPassword.getText();
         String address = inputAddress.getText();
         String city = inputCity.getText();
+        
+        for(String key : userHashmap.keySet()){
+           
+            UserDTO user = userHashmap.get(key);
+            if (name.equals(user.getName())) {
+                isExisted = true;
+            }
+            
+        }
+        
         //UserDTO(String userID, String name, String password, String location, String city, String shopID, String image, ArrayList<String> cart)
         String userID = generateID(createIDKey());
         if(name.isBlank() || password.isBlank() || address.isBlank() || city.isBlank()){
             JOptionPane.showMessageDialog(this,"All fields must not be empty","Input Error",JOptionPane.ERROR_MESSAGE);
-        }else{
+        }else if(this.isExisted){
+            JOptionPane.showMessageDialog(this,"Account already registered","Collision Error",JOptionPane.ERROR_MESSAGE);
+        }
+        else{
             UserDTO user = new UserDTO(userID,name,password,address,city,"null","null", new ArrayList<>());
         
             userHashmap.put(userID, user);

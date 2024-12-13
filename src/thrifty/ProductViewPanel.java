@@ -330,16 +330,20 @@ public class ProductViewPanel extends javax.swing.JPanel {
         cart = db.getCart();
         orderList = allShops.get(product.getStoreID()).getOrders();
         cart1 = allUsers.get(user.getUserID()).getCart();
-        
+        int quantitySold = Integer.valueOf(quantity.getText());
         
         
         if (user.getShopID().equals(product.getStoreID())){
             JOptionPane.showMessageDialog(db, "Cannot checkout an item that you listed", "Error", JOptionPane.ERROR_MESSAGE);
             
-        }else{
+        }else if (quantitySold > product.getQuantity()){
+            JOptionPane.showMessageDialog(db, "Cannot buy more than stock quantity" + "(" + product.getQuantity() + ")"  , "Error", JOptionPane.ERROR_MESSAGE);
+            quantity.setText("1");
+        }
+        else{
             String orderID = generateID(createIDKey());
         
-        int quantitySold = Integer.valueOf(quantity.getText());
+        
         
         double totalPrice = quantitySold * Double.valueOf(product.getPrice());
          

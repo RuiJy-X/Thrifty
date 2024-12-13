@@ -11,8 +11,8 @@
     "description" : "Welcome to John's Convenience Store, your go-to spot for everyday essentials. Whether you're looking for snacks, beverages, household items, or personal care products, we have you covered. Located conveniently for your quick shopping needs, our friendly service and well-stocked shelves ensure you can find what you need in no time. Stop by today for a hassle-free shopping experience!",
     "image" : "C:\\thrifty\\Thrifty\\images\\7a3ec529632909.55fc107b84b8c.png",
     "products" : [ "hansel53714", "hansel56517", "nova2244" ],
-    "orders" : [ "O52584" ],
-    "sellLog" : [ ],
+    "orders" : [ ],
+    "sellLog" : [ "SI19400", "SI98101", "SI21659", "SI50278", "SI33173", "SI34354", "SI36444", "SI9354" ],
     "legalDocuments" : "C:\\thrifty\\Thrifty\\images\\images.jpg"
   },
   "S26420" : {
@@ -42,9 +42,9 @@
     "email" : "rujz@gmail.com",
     "description" : "Welcome to our basic retail shop! We offer a variety of everyday essentials, including household goods, personal care items, snacks, and basic supplies. Our goal is to provide quality products at affordable prices in a friendly and convenient setting. Whether you're here for a quick stop or your daily needs, we've got you covered!",
     "image" : "C:\\thrifty\\Thrifty\\images\\store-logo-design-template-3ac57f780d1cae2a6d3a049f82c62437_screen.jpg",
-    "products" : [ "pen93675", "marker63532", "pen56011", "eraser55699", "eraser22280", "notebook38705", "lapis28696", "marker65162" ],
-    "orders" : [ "O59750" ],
-    "sellLog" : [ "SI6140", "SI59649" ],
+    "products" : [ "pen93675", "marker63532", "pen56011", "eraser55699", "eraser22280", "notebook38705", "lapis28696", "marker65162", "lapis58067" ],
+    "orders" : [ "O58456" ],
+    "sellLog" : [ "SI6140", "SI59649", "SI24836" ],
     "legalDocuments" : "C:\\thrifty\\Thrifty\\images\\images.jpg"
   }
 }
