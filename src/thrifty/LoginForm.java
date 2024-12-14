@@ -26,7 +26,7 @@ public class LoginForm extends javax.swing.JPanel {
     
     public HashMap<String, UserDTO> userHashmap;
     public ObjectMapper mapper = new ObjectMapper();
-    public File userFiles = new File("src\\thrifty\\userFiles.json");
+    public File userFiles = new File(".\\userFiles.json");
     public LoginAndSignup LAS;
     /** Creates new form RegisterForm */
     public LoginForm() {

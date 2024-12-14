@@ -480,8 +480,8 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
 
 
            try{
-               mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
-               mapper.writeValue(new File("src\\thrifty\\shops.json"), allShops); //write hashmap into JSON
+               mapper.writeValue(new File(".\\userFiles.json"), allUsers);
+               mapper.writeValue(new File(".\\shops.json"), allShops); //write hashmap into JSON
                this.clear();
            }catch (IOException e){
                e.printStackTrace();

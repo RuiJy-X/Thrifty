@@ -368,9 +368,9 @@ public class ProductViewPanel extends javax.swing.JPanel {
 //        ShopDTO newProductShop = new ShopDTO(oldProductShop);
 //        allShops.remove(newProductShop.getShopID());
 //        allShops.put(newProductShop.getShopID(), newProductShop);
-            mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops);
-            mapper.writeValue(new File("src\\thrifty\\orders.json"), orders);
-            mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
+            mapper.writeValue(new File(".\\shops.json"), this.allShops);
+            mapper.writeValue(new File(".\\orders.json"), orders);
+            mapper.writeValue(new File(".\\userFiles.json"), allUsers);
             
         } catch (IOException ex) {
             Logger.getLogger(ProductViewPanel.class.getName()).log(Level.SEVERE, null, ex);

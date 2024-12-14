@@ -44,9 +44,6 @@ public class PanelMyProducts extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -59,25 +56,6 @@ public class PanelMyProducts extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 36)); // NOI18N
         jLabel1.setText("My Products");
-
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jPanel5.setLayout(new java.awt.BorderLayout());
-
-        jTextField1.setFont(new java.awt.Font("Lato", 0, 24)); // NOI18N
-        jTextField1.setBorder(null);
-        jTextField1.setPreferredSize(new java.awt.Dimension(464, 86));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(jTextField1, java.awt.BorderLayout.CENTER);
-
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thrifty/resources/Group 106 (1).png"))); // NOI18N
-        jPanel5.add(jLabel5, java.awt.BorderLayout.EAST);
 
         jLabel2.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel2.setText("Product Name");
@@ -114,8 +92,7 @@ public class PanelMyProducts extends javax.swing.JPanel {
                     .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 1029, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -133,10 +110,8 @@ public class PanelMyProducts extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addComponent(jLabel1)
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
@@ -148,10 +123,6 @@ public class PanelMyProducts extends javax.swing.JPanel {
                 .addContainerGap(29, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
     
     public void setShop(ShopDTO shop){
         this.shop = shop;
@@ -199,11 +170,8 @@ public class PanelMyProducts extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JScrollPane scroll;
     private javax.swing.JPanel scrollPanel;
     // End of variables declaration//GEN-END:variables

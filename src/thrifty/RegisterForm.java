@@ -26,7 +26,7 @@ public class RegisterForm extends javax.swing.JPanel {
     public LoginForm login;
     public HashMap<String, UserDTO> userHashmap;
     public ObjectMapper mapper = new ObjectMapper();
-    public File userFiles = new File("src\\thrifty\\userFiles.json");
+    public File userFiles = new File(".\\userFiles.json");
     public static Random random = new Random();
     /** Creates new form RegisterForm */
     public RegisterForm() {
@@ -279,6 +279,7 @@ public class RegisterForm extends javax.swing.JPanel {
            
             UserDTO user = userHashmap.get(key);
             if (name.equals(user.getName())) {
+                
                 isExisted = true;
             }
             
@@ -290,6 +291,7 @@ public class RegisterForm extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this,"All fields must not be empty","Input Error",JOptionPane.ERROR_MESSAGE);
         }else if(this.isExisted){
             JOptionPane.showMessageDialog(this,"Account already registered","Collision Error",JOptionPane.ERROR_MESSAGE);
+            this.isExisted = false;
         }
         else{
             UserDTO user = new UserDTO(userID,name,password,address,city,"null","null", new ArrayList<>());

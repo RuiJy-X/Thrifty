@@ -41,9 +41,9 @@ public class Dashboard extends javax.swing.JFrame {
     ArrayList<String> cart;
     public static ObjectMapper mapper = new ObjectMapper();
     
-    public static File file = new File("src\\thrifty\\products.json");
-    public static File shopFile = new File("src\\thrifty\\shops.json");
-    public static File userFiles = new File("src\\thrifty\\userFiles.json");
+    public static File file = new File(".\\products.json");
+    public static File shopFile = new File(".\\shops.json");
+    public static File userFiles = new File(".\\userFiles.json");
     
     public static ArrayList<Component> uniqueProductList = new ArrayList<>();
     public static ArrayList<Component> searchUniqueProductList = new ArrayList<>();
@@ -71,7 +71,7 @@ public class Dashboard extends javax.swing.JFrame {
             this.setShop();
             fieldsRegisterShop1.setShopHashMap(allShops);
             fieldsRegisterShop1.setDB(this);
-       
+            productPanel2.setDB(this);
             
           
     }
@@ -85,7 +85,7 @@ public class Dashboard extends javax.swing.JFrame {
         this.cart = user.getCart();
         this.readFile();
         this.setShop();
-       
+        productPanel2.setDB(this);
         this.createProductComponent();
         
 
@@ -139,15 +139,15 @@ public class Dashboard extends javax.swing.JFrame {
             allProducts = mapper.readValue(file, new TypeReference<HashMap<String, HashMap<String, ProductDTO>>>() {}); 
             allShops = mapper.readValue(shopFile, new TypeReference<HashMap<String, ShopDTO>>() {});
             allUsers = mapper.readValue(userFiles, new TypeReference<HashMap<String,UserDTO>>() {});
-            orders = mapper.readValue(new File("src\\thrifty\\orders.json"), new TypeReference<HashMap<String,OrderDTO>>() {});
-            soldItems = mapper.readValue(new File("src\\thrifty\\solditems.json"), new TypeReference<HashMap<String,SoldItemDTO>>() {});
+            orders = mapper.readValue(new File(".\\orders.json"), new TypeReference<HashMap<String,OrderDTO>>() {});
+            soldItems = mapper.readValue(new File(".\\solditems.json"), new TypeReference<HashMap<String,SoldItemDTO>>() {});
         }catch(IOException e){
             e.printStackTrace();
         }
    }
    
    public String getLocation(String shopID){
-       String location = allShops.get(shopID).getCity();
+       String location = allShops.get(shopID).getCity().toLowerCase();
        return location;
    }
    
@@ -402,9 +402,9 @@ public class Dashboard extends javax.swing.JFrame {
         
         try {
          
-            mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops);
-            mapper.writeValue(new File("src\\thrifty\\orders.json"), orders);
-            mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
+            mapper.writeValue(new File(".\\shops.json"), this.allShops);
+            mapper.writeValue(new File(".\\orders.json"), orders);
+            mapper.writeValue(new File(".\\userFiles.json"), allUsers);
             
         } catch (IOException ex) {
             Logger.getLogger(ProductViewPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -489,9 +489,9 @@ public class Dashboard extends javax.swing.JFrame {
         
         try {
          
-            mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops);
-            mapper.writeValue(new File("src\\thrifty\\orders.json"), orders);
-            mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
+            mapper.writeValue(new File(".\\shops.json"), this.allShops);
+            mapper.writeValue(new File(".\\orders.json"), orders);
+            mapper.writeValue(new File(".\\userFiles.json"), allUsers);
             
         } catch (IOException ex) {
             Logger.getLogger(ProductViewPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -546,11 +546,11 @@ public class Dashboard extends javax.swing.JFrame {
         
            try {
          
-            mapper.writeValue(new File("src\\thrifty\\solditems.json"), this.soldItems);
-            mapper.writeValue(new File("src\\thrifty\\shops.json"),this.allShops);
-            mapper.writeValue(new File("src\\thrifty\\orders.json"), orders);
-            mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
-            mapper.writeValue(new File("src\\thrifty\\products.json"), allProducts);
+            mapper.writeValue(new File(".\\solditems.json"), this.soldItems);
+            mapper.writeValue(new File(".\\shops.json"),this.allShops);
+            mapper.writeValue(new File(".\\orders.json"), orders);
+            mapper.writeValue(new File(".\\userFiles.json"), allUsers);
+            mapper.writeValue(new File(".\\products.json"), allProducts);
             
             
         } catch (IOException ex) {

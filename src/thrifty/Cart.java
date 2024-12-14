@@ -73,6 +73,7 @@ public class Cart extends javax.swing.JPanel {
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.NORTH);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(1280, 75));
 
         jLabel2.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -135,6 +136,7 @@ public class Cart extends javax.swing.JPanel {
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(1280, 660));
 
+        cartPanel.setBackground(new java.awt.Color(255, 255, 255));
         cartPanel.setMaximumSize(new java.awt.Dimension(1260, 32767));
         cartPanel.setPreferredSize(new java.awt.Dimension(1260, 1000));
         jScrollPane1.setViewportView(cartPanel);

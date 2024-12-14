@@ -1,0 +1,44 @@
+{
+  "O33884" : {
+    "quantitySold" : 1,
+    "buyerID" : "U38650",
+    "dateBought" : "2024-12-12",
+    "productID" : "flower74626",
+    "totalPrice" : 750.0,
+    "orderID" : "O33884",
+    "shopID" : "S26420",
+    "price" : "750.0",
+    "product" : {
+      "id" : "flower74626",
+      "quantity" : 5,
+      "price" : 750.0,
+      "name" : "Red Flower Bouqet",
+      "store" : "Dianne's Flower Shop",
+      "storeID" : "S26420",
+      "image" : "C:\\thrifty\\Thrifty\\images\\ebb98f6f89a53f71f0c3500dff167fed.jpg",
+      "description" : "This flower bouquet is a stunning arrangement of fresh, hand-picked blooms, thoughtfully crafted to suit any occasion. Bursting with vibrant colors, delicate fragrances, and natural beauty, it’s perfect for expressing love, gratitude, or celebration. Each bouquet is elegantly wrapped to add a touch of charm, making it an ideal gift or centerpiece. Share joy and beauty with this timeless floral creation!",
+      "purchases" : 0
+    }
+  },
+  "O58456" : {
+    "quantitySold" : 1,
+    "buyerID" : "U13169",
+    "dateBought" : "2024-12-13",
+    "productID" : "eraser22280",
+    "totalPrice" : 10.0,
+    "orderID" : "O58456",
+    "shopID" : "S7305",
+    "price" : "10.0",
+    "product" : {
+      "id" : "eraser22280",
+      "quantity" : 30,
+      "price" : 10.0,
+      "name" : "Sand Eraser",
+      "store" : "Rujz' Shop",
+      "storeID" : "S7305",
+      "image" : "C:\\Users\\User\\Downloads\\eraser2.jpg",
+      "description" : "This eraser is a reliable tool for clean and precise corrections. Made from high-quality materials, it gently removes pencil marks without smudging or damaging the paper. Perfect for school, office, or art use, its smooth texture ensures effortless erasing, making it an essential addition to any pencil case or workspace. Simple, effective, and built for everyday use!",
+      "purchases" : 0
+    }
+  }
+}

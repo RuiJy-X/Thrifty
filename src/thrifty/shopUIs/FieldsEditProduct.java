@@ -58,6 +58,7 @@ public class FieldsEditProduct extends javax.swing.JPanel {
         this.displayName.setText(productName);
         this.price.setText(price);
         this.quantity.setText(quantity);
+        this.description.setText(description);
         this.icon(picturePath,picture,445,313);
         this.db = db;
         
@@ -145,7 +146,9 @@ public class FieldsEditProduct extends javax.swing.JPanel {
         jLabel5.setText("Description");
 
         description.setColumns(20);
+        description.setLineWrap(true);
         description.setRows(5);
+        description.setWrapStyleWord(true);
         jScrollPane1.setViewportView(description);
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
@@ -313,13 +316,13 @@ public class FieldsEditProduct extends javax.swing.JPanel {
         
         
           try{
-              //mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
-            //mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops); //write hashmap into JSON
+              //mapper.writeValue(new File(".\\userFiles.json"), allUsers);
+            //mapper.writeValue(new File(".\\shops.json"), this.allShops); //write hashmap into JSON
             
             //update all shops json
-            mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops);
+            mapper.writeValue(new File(".\\shops.json"), this.allShops);
             //update all products
-            mapper.writeValue(new File("src\\thrifty\\products.json"), this.allProducts);
+            mapper.writeValue(new File(".\\products.json"), this.allProducts);
         }catch (IOException e){
             e.printStackTrace();
         }

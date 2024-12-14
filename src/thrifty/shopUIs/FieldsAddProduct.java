@@ -330,13 +330,13 @@ public class FieldsAddProduct extends javax.swing.JPanel {
                  this.clearText();
                  //write to json
                   try{
-                      //mapper.writeValue(new File("src\\thrifty\\userFiles.json"), allUsers);
-                    //mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops); //write hashmap into JSON
+                      //mapper.writeValue(new File(".\\userFiles.json"), allUsers);
+                    //mapper.writeValue(new File(".\\shops.json"), this.allShops); //write hashmap into JSON
 
                     //update all shops json
-                    mapper.writeValue(new File("src\\thrifty\\shops.json"), this.allShops);
+                    mapper.writeValue(new File(".\\shops.json"), this.allShops);
                     //update all products
-                    mapper.writeValue(new File("src\\thrifty\\products.json"), this.allProducts);
+                    mapper.writeValue(new File(".\\products.json"), this.allProducts);
                 }catch (IOException e){
                     e.printStackTrace();
                 }

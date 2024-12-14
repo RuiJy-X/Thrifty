@@ -19,6 +19,16 @@
     "image" : "null",
     "cart" : [ "O33884" ]
   },
+  "U25080" : {
+    "userID" : "U25080",
+    "name" : "Kyle",
+    "password" : "123",
+    "location" : "Ramos St., Bacolod City",
+    "city" : "Bacolod City",
+    "shopID" : "null",
+    "image" : "null",
+    "cart" : [ ]
+  },
   "U99058" : {
     "userID" : "U99058",
     "name" : "Test",
