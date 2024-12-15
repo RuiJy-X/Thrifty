@@ -9,6 +9,7 @@ import thrifty.Dashboard;
 import thrifty.OrderDTO;
 import thrifty.ProductDTO;
 import thrifty.ShopDTO;
+import thrifty.SoldItemDTO;
 import thrifty.UserDTO;
 
 /**
@@ -144,18 +145,28 @@ public class PanelMyProducts extends javax.swing.JPanel {
     }
     
     public void createProduct(){
-        
+        int purchases = 0;
         HashMap<String, ProductDTO> flattenedProducts = new HashMap<>();
         
         for (HashMap<String, ProductDTO> innerMap : db.getallProducts().values()) {
             flattenedProducts.putAll(innerMap);
         }
         
+        
+        
         for (String productID: db.getUserShop().getProducts()){
-            
+            purchases = 0;
             ProductDTO product = flattenedProducts.get(productID);
             // public MyProductItems(String name, String image, int quantity, String dateAdded,int purchases, double price)
-            MyProductItems newItem = new MyProductItems(product.getName(),product.getImage(),product.getQuantity(), "NA",0,product.getPrice(),db,productID,product.getDescription(),product);
+            for(String key : db.getSoldItems().keySet()){
+                
+                SoldItemDTO soldItem = db.getSoldItems().get(key);
+                String soldItemPID = soldItem.getProductID();
+                if(soldItemPID.equals(productID)){
+                    purchases += soldItem.getQuantitySold();
+                }
+            }
+            MyProductItems newItem = new MyProductItems(product.getName(),product.getImage(),product.getQuantity(), "NA",purchases,product.getPrice(),db,productID,product.getDescription(),product);
             scrollPanel.add(newItem);
         }
     }

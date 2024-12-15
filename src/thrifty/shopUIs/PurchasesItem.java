@@ -4,6 +4,7 @@
  */
 package thrifty.shopUIs;
 
+import javax.swing.JOptionPane;
 import thrifty.Dashboard;
 import thrifty.ProductDTO;
 import thrifty.ShopDTO;
@@ -144,8 +145,12 @@ public class PurchasesItem extends javax.swing.JPanel {
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
-        db.approvePurchase(orderID, buyer, shop,product);
-        
+        if (JOptionPane.showConfirmDialog(db, "Are you sure you want to approve purchase?", "Confirm", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+
+            db.approvePurchase(orderID, buyer, shop,product);
+        }else{
+            
+        }
         
         
         
@@ -153,7 +158,12 @@ public class PurchasesItem extends javax.swing.JPanel {
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
-        db.deletePurchase(orderID, product,buyer);
+        if (JOptionPane.showConfirmDialog(db, "Are you sure you want to delete?", "Confirm", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+
+            db.deletePurchase(orderID, product,buyer);
+        }else{
+            
+        }
         
         
         

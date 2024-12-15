@@ -7,6 +7,7 @@ package thrifty;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -163,6 +164,8 @@ public class CartItems extends javax.swing.JPanel {
     private void deleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteButtonMouseClicked
         // TODO add your handling code here:
         db.deleteCartAndOrderItem(orderID,product);
+        JOptionPane.showMessageDialog(db, "Product in cart deleted" , "Product deleted", JOptionPane.INFORMATION_MESSAGE);
+
     }//GEN-LAST:event_deleteButtonMouseClicked
 
 

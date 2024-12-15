@@ -328,6 +328,8 @@ public class FieldsAddProduct extends javax.swing.JPanel {
 
                  allShops.put(shop.getShopID(),shop); //this will replace the old one with an updated shop
                  this.clearText();
+                 JOptionPane.showMessageDialog(db, "Product successfully added" , "Success", JOptionPane.INFORMATION_MESSAGE);
+
                  //write to json
                   try{
                       //mapper.writeValue(new File(".\\userFiles.json"), allUsers);

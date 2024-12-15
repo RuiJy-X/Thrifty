@@ -7,6 +7,7 @@ package thrifty.shopUIs;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import thrifty.Dashboard;
 import thrifty.ProductDTO;
 
@@ -165,7 +166,13 @@ public class MyProductItems extends javax.swing.JPanel {
 
     private void deleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteButtonMouseClicked
         // TODO add your handling code here:
-        db.deleteProduct(productID, product);
+        
+        if (JOptionPane.showConfirmDialog(db, "Are you sure you want to delete?", "Confirm", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+            db.deleteProduct(productID, product);
+        }else{
+            
+        }
+        
     }//GEN-LAST:event_deleteButtonMouseClicked
 
 

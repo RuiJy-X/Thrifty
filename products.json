@@ -23,6 +23,20 @@
       "purchases" : 0
     }
   },
+  "test" : { },
+  "piatos" : {
+    "piatos93382" : {
+      "id" : "piatos93382",
+      "quantity" : 12,
+      "price" : 15.0,
+      "name" : "Piatos Cheese",
+      "store" : "Jack's Store",
+      "storeID" : "S34788",
+      "image" : "C:\\Users\\User\\Downloads\\piatos cheese.jpg",
+      "description" : "This is cheesy and delicious.",
+      "purchases" : 0
+    }
+  },
   "marker" : {
     "marker63532" : {
       "id" : "marker63532",
@@ -50,7 +64,7 @@
   "hansel" : {
     "hansel56517" : {
       "id" : "hansel56517",
-      "quantity" : 20,
+      "quantity" : 17,
       "price" : 12.0,
       "name" : "Hansel Chocolate",
       "store" : "John's Convenience Store",
@@ -61,7 +75,7 @@
     },
     "hansel53714" : {
       "id" : "hansel53714",
-      "quantity" : 20,
+      "quantity" : 13,
       "price" : 12.0,
       "name" : "Hansel Mocha",
       "store" : "John's Convenience Store",
@@ -71,6 +85,7 @@
       "purchases" : 0
     }
   },
+  "maxx" : { },
   "pen" : {
     "pen56011" : {
       "id" : "pen56011",

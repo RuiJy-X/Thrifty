@@ -1,25 +1,4 @@
 {
-  "O33884" : {
-    "quantitySold" : 1,
-    "buyerID" : "U38650",
-    "dateBought" : "2024-12-12",
-    "productID" : "flower74626",
-    "totalPrice" : 750.0,
-    "orderID" : "O33884",
-    "shopID" : "S26420",
-    "price" : "750.0",
-    "product" : {
-      "id" : "flower74626",
-      "quantity" : 5,
-      "price" : 750.0,
-      "name" : "Red Flower Bouqet",
-      "store" : "Dianne's Flower Shop",
-      "storeID" : "S26420",
-      "image" : "C:\\thrifty\\Thrifty\\images\\ebb98f6f89a53f71f0c3500dff167fed.jpg",
-      "description" : "This flower bouquet is a stunning arrangement of fresh, hand-picked blooms, thoughtfully crafted to suit any occasion. Bursting with vibrant colors, delicate fragrances, and natural beauty, it’s perfect for expressing love, gratitude, or celebration. Each bouquet is elegantly wrapped to add a touch of charm, making it an ideal gift or centerpiece. Share joy and beauty with this timeless floral creation!",
-      "purchases" : 0
-    }
-  },
   "O58456" : {
     "quantitySold" : 1,
     "buyerID" : "U13169",
@@ -27,6 +6,90 @@
     "productID" : "eraser22280",
     "totalPrice" : 10.0,
     "orderID" : "O58456",
+    "shopID" : "S7305",
+    "price" : "10.0",
+    "product" : {
+      "id" : "eraser22280",
+      "quantity" : 30,
+      "price" : 10.0,
+      "name" : "Sand Eraser",
+      "store" : "Rujz' Shop",
+      "storeID" : "S7305",
+      "image" : "C:\\Users\\User\\Downloads\\eraser2.jpg",
+      "description" : "This eraser is a reliable tool for clean and precise corrections. Made from high-quality materials, it gently removes pencil marks without smudging or damaging the paper. Perfect for school, office, or art use, its smooth texture ensures effortless erasing, making it an essential addition to any pencil case or workspace. Simple, effective, and built for everyday use!",
+      "purchases" : 0
+    }
+  },
+  "O47402" : {
+    "quantitySold" : 3,
+    "buyerID" : "U12308",
+    "dateBought" : "2024-12-15",
+    "productID" : "eraser22280",
+    "totalPrice" : 30.0,
+    "orderID" : "O47402",
+    "shopID" : "S7305",
+    "price" : "10.0",
+    "product" : {
+      "id" : "eraser22280",
+      "quantity" : 30,
+      "price" : 10.0,
+      "name" : "Sand Eraser",
+      "store" : "Rujz' Shop",
+      "storeID" : "S7305",
+      "image" : "C:\\Users\\User\\Downloads\\eraser2.jpg",
+      "description" : "This eraser is a reliable tool for clean and precise corrections. Made from high-quality materials, it gently removes pencil marks without smudging or damaging the paper. Perfect for school, office, or art use, its smooth texture ensures effortless erasing, making it an essential addition to any pencil case or workspace. Simple, effective, and built for everyday use!",
+      "purchases" : 0
+    }
+  },
+  "O74778" : {
+    "quantitySold" : 1,
+    "buyerID" : "U38650",
+    "dateBought" : "2024-12-15",
+    "productID" : "hansel56517",
+    "totalPrice" : 12.0,
+    "orderID" : "O74778",
+    "shopID" : "S18669",
+    "price" : "12.0",
+    "product" : {
+      "id" : "hansel56517",
+      "quantity" : 17,
+      "price" : 12.0,
+      "name" : "Hansel Chocolate",
+      "store" : "John's Convenience Store",
+      "storeID" : "S18669",
+      "image" : "C:\\thrifty\\Thrifty\\images\\images (2).jpg",
+      "description" : "Hancel Chocolate Biscuit is a delightful treat that combines the perfect crunch with a rich, indulgent flavor. Infused with a smooth mocha essence, each biscuit offers a delicious balance of coffee and chocolate notes. Ideal for a quick snack, it’s perfect with your favorite hot drink or as a sweet bite during any time of the day. Hancel Moha Biscuit is a must-try for those who enjoy a little extra flavor in their everyday treats!",
+      "purchases" : 0
+    }
+  },
+  "O48764" : {
+    "quantitySold" : 3,
+    "buyerID" : "U68494",
+    "dateBought" : "2024-12-14",
+    "productID" : "marker63532",
+    "totalPrice" : 60.0,
+    "orderID" : "O48764",
+    "shopID" : "S7305",
+    "price" : "20.0",
+    "product" : {
+      "id" : "marker63532",
+      "quantity" : 10,
+      "price" : 20.0,
+      "name" : "Black Marker",
+      "store" : "Rujz' Shop",
+      "storeID" : "S7305",
+      "image" : "C:\\Users\\User\\Downloads\\marker2.jpg",
+      "description" : "Our ballpen markers combine the smooth writing of a ballpen with the bold, vibrant colors of a marker. Perfect for writing, underlining, or highlighting, they offer consistent ink flow and precision for both creative and practical tasks. Designed with a comfortable grip and durable tip, these markers are ideal for school, office, or art projects. Add a pop of color to your work with ease and style!",
+      "purchases" : 0
+    }
+  },
+  "O94550" : {
+    "quantitySold" : 3,
+    "buyerID" : "U68494",
+    "dateBought" : "2024-12-14",
+    "productID" : "eraser22280",
+    "totalPrice" : 30.0,
+    "orderID" : "O94550",
     "shopID" : "S7305",
     "price" : "10.0",
     "product" : {

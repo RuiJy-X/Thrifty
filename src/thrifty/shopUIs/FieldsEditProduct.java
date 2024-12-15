@@ -15,6 +15,7 @@ import java.util.HashSet;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import static thrifty.Dashboard.file;
 import static thrifty.Dashboard.mapper;
@@ -313,7 +314,8 @@ public class FieldsEditProduct extends javax.swing.JPanel {
         existingProduct.setPrice(price);
         existingProduct.setDescription(newProductDescription);
         existingProduct.setName(display); 
-        
+        JOptionPane.showMessageDialog(db, "Product successfully edited" , "Success", JOptionPane.INFORMATION_MESSAGE);
+
         
           try{
               //mapper.writeValue(new File(".\\userFiles.json"), allUsers);

@@ -1,4 +1,14 @@
 {
+  "U12308" : {
+    "userID" : "U12308",
+    "name" : "Zack",
+    "password" : "123",
+    "location" : "Burgos St., Bacolod City",
+    "city" : "Bacolod City",
+    "shopID" : "null",
+    "image" : "null",
+    "cart" : [ "O47402" ]
+  },
   "U53035" : {
     "userID" : "U53035",
     "name" : "Mary",
@@ -17,7 +27,17 @@
     "city" : "Bacolod City",
     "shopID" : "S7305",
     "image" : "null",
-    "cart" : [ "O33884" ]
+    "cart" : [ "O74778" ]
+  },
+  "U11644" : {
+    "userID" : "U11644",
+    "name" : "Jack",
+    "password" : "123",
+    "location" : "Burgos St, Bacolod City",
+    "city" : "Bacolod City",
+    "shopID" : "S34788",
+    "image" : "null",
+    "cart" : [ ]
   },
   "U25080" : {
     "userID" : "U25080",
@@ -26,6 +46,16 @@
     "location" : "Ramos St., Bacolod City",
     "city" : "Bacolod City",
     "shopID" : "null",
+    "image" : "null",
+    "cart" : [ ]
+  },
+  "U92493" : {
+    "userID" : "U92493",
+    "name" : "dafz",
+    "password" : "lee",
+    "location" : "bry.3",
+    "city" : "bacolod city",
+    "shopID" : "S19795",
     "image" : "null",
     "cart" : [ ]
   },
@@ -38,6 +68,16 @@
     "shopID" : "null",
     "image" : "null",
     "cart" : [ ]
+  },
+  "U68494" : {
+    "userID" : "U68494",
+    "name" : "George",
+    "password" : "123",
+    "location" : "Lacson St., Bacolod City",
+    "city" : "Bacolod City",
+    "shopID" : "null",
+    "image" : "null",
+    "cart" : [ "O48764", "O94550" ]
   },
   "U73014" : {
     "userID" : "U73014",

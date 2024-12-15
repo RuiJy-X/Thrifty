@@ -115,7 +115,7 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
         jLabel2.setText("Shop Name:");
 
         inputShopName.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        inputShopName.setToolTipText("Shop name");
+        inputShopName.setToolTipText("");
         inputShopName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         inputShopName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +127,7 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
         jLabel3.setText("Owner Name:");
 
         inputShopAddress.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        inputShopAddress.setToolTipText("Shop name");
+        inputShopAddress.setToolTipText("");
         inputShopAddress.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         inputShopAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,7 +139,7 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
         jLabel4.setText("Shop Address:");
 
         inputOwnerName.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        inputOwnerName.setToolTipText("Shop name");
+        inputOwnerName.setToolTipText("");
         inputOwnerName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         inputOwnerName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,7 +174,7 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
         jLabel6.setText("Phone Number:");
 
         inputPhoneNumber.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        inputPhoneNumber.setToolTipText("Shop name");
+        inputPhoneNumber.setToolTipText("");
         inputPhoneNumber.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         inputPhoneNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,7 +186,7 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
         jLabel7.setText("Email Address:");
 
         inputEmail.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        inputEmail.setToolTipText("Shop name");
+        inputEmail.setToolTipText("");
         inputEmail.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         inputEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,7 +251,7 @@ public class FieldsRegisterShop extends javax.swing.JPanel {
         });
 
         inputCity.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        inputCity.setToolTipText("Shop name");
+        inputCity.setToolTipText("");
         inputCity.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         inputCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

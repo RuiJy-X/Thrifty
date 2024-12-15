@@ -147,7 +147,7 @@ public class Dashboard extends javax.swing.JFrame {
    }
    
    public String getLocation(String shopID){
-       String location = allShops.get(shopID).getCity().toLowerCase();
+       String location = allShops.get(shopID).getCity();
        return location;
    }
    
@@ -463,7 +463,16 @@ public class Dashboard extends javax.swing.JFrame {
         ArrayList<String> productList = userShop.getProducts();
         productList.remove(productID);
         allShops.replace(userShop.getShopID(), userShop);
-        
+         try {
+         
+            mapper.writeValue(new File(".\\shops.json"), this.allShops);
+            mapper.writeValue(new File(".\\orders.json"), orders);
+            mapper.writeValue(new File(".\\userFiles.json"), allUsers);
+            mapper.writeValue(new File(".\\products.json"), allProducts);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(ProductViewPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         
        

@@ -1,25 +1,14 @@
 {
-  "SI19400" : {
-    "quantitySold" : 2,
+  "SI54388" : {
+    "quantitySold" : 3,
     "buyerID" : "U38650",
-    "dateBought" : "2024-12-12",
-    "productID" : "hansel53714",
-    "totalPrice" : 24.0,
+    "dateBought" : "2024-12-14",
+    "productID" : "hansel56517",
+    "totalPrice" : 36.0,
     "shopID" : "S18669",
     "price" : "12.0",
-    "soldItemID" : "SI19400",
-    "productName" : "Hansel Mocha"
-  },
-  "SI24836" : {
-    "quantitySold" : 3,
-    "buyerID" : "U13169",
-    "dateBought" : "2024-12-13",
-    "productID" : "lapis28696",
-    "totalPrice" : 36.0,
-    "shopID" : "S7305",
-    "price" : "12.0",
-    "soldItemID" : "SI24836",
-    "productName" : "Lapis mongol 2"
+    "soldItemID" : "SI54388",
+    "productName" : "Hansel Chocolate"
   },
   "SI34354" : {
     "quantitySold" : 3,
@@ -43,17 +32,6 @@
     "soldItemID" : "SI36444",
     "productName" : "Hansel Mocha"
   },
-  "SI48652" : {
-    "quantitySold" : 4,
-    "buyerID" : "U53035",
-    "dateBought" : "2024-12-14",
-    "productID" : "marker65162",
-    "totalPrice" : 240.0,
-    "shopID" : "S7305",
-    "price" : "60.0",
-    "soldItemID" : "SI48652",
-    "productName" : "Marker blue,green,red"
-  },
   "SI98101" : {
     "quantitySold" : 5,
     "buyerID" : "U38650",
@@ -64,17 +42,6 @@
     "price" : "12.0",
     "soldItemID" : "SI98101",
     "productName" : "Hansel Chocolate"
-  },
-  "SI50278" : {
-    "quantitySold" : 5,
-    "buyerID" : "U38650",
-    "dateBought" : "2024-12-13",
-    "productID" : "hansel53714",
-    "totalPrice" : 60.0,
-    "shopID" : "S18669",
-    "price" : "12.0",
-    "soldItemID" : "SI50278",
-    "productName" : "Hansel Mocha"
   },
   "SI33173" : {
     "quantitySold" : 5,
@@ -109,6 +76,72 @@
     "soldItemID" : "SI6140",
     "productName" : "Eraser"
   },
+  "SI9354" : {
+    "quantitySold" : 22,
+    "buyerID" : "U38650",
+    "dateBought" : "2024-12-13",
+    "productID" : "hansel53714",
+    "totalPrice" : 264.0,
+    "shopID" : "S18669",
+    "price" : "12.0",
+    "soldItemID" : "SI9354",
+    "productName" : "Hansel Mocha"
+  },
+  "SI19400" : {
+    "quantitySold" : 2,
+    "buyerID" : "U38650",
+    "dateBought" : "2024-12-12",
+    "productID" : "hansel53714",
+    "totalPrice" : 24.0,
+    "shopID" : "S18669",
+    "price" : "12.0",
+    "soldItemID" : "SI19400",
+    "productName" : "Hansel Mocha"
+  },
+  "SI24836" : {
+    "quantitySold" : 3,
+    "buyerID" : "U13169",
+    "dateBought" : "2024-12-13",
+    "productID" : "lapis28696",
+    "totalPrice" : 36.0,
+    "shopID" : "S7305",
+    "price" : "12.0",
+    "soldItemID" : "SI24836",
+    "productName" : "Lapis mongol 2"
+  },
+  "SI48652" : {
+    "quantitySold" : 4,
+    "buyerID" : "U53035",
+    "dateBought" : "2024-12-14",
+    "productID" : "marker65162",
+    "totalPrice" : 240.0,
+    "shopID" : "S7305",
+    "price" : "60.0",
+    "soldItemID" : "SI48652",
+    "productName" : "Marker blue,green,red"
+  },
+  "SI50278" : {
+    "quantitySold" : 5,
+    "buyerID" : "U38650",
+    "dateBought" : "2024-12-13",
+    "productID" : "hansel53714",
+    "totalPrice" : 60.0,
+    "shopID" : "S18669",
+    "price" : "12.0",
+    "soldItemID" : "SI50278",
+    "productName" : "Hansel Mocha"
+  },
+  "SI43370" : {
+    "quantitySold" : 7,
+    "buyerID" : "U38650",
+    "dateBought" : "2024-12-14",
+    "productID" : "hansel53714",
+    "totalPrice" : 84.0,
+    "shopID" : "S18669",
+    "price" : "12.0",
+    "soldItemID" : "SI43370",
+    "productName" : "Hansel Mocha"
+  },
   "SI59649" : {
     "quantitySold" : 2,
     "buyerID" : "U9994",
@@ -120,15 +153,15 @@
     "soldItemID" : "SI59649",
     "productName" : "Black Ballpen "
   },
-  "SI9354" : {
-    "quantitySold" : 22,
+  "SI71824" : {
+    "quantitySold" : 3,
     "buyerID" : "U38650",
-    "dateBought" : "2024-12-13",
-    "productID" : "hansel53714",
-    "totalPrice" : 264.0,
-    "shopID" : "S18669",
-    "price" : "12.0",
-    "soldItemID" : "SI9354",
-    "productName" : "Hansel Mocha"
+    "dateBought" : "2024-12-15",
+    "productID" : "piatos93382",
+    "totalPrice" : 45.0,
+    "shopID" : "S34788",
+    "price" : "15.0",
+    "soldItemID" : "SI71824",
+    "productName" : "Piatos Cheese"
   }
 }

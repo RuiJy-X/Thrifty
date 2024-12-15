@@ -28,7 +28,7 @@ public class NavBar extends javax.swing.JPanel {
     }
     public NavBar() {
         initComponents();
-        icon(".\\logo.png",logo,88,75);
+        icon(".\\resources\\logo.png",logo,88,75);
     }
     
      public void setDB(Dashboard db){

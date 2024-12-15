@@ -345,36 +345,36 @@ public class ProductViewPanel extends javax.swing.JPanel {
         
         
         
-        double totalPrice = quantitySold * Double.valueOf(product.getPrice());
-         
+            double totalPrice = quantitySold * Double.valueOf(product.getPrice());
+
+
+            // create order object
+            //    public OrderDTO(String orderID,String productID, int quantitySold, String buyerID, String dateBought, int totalPrice){
+            OrderDTO newOrder = new OrderDTO(orderID,product.getId(),quantitySold,user.getUserID(),getCurrentDate(),totalPrice,product.getStoreID(),product.getPrice(),product);
+
+            OrderDTO updatedOrder = orderChecker(newOrder);
+
+            // Obtaining the shop where the product is from where the orderlist is updated
+
+
+            //update user by adding it to cart huhu
+            JOptionPane.showMessageDialog(db, "Product successfully added to cart" , "Purchase successful", JOptionPane.INFORMATION_MESSAGE);
+
         
-        // create order object
-        //    public OrderDTO(String orderID,String productID, int quantitySold, String buyerID, String dateBought, int totalPrice){
-        OrderDTO newOrder = new OrderDTO(orderID,product.getId(),quantitySold,user.getUserID(),getCurrentDate(),totalPrice,product.getStoreID(),product.getPrice(),product);
         
-        OrderDTO updatedOrder = orderChecker(newOrder);
-      
-        // Obtaining the shop where the product is from where the orderlist is updated
-        
-        
-        //update user by adding it to cart huhu
-        
-        
-        
-        
-        try {
-            //public ShopDTO(String shopID,String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,List<String> products,ArrayList<String> orders,List<String> sellLog){
-//
-//        ShopDTO newProductShop = new ShopDTO(oldProductShop);
-//        allShops.remove(newProductShop.getShopID());
-//        allShops.put(newProductShop.getShopID(), newProductShop);
-            mapper.writeValue(new File(".\\shops.json"), this.allShops);
-            mapper.writeValue(new File(".\\orders.json"), orders);
-            mapper.writeValue(new File(".\\userFiles.json"), allUsers);
-            
-        } catch (IOException ex) {
-            Logger.getLogger(ProductViewPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            try {
+                //public ShopDTO(String shopID,String shopName, String ownerName, String address, String city, String businessType, String phoneNumber, String email, String description,List<String> products,ArrayList<String> orders,List<String> sellLog){
+    //
+    //        ShopDTO newProductShop = new ShopDTO(oldProductShop);
+    //        allShops.remove(newProductShop.getShopID());
+    //        allShops.put(newProductShop.getShopID(), newProductShop);
+                mapper.writeValue(new File(".\\shops.json"), this.allShops);
+                mapper.writeValue(new File(".\\orders.json"), orders);
+                mapper.writeValue(new File(".\\userFiles.json"), allUsers);
+
+            } catch (IOException ex) {
+                Logger.getLogger(ProductViewPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
         
             
         }
